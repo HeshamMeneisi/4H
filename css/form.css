@@ -1,0 +1,141 @@
+.xform {
+    position: relative;
+    border: 0;
+    background: rgba(255, 255, 255, 0.6);
+    transition: all 1 ease-in-out;
+    -webkit-transtion: all 1 ease-in-out;
+}
+
+.xform input:focus{
+  background: lightgreen;
+}
+
+.xform label {
+    font-size: 12;
+}
+
+.xform input {
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 2.5px;
+    color: darkgreen;
+    box-shadow: 0 0 2px lightgreen;
+}
+
+.xform .error {
+    display: block;
+    color: red;
+}
+
+.sbtn {
+    background: rgb(64, 196, 64);
+    border-radius: 10px;
+    color: white;
+    font-size: 24;
+    border: 0;
+    float: right;
+    margin-left: 2px;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+}
+
+.uhud .sbtn {
+    text-shadow: 0 0 1px green;
+    background: rgba(64, 32, 32, 0.1);
+    border-radius: 5px;
+}
+
+.sbtn:hover {
+    cursor: pointer;
+    color: white;
+    background: darkgreen;
+    box-shadow: 0 0 1px 1px white;
+}
+
+.sbtn:focus{
+  box-shadow: 0 0 1px 1px black;
+}
+
+#lform {
+    background: transparent;
+    float: right;
+    margin: 10px;
+}
+
+#lform input {
+    border-radius: : ;
+    2px;
+}
+
+#lform label {
+    color: white;
+    text-shadow: 0 0 1px green;
+}
+
+#rform {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-radius: 40px;
+    padding: 25px;
+    padding-top: 40px;
+    box-shadow: 0 0 1px gray;
+}
+
+#rform label {
+    color: rgb(0, 164, 0);
+    text-shadow: 0 0;
+    font-size: 12;
+}
+
+#rform input {
+    min-width: 300px;
+}
+
+#rform .sbtn:hover {
+    background: darkgreen;
+}
+
+
+/*contains loading and sbtn*/
+
+.subblock {
+    position: relative;
+}
+
+.subblock .loading {
+    width: 100%;
+    height: 10px;
+    visibility: hidden;
+    position: absolute;
+}
+
+.loading .balls div {
+    background-color: rgba(255, 255, 0, 0.5);
+    border: 1px solid black;
+    width: 5px;
+    height: 5px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: -2px;
+    padding: 0;
+}
+
+.loading .balls {
+    -webkit-animation: first-ball ease-in-out 1s infinite;
+    animation: first-ball ease-in-out 1s infinite;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+}
+
+@keyframes first-ball {
+    10% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 1;
+    }
+}

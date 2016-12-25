@@ -1,0 +1,28 @@
+.dsel{
+  margin: auto;
+  color: green;
+  background: lightgreen;
+  min-width: 100px;
+  border-radius: 5px;
+  padding: 2.5px;
+}
+
+#dform
+{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 20px;
+  padding: 25px;
+  padding-top: 40px;
+  box-shadow: 0 0 1px gray;
+}
+
+#dform .sub{
+  margin-top: 20px;
+}
+
+#dform label{
+  color: green;
+  text-shadow: 0 0 1px lightgreen;
+}

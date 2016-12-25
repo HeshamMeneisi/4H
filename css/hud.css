@@ -1,0 +1,29 @@
+body {
+    background: rgb(230,230,230);
+    margin: 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+.uhud {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background:  rgb(64, 196, 64);
+    box-shadow: 0 0 5px black;
+    min-width: 800px;
+}
+
+.uhud label {
+    color: white;
+    font-size: 32;
+    text-shadow: 1px 0 black;
+}
+
+#lobtn{
+  margin-top: 4px;
+}
