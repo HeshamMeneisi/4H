@@ -5,12 +5,11 @@ function lsub() {
     errors = {};
     try {
         updateErrors("#lform");
-        var identity = $('input[name=l_username]').val(),
-            username, email,
+        var identity = $('input[name=l_nickname]').val(),
             password = $('input[name=l_password]').val();
 
-        checkEmail(identity);
-        checkPassword(password);
+        validateEmail(identity);
+        validatePassword(password);
 
         // if no errors, submit to server
         if (jQuery.isEmptyObject(errors)) {
@@ -50,13 +49,22 @@ function rsub() {
     errors = {};
     try {
         updateErrors("#rform");
-        var username = $('input[name=r_username]').val(),
+        var nickname = $('input[name=nickname]').val(),
             email = $('input[name=email]').val(),
-            password = $('input[name=r_password]').val();
+            password = $('input[name=password]').val(),
+            fname = $('input[name=fname]').val(),
+            lname = $('input[name=lname]').val(),
+            gender = $('#gender').val(),
+            mstatus = $('#mstatus').val(),
+            bdate = $('input[name=bdate]').val(),
+            country = $('#country').val(),
+            city = $('input[name=city]').val(),
+            pcode = $('input[name=pcode]').val();
 
-        checkUsername(username);
-        checkEmail(email);
-        checkPassword(password);
+
+        validateNickname(nickname);
+        validateEmail(email);
+        validatePassword(password);
 
         // cross check password
         if (password != $('input[name=cpassword]').val()) {
@@ -67,9 +75,17 @@ function rsub() {
         if (jQuery.isEmptyObject(errors)) {
             dispWaiting('rsub');
             var data = {
-                'username': username,
+                'nickname': nickname,
                 'email': email,
                 'password': password,
+                'fname': fname,
+                'lname': lname,
+                'gender': gender,
+                'mstatus': mstatus,
+                'bdate': bdate,
+                'country': country,
+                'city': city,
+                'pcode': pcode,
                 'op': 'r'
             };
             $.ajax({

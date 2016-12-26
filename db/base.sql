@@ -3,7 +3,7 @@ CREATE DATABASE 4h;
 use 4h;
 CREATE TABLE `location`
 (
-	lid bigint NOT null PRIMARY KEY,
+	lid bigint NOT null PRIMARY KEY AUTO_INCREMENT,
     city varchar(100) NOT null,
     country varchar(100) NOT null,
     pcode int NOT null
@@ -11,19 +11,19 @@ CREATE TABLE `location`
 
 CREATE TABLE `user`
 (
-    uid bigint NOT null PRIMARY KEY,
+    uid bigint NOT null PRIMARY KEY AUTO_INCREMENT,
     fname varchar(50) NOT null,
     lname varchar(50) NOT null,
     nickname varchar(50) NOT null,
     bdate date NOT null,
     email varchar(255) NOT null,    
-    gender bit(1) NOT null,
+    gender bit(2) NOT null,
     phash varchar(64) NOT null,
     salt varchar(32) NOT null,
+	mstatus bit(2),
     loc bigint,
     photo bigint,
     about varchar(300),
-    mstatus bit(2),
     UNIQUE KEY (email),
     FOREIGN KEY (loc) REFERENCES location (lid) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -39,12 +39,12 @@ CREATE TABLE `user_phone`
 CREATE TABLE `post`
 (
 	puid bigint NOT null,
-    pid bigint NOT null,
+    pid bigint NOT null AUTO_INCREMENT,
     caption varchar(1000) NOT null,
     privacy bit(1) NOT null,
     ptime DateTime NOT null,
     img bigint,
-    PRIMARY KEY (puid, pid),
+    PRIMARY KEY (pid, puid),
     FOREIGN KEY (puid) REFERENCES user (uid) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -53,11 +53,11 @@ CREATE TABLE `comment`
     cuid bigint NOT null,
     puid bigint NOT null,
     pid bigint NOT null,
-    cid bigint NOT null,
+    cid bigint NOT null AUTO_INCREMENT,
     caption varchar(1000) NOT null,
-    PRIMARY KEY (puid, pid, cid),
+    PRIMARY KEY (cid, pid, puid),
     FOREIGN KEY (cuid) REFERENCES user (uid) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (puid, pid) REFERENCES post (puid, pid) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (pid, puid) REFERENCES post (pid, puid) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `friends`
@@ -76,9 +76,9 @@ CREATE TABLE `likes_post`
     uid bigint NOT null,
     puid bigint NOT null,
     pid bigint NOT null,
-    PRIMARY KEY (uid, puid, pid),
+    PRIMARY KEY (uid, pid, puid),
     FOREIGN KEY (uid) REFERENCES user (uid) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (puid, pid) REFERENCES post (puid, pid) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (pid, puid) REFERENCES post (pid, puid) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `likes_comment`
@@ -87,15 +87,15 @@ CREATE TABLE `likes_comment`
     puid bigint NOT null,
     pid bigint NOT null,
     cid bigint NOT null,
-    PRIMARY KEY (uid, puid, pid, cid),
+    PRIMARY KEY (uid, pid, puid, cid),
     FOREIGN KEY (uid) REFERENCES user (uid) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (puid, pid) REFERENCES post (puid, pid) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (puid, pid, cid) REFERENCES comment (puid, pid, cid) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (pid, puid) REFERENCES post (pid, puid) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (pid, puid, cid) REFERENCES comment (pid, puid, cid) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `notification`
 (
-	nid bigint NOT null,
+	nid bigint NOT null AUTO_INCREMENT,
     uid bigint NOT null,
     _time DateTime NOT null,
     seen BIT(1) NOT null,
@@ -106,5 +106,5 @@ CREATE TABLE `notification`
     PRIMARY KEY (nid, uid),
     FOREIGN KEY (uid) REFERENCES user (uid) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (iuid) REFERENCES user (uid) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (iuid, pid) REFERENCES post (puid, pid) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (iuid, pid) REFERENCES post (pid, puid) ON DELETE CASCADE ON UPDATE CASCADE
 );

@@ -1,27 +1,33 @@
 var errors = {};
-var etypes = ['serror', 'uerror', 'eerror', 'perror', 'pcerror'];
+var etypes = ['serror', 'uerror', 'eerror', 'perror', 'pcerror', 'nerror', 'gerror', 'mserror', 'bderror', 'lerror'];
 
-function checkUsername(username) {
-    if (/[^a-zA-Z0-9_-]/.test(username)) {
+function validateNickname(nickname) {
+    if (/[^a-zA-Z0-9_-]/.test(nickname)) {
         errors['uerror'] = "Must be alphanumeric and may only contain _ or -.";
-    } else if (username.length < 4) {
+    } else if (nickname.length < 4) {
         errors['uerror'] = "Must be at least 4 characters long.";
     }
 }
 
-function checkEmail(email) {
+function validateEmail(email) {
     if (!isValidEmail(email)) {
         errors['eerror'] = "Invalid email address.";
     }
 }
 
-function checkPassword(password) {
+function validatePassword(password) {
     if (/[\s\t]/.test(password)) {
         errors['perror'] = "Cannot contain empty spaces.";
     } else if (password.length < 4) {
         errors['perror'] = "Must be at least 4 characters long.";
     }
 }
+
+function validateName(fname, lname){}
+function validateGender(gender){}
+function validateMStatus(mstatus){}
+function validateBDate(bdate){}
+function validateLocation(country, city, pcode){}
 
 function updateErrors(container) {
     var handle = (container?container:"") + " .error#";
