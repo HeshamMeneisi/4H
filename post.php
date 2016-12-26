@@ -1,7 +1,8 @@
 <!--  view and submit modes should be implemented, $_GET['mode']={'v','s'} -->
 <?php
+
 include 'db.php';
-    
+
 if ($_GET['mode'] == 'v') {
     // view post with id = $_GET['id'] and make sure to display number of likes and an expandable comments section
     if (isset($_GET['id'])){
@@ -40,10 +41,14 @@ if ($_GET['mode'] == 'v') {
         }
         }
         echo "<br><br>".$the_post['caption'];
-}   else {
+        include 'comment.php';
+}
+else {
     // display the post form, the posting operation should be handled in ajax
-    
-    
+    //Text area
+    echo "<form><textarea id=\"post_text\" rows=\"10\" cols=\"80\"></textarea></form>";
+    //Submit button
+    echo "<button id=\"submitPost\">Post</button>";
 }
 
 //This function returns a post fetched via post id

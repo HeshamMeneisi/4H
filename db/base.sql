@@ -55,6 +55,7 @@ CREATE TABLE `comment`
     pid bigint NOT null,
     cid bigint NOT null AUTO_INCREMENT,
     caption varchar(1000) NOT null,
+    ctime DateTime NOT null,
     PRIMARY KEY (cid, pid, puid),
     FOREIGN KEY (cuid) REFERENCES user (uid) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (pid, puid) REFERENCES post (pid, puid) ON DELETE CASCADE ON UPDATE CASCADE
