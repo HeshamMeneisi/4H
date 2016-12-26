@@ -60,13 +60,13 @@ function newuser()
         validateName($fname, $lname, $errors);
         validateGender($gender, $errors);
         validateMStatus($mstatus, $errors);
-        $bdsup = validateBDate($bdate, $errors);
+        validateBDate($bdate, $errors);
         $locsup = validateLocation($country, $city, $pcode, $errors);
         if (empty($errors)) {
             if ($locsup) {
                 $lid = checkLocation($country, $city, $pcode, $pdo);
             } else {
-                $lid = 0;
+                $lid = null;
             }
           // create the account
             $salt = bin2hex(random_bytes(SALTSIZE / 2)); // 1 byte = 2 hex decimals
@@ -82,7 +82,7 @@ function newuser()
           ':nickname' => $nickname,
           ':phash' => $phash,
           ':salt' => $salt,
-          ':bdate' => $bdsup ? $bdate : null,
+          ':bdate' => $bdate,
           ':gender' => $gender,
           ':mstatus' => $mstatus,
           ':lid' => $lid,
@@ -206,7 +206,7 @@ function validateEmail($email)
     return preg_match($re, $email);
 }
 
-function validateNickname($nickname, $errors)
+function validateNickname($nickname, &$errors)
 {
 }
 
@@ -216,29 +216,33 @@ function validateName($fname, $lname, &$errors)
         $errors['nerror'] = 'First and Last name must be at least 4 characters long.';
     }
 }
-function validateGender($gender, $errors)
+function validateGender($gender, &$errors)
 {
     if ($gender > 2 || $gender < 0) {
         $errors['gerror'] = 'Invalid gender selection.';
     }
 }
-function validateMStatus($mstatus, $errors)
+function validateMStatus($mstatus, &$errors)
 {
     if ($mstatus > 3 || $mstatus < 0) {
         $errors['mserror'] = 'Invalid status selection.';
     }
 }
-function validateBDate($bdate, $errors)
+function validateBDate($bdate, &$errors)
 {
-    if ($bdate && !checkIsAValidDate($bdate)) {
-        $errors['bderror'] = 'Invalid status selection.';
+    if ($bdate) {
+        if (!((bool) strtotime($bdate))) {
+            $errors['bderror'] = 'Invalid date.';
+        }
+    } else {
+        $errors['bderror'] = 'You must supply your birth date.';
     }
 }
 
-function validateLocation($country, $city, $pcode, $errors)
+function validateLocation($country, $city, $pcode, &$errors)
 {
     if ($country && $city && $pcode) {
-        if (!is_int($pcode)) {
+        if (!is_numeric($pcode) || $pcode < 0) {
             $errors['lerror'] = 'Invalid location.';
         }
 
