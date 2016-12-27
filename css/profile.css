@@ -1,30 +1,53 @@
 .profile-head{
 	width:50%;
 	margin: 0 auto;
-	margin-top:40px;
+	margin-top:30px;
 	margin-bottom:-20px;
 }
+table tr{
+    max-width:100px;
+    float:right;
+    margin-left:200px;
+    margin-top:10px;
+}
 .name{
-    font-size:50px;
+    font-size:30px;
     float:left;
     margin-right:20px;
 }
 .nickname{
-    font-size:20px;
+    font-size:15px;
     float:left;
-    margin-top:25px;
+    margin-top:15px;
 }
 
 .profile-picture img{
+	background:#fff;
 	float:left;
-    width:80%;
-    margin-top:-20px;
-    margin-left:30%;
-	height:auto;
+    width:120px;
+	height:120px;
     border-radius: 100px;
     display:block;
 }
-#pp-link{
+#pp-upload{
 	margin-top:10px;
-	text-align:right;
+	margin-left:;
+}
+#uploadSection{
+    display: none;
+}
+#bio{
+	margin-top:-60px;
+	margin-bottom:80px;
+	width:400px;
+	background:rgba(255,255,255,0.5);
+	border-radius:5px;
+	border: 2px solid #ddd;
+	padding:10px;
+	max-height:100px;
+}
+#biolabel{
+	font-size:16px;
+	margin-top:-80px;
+	margin-bottom:50px;
 }

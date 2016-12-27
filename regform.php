@@ -10,7 +10,7 @@
       <td>
           <div class="error" id="uerror"></div>
       </td>
-  </tr>
+    </tr>
    <tr>
     <td><input type="text" name="email" placeholder="Email"></td>
   </tr>
