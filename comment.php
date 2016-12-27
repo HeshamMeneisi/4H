@@ -1,6 +1,6 @@
 <!--  view and submit modes should be implemented, $_GET['mode']={'v','s'} -->
 <?php
-include 'db.php';
+include_once 'db.php';
 
 // Handle invalid invoking
 
@@ -95,7 +95,7 @@ function fetch_comments($post_id, $pdo)
 	return null;
 }
 
-// This function returns the likes of a post fetched via post id
+// This function returns the likes of a comment fetched via post id
 
 function fetch_comment_likes($comment_id, $pdo)
 {

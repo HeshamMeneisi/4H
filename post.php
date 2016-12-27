@@ -1,10 +1,14 @@
-<!--  view and submit modes should be implemented, $_GET['mode']={'v','s'} -->
+<!--  view, submit and post modes should be implemented, $_GET['mode']={'v','s','p'} -->
 <?php
-include 'db.php';
 
+require_once 'user.php';
+include_once 'hud.php';
+include_once 'db.php';
+echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script><br/><script src="js/post.js"></script>';
+    
 // Handle invalid invoking
 
-if (!isset($_GET['mode']) || !isset($_GET['id'])) {
+if (!isset($_GET['mode'])) {
 	echo "Error retrieving post.";
 }
 else {
@@ -23,7 +27,7 @@ else {
 			$caption = $the_post['caption'];
 			$time = $the_post['ptime'];
 			$fetched_likes = fetch_likes($_GET['id'], $pdo);
-
+            
 			// Display poster name and post time
 			echo $poster_name . $nickname . 'posted at ' . $time . '<br/>' . $caption;
 
@@ -65,17 +69,17 @@ else {
 		include 'comment.php';
 
 	}
-	else {
-
+    elseif ($_GET['mode'] == 's'){
 		// display the post form, the posting operation should be handled in ajax
 		// Text area
-
-		echo '<form><textarea id=\'post_text\' rows=\'10\' cols=\'80\'></textarea></form>';
-
+		echo '<form><textarea id="caption" rows="10" cols="80" style="resize:none;"></textarea>';
+        //Privacy menu
+        echo '<select name="privacy" id="privacy" style="width:100px;margin-right:10px;"><option value="0">Public</option><option value="1">Private</option></select>';
 		// Submit button
-
-		echo '<button id=\'submitPost\'>Post</button>';
-	}
+		echo '<button id="submitPost">Post</button>';
+        //Form end
+        echo '</form>';
+    }
 }
 
 // This function returns a post fetched via post id
