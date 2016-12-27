@@ -1,0 +1,127 @@
+ul {  position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8B008B;
+}
+
+#search input[type="text"] {
+	margin-top:10px;
+    border: 1px solid #d1d1d1;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #bebebe;
+    width: 150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#search input[type="text"]:focus {
+    width: 200px;
+    }
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+div.img {
+	margin-top:50px;
+    border-radius: 0px 0px 25px 25px ;
+	border: 2px solid gray;
+	float: left;
+    width: 180px;
+}
+
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
+div.addpp {
+    padding: 15px;
+    text-align: center;
+}
+
+.notify {
+        position: absolute;
+        width:17px;
+        height:17px;
+        text-align: center;
+        margin-top:-19px;
+}
+ 
+.pink {
+	margin-top:1px;
+    background-color: #f6788c;
+    border-radius: 50% 50% 50% 50%;
+    display: inline-block;
+    background: -moz-linear-gradient(center top , #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
+    background: -webkit-linear-gradient(center top , #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
+    background: -o-linear-gradient(center top , #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
+    background: linear-gradient(center top , #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
+    border:1px solid #9f2438;
+    color:#FFF;
+    text-shadow: 0 1px 1px #666;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background: #E8CCE8;
+}
+
+div.comment{
+	position: absolute;
+  top: 200px;
+  left: 200px;
+  font-size: 15px;
+  max-width: 300px;  
+  margin: 5px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+textarea{
+  padding-top:500px;
+  height: 30px;
+  border-radius: 5px;
+  max-width: 300px;
+  resize: none;
+  padding: 5px;
+  padding-right: 60px;
+  
+}
+.button {
+    background-color: gray;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+}
+
