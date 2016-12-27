@@ -6,14 +6,36 @@
 include_once 'user.php';
 include_once 'db.php';
 
-if (is_logged()) {
+$onprof = isset($_GET['p']);
+
+if (is_logged() && !($onprof && isset($_GET['uid']))) {
     $_GET['mode'] = 'p';
     include 'post.php';
-
-    if (isset($_GET['p'])) {
-        // display the logged in user posts only
+}
+if ($onprof) {
+    if (isset($_GET['uid'])) {
+        $uid = $_GET['uid'];
     } else {
-        // display the time line
+        $uid = get_user()['uid'];
+    }
+    // display the user's posts
+    $posts = fetch_posts_of($uid, $pdo);
+    foreach ($posts as $post) {
+        $_GET['mode'] = 'v';
+        $_GET['post'] = $post;
+        include 'post.php';
+    }
+} else {
+    // display the time line
+}
+
+function fetch_posts_of($uid, $pdo)
+{
+    $st = $pdo->prepare('SELECT * FROM post WHERE puid=:uid ORDER BY `ptime` DESC');
+    if (!$st->execute(array(':uid' => $uid))) {
+        throw new Exception('DB connection failed.');
+    } else {
+        return $st->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 ?>
