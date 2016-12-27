@@ -15,7 +15,7 @@ else {
 		if (isset($_GET['id'])) {
 			$comments = fetch_comments($_GET['id'], $pdo);
 			if ($comments) {
-				echo '<br /><br /><strong>Comments</strong>';
+				echo '<br/><br/><hr><h3 style="margin-bottom:-10px;">Comments</h3>';
 				foreach($comments as $comment) {
 					$commenter = fetch_commenter_name($comment['cuid'], $pdo);
 					$commenter_name = $commenter['fname'] . ' ' . $commenter['lname'] . ' (' . $commenter['nickname'] . ')';

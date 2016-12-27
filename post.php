@@ -27,12 +27,13 @@ else {
 			$caption = $the_post['caption'];
 			$time = $the_post['ptime'];
 			$fetched_likes = fetch_likes($_GET['id'], $pdo);
-            
+            echo '<div id="post">';
 			// Display poster name and post time
-			echo $poster_name . $nickname . 'posted at ' . $time . '<br/>' . $caption;
+        
+			echo '<div class="posthead">'.$poster_name . $nickname . 'posted at ' . $time . '</div><div class="postcontent">' . $caption.'</div>';
 
 			// Check for post likes
-
+            echo '<div class="likes">';
 			if ($fetched_likes) {
 				$likes = $fetched_likes->fetchAll(PDO::FETCH_ASSOC);
 
@@ -40,7 +41,7 @@ else {
 
 				if ($fetched_likes->rowCount() == 1) {
 					$liker = fetch_name($likes['uid'], $pdo);
-					echo '<br />' . $liker['fname'] . ' ' . $liker['lname'] . ' likes this.';
+					echo $liker['fname'] . ' ' . $liker['lname'] . ' likes this.';
 				}
 
 				// Two likes
@@ -48,37 +49,38 @@ else {
 				elseif ($fetched_likes->rowCount() == 2) {
 					$first_liker = fetch_name($likes[0]['uid'], $pdo);
 					$second_liker = fetch_name($likes[1]['uid'], $pdo);
-					echo '<br/>' . $first_liker['fname'] . ' ' . $first_liker['lname'] . ' and ' . $second_liker['fname'] . ' ' . $second_liker['lname'] . ' like this.';
+					echo $first_liker['fname'] . ' ' . $first_liker['lname'] . ' and ' . $second_liker['fname'] . ' ' . $second_liker['lname'] . ' like this.';
 				}
 
 				// More than two likes
 
 				else {
 					$liker = fetch_name($likes[0]['uid'], $pdo);
-					echo '<br/>' . $liker['fname'] . ' ' . $liker['lname'] . ' and ' . ($fetched_likes->rowCount() - 1) . ' others like this.';
+					echo $liker['fname'] . ' ' . $liker['lname'] . ' and ' . ($fetched_likes->rowCount() - 1) . ' others like this.';
 				}
 			}
 
 			// No likes
 
 			else {
-				echo '<br/>No likes yet';
+				echo 'No likes yet';
 			}
+            echo '</div>';
 		}
-
 		include 'comment.php';
+        echo '</div>';
 
 	}
     elseif ($_GET['mode'] == 's'){
 		// display the post form, the posting operation should be handled in ajax
 		// Text area
-		echo '<form><textarea id="caption" rows="10" cols="80" style="resize:none;"></textarea>';
+		echo '<div class="postform"><form><textarea id="caption" rows="10" cols="85"></textarea>';
         //Privacy menu
         echo '<select name="privacy" id="privacy" style="width:100px;margin-right:10px;"><option value="0">Public</option><option value="1">Private</option></select>';
 		// Submit button
 		echo '<button id="submitPost">Post</button>';
         //Form end
-        echo '</form>';
+        echo '</form></div>';
     }
 }
 

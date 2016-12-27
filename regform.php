@@ -67,11 +67,11 @@
   </tr>
   <tr>
     <td>
-	
-  <input type="radio" id="gender" value="0">don't say<br>
-  <input type="radio" id="gender" value="1">Male<br>
-  <input type="radio" id="gender" value="2">Female<br> 
-     
+      <select id="gender">
+        <option value="0">Prefer not to say</option>
+        <option value="1">Male</option>
+        <option value="2">Female</option>
+      </select>
     </td>
   </tr>
   <tr>
@@ -84,11 +84,12 @@
   </tr>
   <tr>
     <td>
-	  <input type="radio" id="mstatus" value="0">don't say<br>
-      <input type="radio" id="mstatus" value="1">Single<br>
-      <input type="radio" id="mstatus" value="2">Engaged<br> 
-      <input type="radio" id="mstatus" value="3">Married<br> 
-       
+      <select id="mstatus">
+        <option value="0">Prefer not to say</option>
+        <option value="1">Single</option>
+        <option value="2">Engaged</option>
+        <option value="3">Married</option>
+      </select>
     </td>
   </tr>
   <tr>

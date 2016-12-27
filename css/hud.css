@@ -1,7 +1,9 @@
 body {
     margin: 0;
 }
-
+*{
+  font-family: 'Lato', sans-serif !important;
+}
 *:focus {
     outline: none;
 }
@@ -25,4 +27,54 @@ body {
 
 #lobtn{
   margin-top: 4px;
+}
+#post{
+  margin: 0 auto; 
+  margin-top:30px;
+  background: #f2f2f2;
+  max-width:600px;
+  padding:30px;
+  border-radius:5px;
+
+}
+#post hr{
+  height:5px;
+  border-radius:5px;
+  background:#ddd;
+  border:none;
+}
+#post .posthead{
+   color: #2abada;
+  font-size:20px;
+  margin-bottom:10px;
+}
+#post .postcontent{
+  margin-bottom:10px;
+}
+#post .likes{
+  color: #2abada;
+}
+.postform{
+  margin: 0 auto;
+  margin-top:50px;
+  width:625px;
+}
+#privacy{
+  display:inline;
+  height:20px;
+}
+#caption{
+  font-size:15px;
+  border-radius:5px;
+  resize:none;
+  margin-bottom:10px;
+  border: 5px solid #444;
+}
+#submitPost{
+  width:100px;
+  height:20px;
+  float:right;
+}
+.logo{
+  margin-left:20px;
 }
