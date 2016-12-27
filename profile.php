@@ -2,7 +2,7 @@
 <html>
 <body>
 <?php
-/*require_once 'user.php';
+require_once 'user.php';
 include_once 'db.php';
 
 if (isset($_GET['uid'])) {
@@ -14,27 +14,48 @@ if (isset($_GET['uid'])) {
         $user = $st->fetch(PDO::FETCH_ASSOC);
     }
 } elseif (is_logged()) {
-    $user = $_SESSION['user'];
+    $user = get_user();
+    $uid = $user['uid'];
+}
+
+$pic = "./image/pic_{$uid}.jpg";
+if (!isset($user['photo']) || !$user['photo'] || !file_exists($pic)) {
+    $pic = "./image/def_{$user['gender']}.jpg";
+    $nopic = true;
 }
 
 // for testing
-echo implode('|', $user);*/
+echo implode('|', $user);
 include_once 'hud.php';
 ?>
 <link rel="stylesheet" href="css/profile.css">
 
-<div class="img">
-  <a target="_blank" href="image/no_profile_pic.jpg">
-    <img src="no_profile_pic.jpg"  width="300" height="200">
-  </a>
-  <div class="addpp"><a href="#">add profile pic</a></div>
+<div class="nickname">
+  <?php echo $user['nickname']; ?>
 </div>
 
-<div class="comment">
-<textarea class='autosize' name="" id="" placeholder='what is on your mind?'></textarea>
-     <button type="submit" name="postb"/>post</button>
-   <textarea class='autosize' name="" id="" placeholder='Comment...'></textarea>
-        <button type="submit" name="addb"/>add</button>
+<div class="name">
+  <?php echo $user['fname'].' '.$user['lname']; ?>
 </div>
+
+<div class="img">
+  <a target="_blank" href="image/no_profile_pic.jpg">
+    <img src=<?php echo $pic; ?>  width="300" height="200">
+  </a>
+  <div class="addpp">
+    <a href="#">
+    <?php if ($nopic):?>
+    Add a Picture
+  <?php else:?>
+    Change Picture
+  <?php endif; ?>
+    </a>
+  </div>
+</div>
+
+<?php
+$_GET['p'] = 1;
+include 'timeline.php';
+?>
 </body>
 </html>
