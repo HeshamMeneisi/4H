@@ -117,11 +117,9 @@
       </td>
   </tr>
   <tr>
-    <td><label>Country</label></td>
-  </tr>
-  <tr>
     <td>
-      <select id="country">
+      <select id="country" selected="Country">
+        <option value="" disabled selected hidden>Country</option>
         <?php
         $cf = 'files/countries.dat';
         if (!file_exists($cf)) {
@@ -140,17 +138,11 @@
     </td>
   </tr>
   <tr>
-    <td><label>City</label></td>
-  </tr>
-  <tr>
-    <td><input type="text" name="city" value=""></td>
+    <td><input type="text" name="city" placeholder="City" value=""></td>
   </tr>
   <tr>
     <tr>
-      <td><label>Post Code</label></td>
-    </tr>
-    <tr>
-      <td><input type="number" name="pcode" value=""></td>
+      <td><input type="number" name="pcode" placeholder="Postal Code" value=""></td>
     </tr>
     <tr>
         <td colspan="2">
