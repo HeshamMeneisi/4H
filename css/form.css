@@ -2,7 +2,7 @@
 	margin-top:10px;
     position: relative;
     border: 0;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.4);
     transition: all 1 ease-in-out;
     -webkit-transtion: all 1 ease-in-out;
 		max-width:none;
@@ -80,7 +80,6 @@
 }
 
 #rform {
-    background:#eee;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -146,9 +145,11 @@
 }
 select{
     background: #fff;
+    color:#999;
     width:300px;
-    height: 24px;
-    font-size:12px;
+    height: 28px;
+    font-size:16px;
+    border: 2px solid #eee;
 }
 #rform tr td{
     padding-bottom:5px;
@@ -198,7 +199,7 @@ select{
   left: -52px;
   width: 45px;
   height: 25px;
-  background-color: #A8AAC1;
+  background-color: #eee;
   border-radius: 50px;
 }
 .container span.radio::after {
@@ -206,10 +207,10 @@ select{
   width: 17px;
   height: 17px;
   border-radius: 10px;
-  background-color: #6C788A;
+  background-color: #fff;
   transition: left .25s, background-color .25s;
 }
 input[type="radio"]:checked + label span.radio::after {
   left: -27px;
-  background-color: #EBFF43;
+  background-color: #6C788A;
 }
