@@ -12,6 +12,8 @@ function post() {
             type: "POST",
             url: "ajax_post.php",
             data: post_data,
+            dataType: 'json',
+            encode: true,
             cache: false,
         }).done(
             function(result) {
