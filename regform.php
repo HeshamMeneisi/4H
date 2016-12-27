@@ -1,32 +1,26 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
 <table class="xform" id="rform">
 
   <tr>
-    <td><label>Nickname</label></td>
-  </tr>
-  <tr>
-      <td><input type="text" name="nickname" value="test"></td>
+      <td><input type="text" placeholder="Nickname" name="nickname"></td>
   </tr>
   <tr>
       <td>
           <div class="error" id="uerror"></div>
       </td>
   </tr>
-  <tr>
-    <td><label>Email</label></td>
-  </tr>
-  <tr>
-    <td><input type="text" name="email" value="test@mail.com"></td>
+   <tr>
+    <td><input type="text" name="email" placeholder="Email"></td>
   </tr>
   <tr>
       <td colspan="2">
           <div class="error" id="eerror"></div>
       </td>
   </tr>
-  <tr>
-    <td><label>Password</label></td>
-  </tr>
-  <tr>
-      <td><input type="password" name="password" value="1234"></td>
+    <tr>
+      <td><input type="password" name="password" placeholder="Password"></td>
   </tr>
   <tr>
       <td colspan="2">
@@ -34,10 +28,7 @@
       </td>
   </tr>
   <tr>
-    <td><label>Confirmation</label></td>
-  </tr>
-  <tr>
-      <td><input type="password" name="cpassword" value="1234"></td>
+      <td><input type="password" name="cpassword" placeholder="Confirmation"></td>
   </tr>
   <tr>
       <td colspan="2">
@@ -45,34 +36,38 @@
       </td>
       <td>
   </tr>
+ 
   <tr>
-    <td><label>First Name</label></td>
+    <td><input type="text" name="fname" placeholder="First name"></td>
   </tr>
-  <tr>
-    <td><input type="text" name="fname" value=""></td>
-  </tr>
-  <tr>
-    <td><label>Last Name</label></td>
-  </tr>
-  <tr>
+    <tr>
       <td colspan="2">
           <div class="error" id="nerror"></div>
       </td>
   </tr>
   <tr>
-    <td><input type="text" name="lname" value=""></td>
+    <td><input type="text" name="lname" placeholder="Last name"></td>
   </tr>
   <tr>
     <td><label>Gender</label></td>
   </tr>
   <tr>
     <td>
-      <select id="gender">
-        <option value="0">Prefer not to say</option>
-        <option value="1">Male</option>
-        <option value="2">Female</option>
-      </select>
-    </td>
+	    <section id="first" class="section">
+    <div class="container">
+      	<input type="radio" name="rgender" id="radio-1" value="0">
+      <label for="radio-1"><span class="radio">don't say</span></label>
+    </div>
+    <div class="container">
+      <input type="radio" name="rgender" id="radio-2" value="1">
+      <label for="radio-2"><span class="radio">Male</span></label>
+    </div>
+    <div class="container">
+      <input type="radio" name="rgender" id="radio-3" value="2">
+      <label for="radio-3"><span class="radio">Female</span></label>
+    </div>
+	</section> 
+      </td>
   </tr>
   <tr>
       <td colspan="2">
@@ -80,16 +75,29 @@
       </td>
   </tr>
   <tr>
-    <td><label>Status</label></td>
+    <td><label>status</label></td>
   </tr>
   <tr>
-    <td>
-      <select id="mstatus">
-        <option value="0">Prefer not to say</option>
-        <option value="1">Single</option>
-        <option value="2">Engaged</option>
-        <option value="3">Married</option>
-      </select>
+    <td> 
+	
+         <section id="first" class="section">
+    <div class="container">
+      	<input type="radio" name="radio" id="radio-4" value="0">
+      <label for="radio-4"><span class="radio">don't say</span></label>
+    </div>
+    <div class="container">
+      <input type="radio" name="radio" id="radio-5" value="1">
+      <label for="radio-5"><span class="radio">Single</span></label>
+    </div>
+    <div class="container">
+      <input type="radio" name="radio" id="radio-6" value="2">
+      <label for="radio-6"><span class="radio">Engaged</span></label>
+    </div>
+	<div class="container">
+      <input type="radio" name="radio" id="radio-7" value="3">
+      <label for="radio-7"><span class="radio">Married</span></label>
+    </div>
+</section> 
     </td>
   </tr>
   <tr>
