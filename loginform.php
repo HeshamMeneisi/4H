@@ -1,3 +1,6 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 <table class="xform" id="lform">
     </tr>
       <td><label>Username or Email</label></td>
