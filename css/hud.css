@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background:#eee;
 }
 
 * {
@@ -74,7 +75,7 @@ body {
 }
 
 #privacy {
-    display: inline;
+    display: block;
     height: 20px;
 }
 
@@ -82,13 +83,19 @@ body {
     font-size: 15px;
     border-radius: 5px;
     resize: none;
+    margin: 0 auto;
     margin-bottom: 10px;
-    border: 5px solid #444;
+    height:100px;
+    min-width:625px;
+    max-width: 625px;
+    border: 5px solid #999;
+    
 }
 
 #submitPost {
+    margin-top:-25px;
     width: 100px;
-    height: 20px;
+    height: 30px;
     float: right;
 }
 
@@ -97,26 +104,24 @@ body {
 }
 
 ul {
-    position: fixed;
-    top: 0;
+    display:inline-block;
     width: 100%;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    margin-left:300px;
+    margin-top:-80px;
 }
-
 #search input[type="text"] {
-    margin-top: 10px;
+    margin-top: 24px;
+    margin-right:100px;
+    margin-left:100px;
     border: 1px solid #d1d1d1;
     font: bold 12px Arial, Helvetica, Sans-serif;
     color: #bebebe;
-    width: 150px;
-    padding: 6px 15px 6px 35px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 5px 10px 5px 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
@@ -127,18 +132,18 @@ ul {
 }
 
 #search input[type="text"]:focus {
-    width: 200px;
+    width: 350px;
 }
 
 li {
     float: left;
+    list-style-type: none;
 }
 
 li a {
     display: block;
     color: white;
-    text-align: center;
-    padding: 14px 16px;
+    padding: 25px 16px;
     text-decoration: none;
 }
 
@@ -160,6 +165,8 @@ div.img {
     height: 17px;
     text-align: center;
     margin-top: -19px;
+    margin-left:3px;
+    font-size:12px;
 }
 
 .pink {
@@ -174,12 +181,6 @@ div.img {
     border: 1px solid #9f2438;
     color: #FFF;
     text-shadow: 0 1px 1px #666;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background: #E8CCE8;
 }
 
 div.comment {
@@ -213,4 +214,11 @@ textarea {
     display: inline-block;
     font-size: 20px;
     cursor: pointer;
+}
+.notify-btn{
+    min-width:140px;
+    margin-right:-10px;
+    display: block;
+    color: white;
+    text-decoration: none;
 }

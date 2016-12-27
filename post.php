@@ -72,7 +72,7 @@ if (!isset($_GET['mode'])) {
     } elseif ($_GET['mode'] == 'p') {
         // display the post form, the posting operation should be handled in ajax
               // Text area
-              echo '<div class="postform"><form><textarea id="caption" rows="10" cols="85"></textarea>';
+              echo '<div class="postform"><form><textarea id="caption" rows="10" cols="85" placeholder="What\'s on your mind?"></textarea>';
               //Privacy menu
               echo '<select name="privacy" id="privacy" style="width:100px;margin-right:10px;"><option value="0">Public</option><option value="1">Private</option></select>';
               // Submit button
