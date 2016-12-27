@@ -1,9 +1,30 @@
-div.img img {
-    width: 100%;
-    height: auto;
+.profile-head{
+	width:50%;
+	margin: 0 auto;
+	margin-top:40px;
+	margin-bottom:-20px;
+}
+.name{
+    font-size:50px;
+    float:left;
+    margin-right:20px;
+}
+.nickname{
+    font-size:20px;
+    float:left;
+    margin-top:25px;
 }
 
-div.addpp {
-    padding: 15px;
-    text-align: center;
+.profile-picture img{
+	float:left;
+    width:80%;
+    margin-top:-20px;
+    margin-left:30%;
+	height:auto;
+    border-radius: 100px;
+    display:block;
+}
+#pp-link{
+	margin-top:10px;
+	text-align:right;
 }

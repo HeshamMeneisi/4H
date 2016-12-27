@@ -86,14 +86,13 @@ body {
     margin: 0 auto;
     margin-bottom: 10px;
     height:100px;
-    min-width:625px;
-    max-width: 625px;
+    min-width:600px;
+    max-width:600px;
     border: 5px solid #999;
-    
+    padding:10px;
 }
-
 #submitPost {
-    margin-top:-25px;
+    margin-top:-30px;
     width: 100px;
     height: 30px;
     float: right;
@@ -151,13 +150,6 @@ li a:hover {
     background-color: #111;
 }
 
-div.img {
-    margin-top: 50px;
-    border-radius: 0px 0px 25px 25px;
-    border: 2px solid gray;
-    float: left;
-    width: 180px;
-}
 
 .notify {
     position: absolute;
@@ -193,16 +185,6 @@ div.comment {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-}
-
-textarea {
-    padding-top: 500px;
-    height: 30px;
-    border-radius: 5px;
-    max-width: 300px;
-    resize: none;
-    padding: 5px;
-    padding-right: 60px;
 }
 
 .button {
