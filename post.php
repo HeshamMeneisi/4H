@@ -4,7 +4,6 @@
 require_once 'user.php';
 include_once 'hud.php';
 include_once 'db.php';
-echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script><br/><script src="js/post.js"></script>';
 
 // Handle invalid invoking
 
@@ -76,12 +75,12 @@ if (!isset($_GET['mode'])) {
     } elseif ($_GET['mode'] == 's') {
         // display the post form, the posting operation should be handled in ajax
               // Text area
-              echo '<div class="postform"><form><textarea id="caption" rows="10" cols="85" placeholder="What\'s on your mind?"></textarea>';
+              echo '<div class="postform"><table><textarea id="caption" rows="10" cols="85" placeholder="What\'s on your mind?"></textarea>';
               //Privacy menu
               echo '<select name="privacy" id="privacy" style="width:100px;margin-right:10px;"><option value="0">Public</option><option value="1">Private</option></select>';
               // Submit button
-              echo '<button id="submitPost">Post</button>';
+              echo '<button id="submitPost" onclick="post()">Post</button>';
               //Form end
-              echo '</form></div>';
+              echo '</table></div>';
     }
 }

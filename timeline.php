@@ -1,7 +1,8 @@
 <!-- a post form -->
 <!-- some of the most recent friend posts, plus some public posts -->
 <!-- should use post.php in view mode $_GET['mode']='v' -->
-
+<script src="js/post.js"></script>
+<script src="js/comment.js"></script>
 <?php
 include_once 'user.php';
 include_once 'db.php';

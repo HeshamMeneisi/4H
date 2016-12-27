@@ -1,10 +1,6 @@
-function post() {
+function comment() {
     var caption = $('#caption').val();
-    var privacy = $('#privacy option:selected').val();
-    var post_data = {
-        'caption': caption,
-        'privacy': privacy
-    };
+    var post_data = 'caption=' + caption + '&privacy=' + privacy;
     if (caption == '') {
         alert("Oops!\nPlease enter something before posting");
     } else {
