@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#submitPost").unbind("click").bind("click",function(){
+    $("#submitPost").off("click").on("click",function(){
         var caption = $('#caption').val();
         var privacy = $('#privacy option:selected').val();
         var post_data = 'caption=' + caption + '&privacy=' + privacy;
