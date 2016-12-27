@@ -17,9 +17,9 @@ if (isset($_GET['uid'])) {
     $uid = $user['uid'];
 }
 
-$pic = "./image/pic_{$uid}.jpg";
+$pic = 'image/pic_'.$uid.'.png';
 $nopic = false;
-if (!isset($user['photo']) || !$user['photo'] || !file_exists($pic)) {
+if (!file_exists($pic)) {
     $pic = "./image/def_{$user['gender']}.jpg";
     $nopic = true;
 }
@@ -42,13 +42,33 @@ include_once 'hud.php';
     <td>
     <a target="_blank" href="image/no_profile_pic.jpg"><img src=<?php echo $pic; ?> /></a>
     </td>
-</tr>
-<tr>
-    <td id="pp-link">
-        <a href="#"><?php if ($nopic):?>Add a Picture<?php else:?>Change Picture<?php endif; ?></a>
+    <td id="pp-upload">
+    <?php if ($nopic):?>
+    <input type="button" id="EditButton" value="Edit" onclick="show_upload()" />
+    <div id="uploadSection">
+    <form action="picture.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploaded_image" id="fileToUpload" class="hidden">
+    <input type="submit" value="Add Avatar" name="submit">
+    </form>
+    </div>
+    <?php else:?>
+    <input type="button" id="EditButton" value="Edit" onclick="show_upload()" />
+    <div id="uploadSection">
+    <form action="picture.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploaded_image" id="fileToUpload" class="hidden">
+    <input type="submit" value="Update Avatar" name="submit">
+    </form>
+    </div>
+    <?php endif; ?>
     </td>
 </tr>
 </table>
+</div>
+<?php
+    if($user['about']){
+        echo '<p id="biolabel">Bio</p><br/>'.'<div id="bio">'.$user['about'].'</div>';
+    }
+?>
 </div>
 </div>
 <?php
