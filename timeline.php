@@ -34,6 +34,26 @@ if ($onprof) {
     }
 } else {
     // display the time line
+    // first get the most active public posts today, most commented and most liked
+    $_GET['post'] = fetch_most_commented($pdo);
+    if ($_GET['post']) {
+        $_GET['mode'] = 'v';
+        include 'post.php';
+    }
+    $_GET['post'] = fetch_most_liked($pdo);
+    if ($_GET['post']) {
+        $_GET['mode'] = 'v';
+        include 'post.php';
+    }
+
+    $posts = fetch_recent_friend_posts($pdo);
+    if ($posts) {
+        foreach ($posts as $post) {
+            $_GET['mode'] = 'v';
+            $_GET['post'] = $post;
+            include 'post.php';
+        }
+    }
 }
 
 function fetch_posts_of($uid, $pdo)
