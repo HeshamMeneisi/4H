@@ -104,3 +104,44 @@ function fetch_comment_likes($puid, $pid, $comment_id, $pdo)
 
     return null;
 }
+
+function fetch_most_commented($pdo)
+{
+    $st = $pdo->query('SELECT *  FROM (SELECT COUNT(*) AS c ,puid,pid FROM `comment` GROUP BY puid,pid) y, post WHERE post.puid=y.puid AND post.pid=y.pid AND privacy=0 HAVING MAX(y.c)');
+    if ($st->rowCount() == 1) {
+        return $st->fetch(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}
+
+function fetch_most_liked($pdo)
+{
+    $st = $pdo->query('SELECT *  FROM (SELECT COUNT(*) AS c ,puid,pid FROM `likes_post` GROUP BY puid,pid) y, post WHERE post.puid=y.puid AND post.pid=y.pid AND privacy=0 HAVING MAX(y.c)');
+    if ($st->rowCount() == 1) {
+        return $st->fetch(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}
+
+function fetch_friends($uid, $pdo)
+{
+    $st = $pdo->prepare('SELECT uid1 AS fuid,_time AS since FROM `friends` WHERE accepted=1 AND uid2 = :uid UNION (SELECT uid2,_time FROM `friends` WHERE accepted=1 AND uid1 = :uid)');
+    if ($st->execute(array(':uid' => $uid))) {
+        return $st->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}
+
+function fetch_recent_friend_posts($pdo)
+{
+    $uid = get_user()['uid'];
+    $st = $pdo->prepare('SELECT * FROM post INNER JOIN (SELECT uid1 as puid FROM `friends` WHERE accepted=1 AND uid2 = :uid UNION (SELECT uid2 as puid FROM `friends` WHERE accepted=1 AND uid1 = :uid))y USING (puid) ORDER BY ptime DESC LIMIT 25');
+    if ($st->execute(array(':uid' => $uid))) {
+        return $st->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}
