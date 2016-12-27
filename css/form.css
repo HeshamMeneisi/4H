@@ -1,3 +1,6 @@
+*{
+    font-family: Arial;
+}
 .xform {
     position: relative;
     border: 0;
@@ -6,20 +9,16 @@
     -webkit-transtion: all 1 ease-in-out;
 }
 
-.xform input:focus{
-  background: lightgreen;
-}
-
 .xform label {
     font-size: 12;
 }
 
 .xform input {
-    border: 1px solid green;
-    border-radius: 5px;
+    border: 1px solid #eee;
+    border-radius: 4px;
     padding: 2.5px;
-    color: darkgreen;
-    box-shadow: 0 0 2px lightgreen;
+    color: #444;
+    box-shadow: 0 0 2px #eee;
 }
 
 .xform .error {
@@ -28,72 +27,85 @@
 }
 
 .sbtn {
-    background: rgb(64, 196, 64);
-    border-radius: 10px;
-    color: white;
-    font-size: 24;
+    margin-top:20px;
+    background: #444;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 20px;
     border: 0;
-    float: right;
-    margin-left: 2px;
-    transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
 }
-
 .uhud .sbtn {
-    text-shadow: 0 0 1px green;
-    background: rgba(64, 32, 32, 0.1);
-    border-radius: 5px;
+    margin-top:0px;
+    font-size:16px;
+    border:none;
+}
+.uhud .sbtn:hover {
+    margin-top:0px;
+    background:#fff;
+    color:#444;
+    border:none;
+    font-size:16px;
+    transition:0.3s;
 }
 
 .sbtn:hover {
     cursor: pointer;
-    color: white;
-    background: darkgreen;
-    box-shadow: 0 0 1px 1px white;
+    font-size:22px;
 }
 
 .sbtn:focus{
-  box-shadow: 0 0 1px 1px black;
+    box-shadow: 0 0 1px 1px black;
 }
 
 #lform {
     background: transparent;
     float: right;
     margin: 10px;
+    margin-right:20px;
 }
 
 #lform input {
-    border-radius: : ;
-    2px;
+    border-radius: 2px;
 }
 
 #lform label {
-    color: white;
-    text-shadow: 0 0 1px green;
+    color: #fff;
+    font-size:12px;
+    text-shadow:none;
 }
 
 #rform {
+    background:#eee;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    border-radius: 40px;
-    padding: 25px;
-    padding-top: 40px;
-    box-shadow: 0 0 1px gray;
+    margin-bottom: 60px;
+    border-radius: 5px;
+    padding: 20 25 0 25;
+    border:none;
 }
 
 #rform label {
-    color: rgb(0, 164, 0);
-    text-shadow: 0 0;
-    font-size: 12;
+    margin-top:100px;
+    color: #444;
+    font-size: 18px;
 }
 
 #rform input {
+    font-size:16px;
     min-width: 300px;
 }
-
+#rform .sbtn {
+    background: #444;
+    color: #fff;
+    transition: 0.3s;
+    font-size:24px;
+}
 #rform .sbtn:hover {
-    background: darkgreen;
+    background: #444;
+    color: #fff;
+    transition: 0.3s;
+    font-size:30px;
 }
 
 
@@ -127,7 +139,15 @@
     transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
 }
-
+select{
+    background: #fff;
+    width:300px;
+    height: 24px;
+    font-size:12px;
+}
+#rform tr td{
+    padding-bottom:5px;
+}
 @keyframes first-ball {
     10% {
         opacity: 1;

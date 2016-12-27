@@ -3,6 +3,7 @@
 <script src="js/auth.js"></script>
 <script src="js/form.js"></script>
 <div class='uhud'>
+<img src="files/logo.png" alt="Socio"/>
 <?php
 require_once 'user.php';
 if (is_logged()):
