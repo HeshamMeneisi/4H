@@ -218,7 +218,7 @@ function validateName($fname, $lname, &$errors)
 }
 function validateGender(&$gender, &$errors)
 {
-    if (!$gender || $gender > 2 || $gender < 0) {
+    if (!isset($gender) || $gender > 2 || $gender < 0) {
         $errors['gerror'] = 'Invalid gender selection.';
     } else {
         switch ($gender) {
@@ -236,7 +236,7 @@ function validateGender(&$gender, &$errors)
 }
 function validateMStatus(&$mstatus, &$errors)
 {
-    if (!$mstatus || $mstatus > 3 || $mstatus < 0) {
+    if (!isset($mstatus) || $mstatus > 3 || $mstatus < 0) {
         $errors['mserror'] = 'Invalid status selection.';
     } else {
         switch ($mstatus) {

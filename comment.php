@@ -32,6 +32,16 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                     if ($fetched_comment_likes) {
                         $comment_likes = $fetched_comment_likes->fetchAll(PDO::FETCH_ASSOC);
 
+                        $uid = get_user()['uid'];
+                        $liked = false;
+
+                        foreach ($comment_likes as $like) {
+                            if ($like['uid'] == $uid) {
+                                $liked = true;
+                                break;
+                            }
+                        }
+
                         // One like
 
                         if ($fetched_comment_likes->rowCount() == 1) {
@@ -55,6 +65,11 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                         }
                     } else {
                         echo '<br/>No likes yet';
+                        $liked = false;
+                    }
+
+                    if (!$liked) {
+                        echo "<button class='likebtn' onclick='like_comment({$puid},{$pid})'>Like</button>";
                     }
                 }
             }

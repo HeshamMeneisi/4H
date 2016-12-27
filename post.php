@@ -24,54 +24,71 @@ if (!isset($_GET['mode'])) {
         } else {
             echo 'Unable to retrieve post.';
         }
+        $puid = $the_post['puid'];
+        $pid = $the_post['pid'];
         $name = fetch_name($the_post['puid'], $pdo);
         $poster_name = $name['fname'].' '.$name['lname'];
         $nickname = ' ('.$name['nickname'].') ';
         $caption = $the_post['caption'];
         $time = $the_post['ptime'];
-        $fetched_likes = fetch_likes($the_post['pid'], $the_post['puid'], $pdo);
-        $conid = $the_post['puid'].'_'.$the_post['pid'];
+        $fetched_likes = fetch_likes($pid, $puid, $pdo);
+        $conid = $puid.'_'.$pid;
         if (!isset($_GET['aj'])) {
             echo "<container id={$conid}>";
         }
         echo "<div id='post'>";
             // Display poster name and post time
 
-            echo '<div class="posthead">'.$poster_name.$nickname.'posted at '.$time.'</div><div class="postcontent">'.$caption.'</div>';
+        echo '<div class="posthead">'.$poster_name.$nickname.'posted at '.$time.'</div><div class="postcontent">'.$caption.'</div>';
 
-            // Check for post likes
-            echo '<div class="likes">';
+        // Check for post likes
+        echo '<div class="likes">';
         if ($fetched_likes) {
             $likes = $fetched_likes->fetchAll(PDO::FETCH_ASSOC);
+            $uid = get_user()['uid'];
+            $liked = false;
 
-                // One like
-
-                if ($fetched_likes->rowCount() == 1) {
-                    $liker = fetch_name($likes['uid'], $pdo);
-                    echo $liker['fname'].' '.$liker['lname'].' likes this.';
+            foreach ($likes as $like) {
+                if ($like['uid'] == $uid) {
+                    $liked = true;
+                    break;
                 }
+            }
 
-                // Two likes
+            // One like
 
-                elseif ($fetched_likes->rowCount() == 2) {
-                    $first_liker = fetch_name($likes[0]['uid'], $pdo);
-                    $second_liker = fetch_name($likes[1]['uid'], $pdo);
-                    echo $first_liker['fname'].' '.$first_liker['lname'].' and '.$second_liker['fname'].' '.$second_liker['lname'].' like this.';
-                }
+            if ($fetched_likes->rowCount() == 1) {
+                $liker = fetch_name($likes[0]['uid'], $pdo);
+                echo $liker['fname'].' '.$liker['lname'].' likes this.';
+            }
 
-                // More than two likes
+            // Two likes
 
-                else {
-                    $liker = fetch_name($likes[0]['uid'], $pdo);
-                    echo $liker['fname'].' '.$liker['lname'].' and '.($fetched_likes->rowCount() - 1).' others like this.';
-                }
-        }
+            elseif ($fetched_likes->rowCount() == 2) {
+                $first_liker = fetch_name($likes[0]['uid'], $pdo);
+                $second_liker = fetch_name($likes[1]['uid'], $pdo);
+                echo $first_liker['fname'].' '.$first_liker['lname'].' and '.$second_liker['fname'].' '.$second_liker['lname'].' like this.';
+            }
 
-            // No likes
+            // More than two likes
 
             else {
-                echo 'No likes yet';
+                $liker = fetch_name($likes[0]['uid'], $pdo);
+                echo $liker['fname'].' '.$liker['lname'].' and '.($fetched_likes->rowCount() - 1).' others like this.';
             }
+        }
+
+        // No likes
+
+        else {
+            echo 'No likes yet';
+            $liked = false;
+        }
+
+        if (!$liked) {
+            echo "<button class='likebtn' onclick='like_post({$puid},{$pid})'>Like</button>";
+        }
+
         echo '</div>';
         $_GET['puid'] = $the_post['puid'];
         $_GET['pid'] = $the_post['pid'];

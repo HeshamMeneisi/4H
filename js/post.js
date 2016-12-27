@@ -1,3 +1,27 @@
+function like_post(puid, pid)
+{
+  data = {
+    t:'p',
+    puid : puid,
+    pid : pid
+  };
+  $.ajax({
+      type: "POST",
+      url: "ajax_like.php",
+      data: data,
+      dataType: 'json',
+      encode: true,
+      cache: false,
+  }).done(
+      function(result) {
+          if (result['success']) {
+              reload_post(puid, pid);
+          } else {
+              // failed
+              alert("Try again later.")
+          }
+      });
+}
 function post(getdata) {
     var caption = $('#caption').val();
     var privacy = $('#privacy option:selected').val();
@@ -27,14 +51,13 @@ function post(getdata) {
     }
 }
 
-function reload_post(puid, pid, getdata)
+function reload_post(puid, pid)
 {
   conid = puid+'_'+pid;
   data = {
     mode : 'v',
     puid : puid,
     id : pid,
-    p : getdata['p']?1:0,
     aj : '1'
   };
   $.ajax({
