@@ -2,7 +2,14 @@
 include_once 'user.php';
 
 ?>
-<ul>
+<?php 
+    if (isset($_GET['p'])){
+        echo '<ul class="navbar-p">';
+    }
+    else{
+        echo '<ul class="navbar">';
+    }
+?>
   <li><form method="get" action="search.php" id="search">
    <input name="sr" type="text" size="40" placeholder="Search..." />
   </form>

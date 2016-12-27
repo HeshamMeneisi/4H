@@ -76,7 +76,7 @@ body {
 
 #privacy {
     display: block;
-    height: 20px;
+    height: 30px;
 }
 
 #caption {
@@ -221,4 +221,7 @@ textarea {
     display: block;
     color: white;
     text-decoration: none;
+}
+.navbar-p{
+    margin-left:120px;
 }
