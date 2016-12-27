@@ -2,6 +2,7 @@
 include_once 'user.php';
 
 ?>
+<a href="../"><img class="logo" src="files/logo.png" alt="Socio"/></a>
 <?php 
     if (isset($_GET['p'])){
         echo '<ul class="navbar-p">';

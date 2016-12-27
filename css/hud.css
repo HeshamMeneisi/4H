@@ -99,7 +99,7 @@ body {
 }
 
 .logo {
-    margin-left: 20px;
+float:left;
 }
 
 ul {
@@ -116,7 +116,7 @@ ul {
     border: 1px solid #d1d1d1;
     font: bold 12px Arial, Helvetica, Sans-serif;
     color: #bebebe;
-    width: 300px;
+    width: 200px;
     padding: 5px 10px 5px 5px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -131,7 +131,7 @@ ul {
 }
 
 #search input[type="text"]:focus {
-    width: 350px;
+    width: 230px;
 }
 
 li {
@@ -204,6 +204,14 @@ div.comment {
     color: white;
     text-decoration: none;
 }
-.navbar-p{
-    margin-left:120px;
+ul.navbar{
+    float:right;
+    padding:0;
+    max-width:800px;
+
+}
+ul.navbar-p{
+    float:right;
+    padding:0;
+    max-width:1000px;
 }
