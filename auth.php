@@ -216,16 +216,43 @@ function validateName($fname, $lname, &$errors)
         $errors['nerror'] = 'First and Last name must be at least 4 characters long.';
     }
 }
-function validateGender($gender, &$errors)
+function validateGender(&$gender, &$errors)
 {
     if ($gender > 2 || $gender < 0) {
         $errors['gerror'] = 'Invalid gender selection.';
+    } else {
+        switch ($gender) {
+        case 0:
+          $gender = 'u';
+        break;
+        case 1:
+          $gender = 'm';
+        break;
+        case 2:
+          $gender = 'f';
+        break;
+      }
     }
 }
-function validateMStatus($mstatus, &$errors)
+function validateMStatus(&$mstatus, &$errors)
 {
     if ($mstatus > 3 || $mstatus < 0) {
         $errors['mserror'] = 'Invalid status selection.';
+    } else {
+        switch ($mstatus) {
+        case 0:
+          $mstatus = 'u';
+        break;
+        case 1:
+          $mstatus = 's';
+        break;
+        case 2:
+          $mstatus = 'e';
+        break;
+        case 3:
+          $mstatus = 'm';
+        break;
+      }
     }
 }
 function validateBDate($bdate, &$errors)

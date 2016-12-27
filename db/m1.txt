@@ -1,0 +1,2 @@
+ALTER TABLE `user` CHANGE `gender` `gender` ENUM('m','f','u') NOT NULL;
+ALTER TABLE `user` CHANGE `mstatus` `mstatus` ENUM('s','e','m','u') NULL DEFAULT NULL;
