@@ -1,4 +1,4 @@
-function post() {
+function post(getdata) {
     var caption = $('#caption').val();
     var privacy = $('#privacy option:selected').val();
     var post_data = {
@@ -18,11 +18,33 @@ function post() {
         }).done(
             function(result) {
                 if (result['success']) {
-                    $('#caption').val('');
+                    update_timeline(getdata);
                 } else {
                     // failed
                     alert("Try again later.")
                 }
             });
     }
+}
+
+function reload_post(puid, pid, getdata)
+{
+  conid = puid+'_'+pid;
+  data = {
+    mode : 'v',
+    puid : puid,
+    id : pid,
+    p : getdata['p']?1:0,
+    aj : '1'
+  };
+  $.ajax({
+      type: "GET",
+      url: "post.php",
+      data: data,
+      encode: true,
+      cache: false,
+  }).done(
+      function(result) {
+          $('#'+conid).html(result)
+      });
 }

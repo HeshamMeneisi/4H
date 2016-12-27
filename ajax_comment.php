@@ -5,7 +5,7 @@ include_once 'db.php';
 
     $return = array();
 
-    if (isset($_POST['puid']) && isset($_POST['pid']) && isset($_POST['caption'])) {
+    if (is_logged() && isset($_POST['puid']) && isset($_POST['pid']) && isset($_POST['caption'])) {
         $puid = $_POST['puid'];
         $pid = $_POST['pid'];
         $caption = $_POST['caption'];
@@ -16,13 +16,13 @@ include_once 'db.php';
     }
 
     $user = get_user();
-    $post_status = $pdo->prepare('INSERT INTO comment(`cuid`, `puid`, `pid`, `caption`, `ptime`) VALUES (:cuid, :puid, :pid, :caption, NOW())');
-    $post_insert_data = array(
+    $st = $pdo->prepare('INSERT INTO comment(`cuid`, `puid`, `pid`, `caption`, `ctime`) VALUES (:cuid, :puid, :pid, :caption, NOW())');
+    $data = array(
       ':cuid' => $user['uid'],
       ':puid' => $puid,
       ':pid' => $pid,
       ':caption' => $caption, );
-    if (!$post_status->execute($post_insert_data)) {
+    if (!$st->execute($data)) {
         $return['success'] = false;
     } else {
         $return['success'] = true;
