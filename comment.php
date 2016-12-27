@@ -60,13 +60,14 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
             }
         } elseif ($_GET['mode'] == 's') {
             // display the comment form, the commenting operation should be handled in ajax
-                // Text area
-                                $fid = $puid.'_'.$pid;
+            // Text area
+            $fid = $puid.'_'.$pid;
             echo "<div class='commentform' id={$fid}><table><textarea id='caption' rows='10' cols='85' placeholder='Leave a comment!'></textarea>";
-                // Submit button
-                echo "<button id='submitComment' onclick='comment({$puid},{$pid})'>Comment</button>";
-                //Form end
-                echo '</table></div>';
+            // Submit button
+            $gdata = json_encode($_GET);
+            echo "<button id='submitComment' onclick='comment({$puid},{$pid}, {$gdata})'>Comment</button>";
+            //Form end
+            echo '</table></div>';
         } else {
             echo 'Error retrieving comment.';
         }

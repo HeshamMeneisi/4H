@@ -18,9 +18,9 @@ if (!isset($_GET['mode'])) {
         // view post with id = $_GET['id'] and make sure to display number of likes and an expandable comments section
         if (isset($_GET['post'])) {
             $the_post = $_GET['post'];
-        } elseif (isset($_GET['id'])) {
+        } elseif (isset($_GET['id']) && isset($_GET['puid'])) {
             // Fetch post data
-            $the_post = fetch_post($_GET['id'], $pdo);
+            $the_post = fetch_post($_GET['id'], $_GET['puid'], $pdo);
         } else {
             echo 'Unable to retrieve post.';
         }
@@ -30,7 +30,11 @@ if (!isset($_GET['mode'])) {
         $caption = $the_post['caption'];
         $time = $the_post['ptime'];
         $fetched_likes = fetch_likes($the_post['pid'], $the_post['puid'], $pdo);
-        echo '<div id="post">';
+        $conid = $the_post['puid'].'_'.$the_post['pid'];
+        if (!isset($_GET['aj'])) {
+            echo "<container id={$conid}>";
+        }
+        echo "<div id='post'>";
             // Display poster name and post time
 
             echo '<div class="posthead">'.$poster_name.$nickname.'posted at '.$time.'</div><div class="postcontent">'.$caption.'</div>';
@@ -75,6 +79,9 @@ if (!isset($_GET['mode'])) {
         $_GET['mode'] = 's';
         include 'comment.php';
         echo '</div>';
+        if (!isset($_GET['aj'])) {
+            echo '</container>';
+        }
     } elseif ($_GET['mode'] == 's') {
         // display the post form, the posting operation should be handled in ajax
               // Text area

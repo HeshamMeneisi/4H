@@ -1,4 +1,4 @@
-function comment(puid, pid) {
+function comment(puid, pid, getdata) {
     var caption = $('#' + puid + '_' + pid + ' #caption').val();
     var data = {
         'puid': puid,
@@ -18,7 +18,7 @@ function comment(puid, pid) {
         }).done(
             function(result) {
                 if (result['success']) {
-                    $('#caption').val('');
+                    reload_post(puid, pid, getdata);
                 } else {
                     // failed
                     alert("Try again later.")

@@ -7,11 +7,11 @@ if (!isset($_GET['aj'])):
  <script src="js/timeline.js"></script>
  <script src="js/post.js"></script>
  <script src="js/comment.js"></script>
+ <container id='timeline'>
 <?php
 endif;
 include_once 'user.php';
 include_once 'db.php';
-echo "<container id='timeline'>";
 
 $onprof = isset($_GET['p']);
 
@@ -45,5 +45,7 @@ function fetch_posts_of($uid, $pdo)
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-echo '</container>';
+if (!isset($_GET['aj'])) {
+    echo '</container>';
+}
 ?>

@@ -1,4 +1,4 @@
-function updatetimeline(getdata)
+function update_timeline(getdata)
 {
   getdata['aj'] = 1;
   $.ajax({
