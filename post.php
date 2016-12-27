@@ -1,4 +1,4 @@
-<!--  view, post modes should be implemented, $_GET['mode']={'v','p'} -->
+<!--  view, submit modes should be implemented, $_GET['mode']={'v','s'} -->
 <?php
 
 require_once 'user.php';
@@ -27,7 +27,7 @@ if (!isset($_GET['mode'])) {
         $nickname = ' ('.$name['nickname'].') ';
         $caption = $the_post['caption'];
         $time = $the_post['ptime'];
-        $fetched_likes = fetch_likes($the_post['pid'], $pdo);
+        $fetched_likes = fetch_likes($the_post['pid'], $the_post['puid'], $pdo);
         echo '<div id="post">';
             // Display poster name and post time
 
@@ -67,9 +67,13 @@ if (!isset($_GET['mode'])) {
                 echo 'No likes yet';
             }
         echo '</div>';
+        $_GET['puid'] = $the_post['puid'];
+        $_GET['pid'] = $the_post['pid'];
+        include 'comment.php';
+        $_GET['mode'] = 's';
         include 'comment.php';
         echo '</div>';
-    } elseif ($_GET['mode'] == 'p') {
+    } elseif ($_GET['mode'] == 's') {
         // display the post form, the posting operation should be handled in ajax
               // Text area
               echo '<div class="postform"><form><textarea id="caption" rows="10" cols="85" placeholder="What\'s on your mind?"></textarea>';

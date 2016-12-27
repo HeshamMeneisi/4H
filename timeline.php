@@ -9,7 +9,7 @@ include_once 'db.php';
 $onprof = isset($_GET['p']);
 
 if (is_logged() && !($onprof && isset($_GET['uid']))) {
-    $_GET['mode'] = 'p';
+    $_GET['mode'] = 's';
     include 'post.php';
 }
 if ($onprof) {
