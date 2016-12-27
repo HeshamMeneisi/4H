@@ -36,7 +36,7 @@
       </td>
       <td>
   </tr>
- 
+
   <tr>
     <td><input type="text" name="fname" placeholder="First name"></td>
   </tr>
@@ -55,18 +55,18 @@
     <td>
 	    <section id="first" class="section">
     <div class="container">
-      	<input type="radio" name="rgender" id="radio-1" value="0">
-      <label for="radio-1"><span class="radio">don't say</span></label>
+      	<input type="radio" name="gender" id="radio-1" value="0" checked="1">
+      <label for="radio-1"><span class="radio">Prefer not to say</span></label>
     </div>
     <div class="container">
-      <input type="radio" name="rgender" id="radio-2" value="1">
+      <input type="radio" name="gender" id="radio-2" value="1">
       <label for="radio-2"><span class="radio">Male</span></label>
     </div>
     <div class="container">
-      <input type="radio" name="rgender" id="radio-3" value="2">
+      <input type="radio" name="gender" id="radio-3" value="2">
       <label for="radio-3"><span class="radio">Female</span></label>
     </div>
-	</section> 
+	</section>
       </td>
   </tr>
   <tr>
@@ -75,29 +75,29 @@
       </td>
   </tr>
   <tr>
-    <td><label>status</label></td>
+    <td><label>Status</label></td>
   </tr>
   <tr>
-    <td> 
-	
-         <section id="first" class="section">
+    <td>
+
+    <section id="first" class="section">
     <div class="container">
-      	<input type="radio" name="radio" id="radio-4" value="0">
-      <label for="radio-4"><span class="radio">don't say</span></label>
+      	<input type="radio" name="status" id="radio-4" value="0" checked="1">
+      <label for="radio-4"><span class="radio">Prefer not to say</span></label>
     </div>
     <div class="container">
-      <input type="radio" name="radio" id="radio-5" value="1">
+      <input type="radio" name="status" id="radio-5" value="1">
       <label for="radio-5"><span class="radio">Single</span></label>
     </div>
     <div class="container">
-      <input type="radio" name="radio" id="radio-6" value="2">
+      <input type="radio" name="status" id="radio-6" value="2">
       <label for="radio-6"><span class="radio">Engaged</span></label>
     </div>
 	<div class="container">
-      <input type="radio" name="radio" id="radio-7" value="3">
+      <input type="radio" name="status" id="radio-7" value="3">
       <label for="radio-7"><span class="radio">Married</span></label>
     </div>
-</section> 
+</section>
     </td>
   </tr>
   <tr>

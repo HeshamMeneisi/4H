@@ -54,8 +54,8 @@ function rsub() {
             password = $('input[name=password]').val(),
             fname = $('input[name=fname]').val(),
             lname = $('input[name=lname]').val(),
-            gender = $('#gender').val(),
-            mstatus = $('#mstatus').val(),
+            gender = $("input[name=gender]:checked").val()
+            mstatus = $("input[name=status]:checked").val(),
             bdate = $('input[name=bdate]').val(),
             country = $('#country').val(),
             city = $('input[name=city]').val(),

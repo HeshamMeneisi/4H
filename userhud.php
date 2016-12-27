@@ -1,10 +1,19 @@
+<?php
+include_once 'user.php';
+
+?>
 <ul>
-  <li><a href="home.php">Home</a></li>
-  <li><a href="#">Edit information</a></li>
+  <li><a href="index.php">Home</a></li>
+  <li><a href="#">Notifications<span class="notify pink">2</span></a>
+    <?php if (isset($_GET['p'])): ?>
+  <li><a href="#">Edit Info</a></li>
   <li><a href="friends.php">Friends</a></li>
-  <li><a href="#">notification<span class="notify pink">2</span></a>
   <li><a href="#">About</a></li>
-   <li style="float:right"><a href='./auth.php?op=x'>Logout</a></li>
+  <?php else:
+    $nickname = get_user()['nickname'];
+  echo "<li style='float:right'><a href='./profile.php'>{$nickname}</a></li>";
+  endif; ?>
+  <li style="float:right"><a href='./auth.php?op=x'>Logout</a></li>
   <li><form method="get" action="search.php" id="search">
    <input name="sr" type="text" size="40" placeholder="Search..." />
   </form>

@@ -19,13 +19,15 @@ if (isset($_GET['uid'])) {
 }
 
 $pic = "./image/pic_{$uid}.jpg";
+$nopic = false;
 if (!isset($user['photo']) || !$user['photo'] || !file_exists($pic)) {
     $pic = "./image/def_{$user['gender']}.jpg";
     $nopic = true;
 }
 
 // for testing
-echo implode('|', $user);
+// echo implode('|', $user);
+$_GET['p'] = 1;
 include_once 'hud.php';
 ?>
 <link rel="stylesheet" href="css/profile.css">
