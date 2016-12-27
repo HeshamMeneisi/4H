@@ -18,7 +18,7 @@ if (is_logged()) {
 					$requester_name = $requester['fname'].' '.$requester['lname'].' ('.$requester['nickname'].')';
 					$requester_photo = $requester['photo'];
 					$request_time = $request['_time'];
-					echo '<br/><br/>'/*'<a href="link to user">*/'<img src=\"' $requester_photo '\"height="50" width="50"> '/*</a> '*/.$requester_name.' at '.$request_time;
+					echo '<br/><br/>'/*'<a href="link to user">*/'<img src="' $requester_photo '"> '/*</a> '*/.$requester_name.' at '.$request_time;
 					echo '<button id="cancelReq" onclick="cancel()">Cancel</button>';
 				}
 				else{ // a request towards the active user
