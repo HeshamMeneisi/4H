@@ -6,8 +6,9 @@
   <title>Hello</title>
 </head>
 <body>
-  <?php require 'user.php'; ?>
-  <?php include 'hud.php'; ?>
-  <?php include 'home.php'; ?>
+  <?php
+  include_once 'hud.php';
+  include 'home.php';
+  ?>
 </body>
 </html>
