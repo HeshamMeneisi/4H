@@ -1,11 +1,17 @@
 <!-- a post form -->
 <!-- some of the most recent friend posts, plus some public posts -->
 <!-- should use post.php in view mode $_GET['mode']='v' -->
-<script src="js/post.js"></script>
-<script src="js/comment.js"></script>
 <?php
+if (!isset($_GET['aj'])):
+ ?>
+ <script src="js/timeline.js"></script>
+ <script src="js/post.js"></script>
+ <script src="js/comment.js"></script>
+<?php
+endif;
 include_once 'user.php';
 include_once 'db.php';
+echo "<container id='timeline'>";
 
 $onprof = isset($_GET['p']);
 
@@ -39,4 +45,5 @@ function fetch_posts_of($uid, $pdo)
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
 }
+echo '</container>';
 ?>

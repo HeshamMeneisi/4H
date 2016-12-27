@@ -1,4 +1,4 @@
-function post() {
+function post(getdata) {
     var caption = $('#caption').val();
     var privacy = $('#privacy option:selected').val();
     var post_data = {
@@ -18,7 +18,7 @@ function post() {
         }).done(
             function(result) {
                 if (result['success']) {
-                    $('#caption').val('');
+                    updatetimeline(getdata);
                 } else {
                     // failed
                     alert("Try again later.")
