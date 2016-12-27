@@ -21,12 +21,18 @@ body {
 
 .uhud label {
     color: white;
-    font-size: 32;
-    text-shadow: 1px 0 black;
+    margin-top:10px;
+    margin-right:40px;
+    font-size: 15px;;
+    float:right;
+    display:inline-block
 }
 
 #lobtn{
-  margin-top: 4px;
+  margin-top: 40px;
+  margin-right: -70px;
+  float:right;
+
 }
 #post{
   margin: 0 auto; 

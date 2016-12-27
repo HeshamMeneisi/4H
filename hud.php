@@ -8,7 +8,7 @@
 <?php
 require_once 'user.php';
 if (is_logged()):
-  echo "<label>Welcome {$_SESSION['user']['nickname']}!</label>";
+  echo "<label>Hello, {$_SESSION['user']['nickname']}!</label>";
 ?>
   <button id="lobtn" class='sbtn' onclick='document.location="auth.php?op=x"'>Logout</button>
 <?php
