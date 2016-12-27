@@ -5,17 +5,17 @@ function lsub() {
     errors = {};
     try {
         updateErrors("#lform");
-        var identity = $('input[name=l_nickname]').val(),
+        var email = $('input[name=l_email]').val(),
             password = $('input[name=l_password]').val();
 
-        validateEmail(identity);
+        validateEmail(email);
         validatePassword(password);
 
         // if no errors, submit to server
         if (jQuery.isEmptyObject(errors)) {
             dispWaiting('lsub');
             var data = {
-                'email': identity,
+                'email': email,
                 'password': password,
                 'op': 'l'
             };
