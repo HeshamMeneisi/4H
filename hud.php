@@ -3,15 +3,13 @@
 <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 <script src="js/auth.js"></script>
 <script src="js/form.js"></script>
+<script src="js/jquery-3.1.1.js"></script>
 <div class='uhud'>
 <a href="../"><img class="logo" src="files/logo.png" alt="Socio"/></a>
 <?php
 require_once 'user.php';
 if (is_logged()):
-  echo "<label>Hello, {$_SESSION['user']['nickname']}!</label>";
-?>
-  <button id="lobtn" class='sbtn' onclick='document.location="auth.php?op=x"'>Logout</button>
-<?php
+  include 'userhud.php';
 else:
   include 'loginform.php';
 endif
