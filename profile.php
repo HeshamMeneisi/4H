@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
+<container id="profilecontainer">
 <?php
 require_once 'user.php';
 include_once 'db.php';
@@ -75,5 +76,6 @@ include_once 'hud.php';
 $_GET['p'] = 1;
 include 'timeline.php';
 ?>
+</container>
 </body>
 </html>

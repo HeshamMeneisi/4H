@@ -39,7 +39,7 @@ if (!isset($_GET['mode'])) {
         echo "<div id='post'>";
             // Display poster name and post time
 
-        echo '<div class="posthead">'.$poster_name.$nickname.'posted at '.$time.'</div><div class="postcontent">'.$caption.'</div>';
+        echo '<div class="posthead">'.$poster_name.$nickname.'</div><div id="postdate">Posted at: '.date('l, F jS, Y', strtotime($time)).'</div><div class="postcontent">'.$caption.'</div>';
 
         // Check for post likes
         echo '<div class="likes">';
@@ -103,12 +103,13 @@ if (!isset($_GET['mode'])) {
         // display the post form, the posting operation should be handled in ajax
               // Text area
               echo '<div class="postform"><table><textarea id="caption" rows="10" cols="85" placeholder="What\'s on your mind?"></textarea>';
-              //Privacy menu
-              echo '<select name="privacy" id="privacy" style="width:100px;margin-right:10px;"><option value="0">Public</option><option value="1">Private</option></select>';
+              
               // Submit button
               $gdata = json_encode($_GET);
         echo "<button id='submitPost' onclick='post({$gdata})'>Post</button>";
               //Form end
+        //Privacy menu
+              echo '<select name="privacy" id="privacy" style="width:100px;margin-right:10px;"><option value="0">Public</option><option value="1">Private</option></select>';
               echo '</table></div>';
     }
 }

@@ -68,8 +68,10 @@
 
 #lform input {
     border-radius: 2px;
-    width:160px;
+    width:180px;
+    height:25px;
     margin-right:5px;
+    font-size:15px;
 }
 
 #lform label {
@@ -77,6 +79,7 @@
     font-size:14px;
     font-family: sans-serif !important;
     text-shadow:none;
+    float:left;
 }
 
 #rform {
@@ -87,6 +90,7 @@
     border-radius: 5px;
     padding: 20 25 0 25;
     border:none;
+    display:none;
 }
 
 #rform label {
@@ -100,13 +104,13 @@
     min-width: 300px;
 }
 #rform .sbtn {
-    background: #444;
+    background: #2abada;
     color: #fff;
     transition: 0.3s;
     font-size:24px;
 }
 #rform .sbtn:hover {
-    background: #444;
+    background: #2abada;
     color: #fff;
     transition: 0.3s;
     font-size:30px;
@@ -213,4 +217,18 @@ select{
 input[type="radio"]:checked + label span.radio::after {
   left: -27px;
   background-color: #6C788A;
+}
+#register_label{
+  text-align:center;
+}
+#register_label h2{
+  font-size:50px;
+}
+#register_label p{
+  font-size:20px;
+}
+#register_label input{
+  margin-top:20px;
+  font-size:20px;
+  height:30px;
 }
