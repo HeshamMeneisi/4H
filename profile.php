@@ -51,7 +51,7 @@ include_once 'hud.php';
         echo "<button class='friend_button' onclick='send_freq({$uid})'>Add friend</button>";
     }
     elseif ($uid!=get_user()['uid']){
-        echo "<button class='friend_button' onclick='send_freq({$uid})'>Remove friend</button>";
+        echo "<button class='friend_button' onclick='unfriend()({$uid})'>Remove friend</button>";
     }
 
 ?>

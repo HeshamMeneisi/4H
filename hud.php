@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="css/profile.css">
 <script src="js/auth.js"></script>
 <script src="js/form.js"></script>
+<script src="js/friends.js"></script>
 <script src="js/picture_upload.js"></script>
 <script src="js/jquery-3.1.1.js"></script>
 </head>

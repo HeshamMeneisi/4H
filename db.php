@@ -2,7 +2,7 @@
 
 $servername = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'root';
 
 // Create connection
 $pdo = new PDO('mysql:host=localhost;dbname=4h', $username, $password);
