@@ -112,3 +112,51 @@ function rsub() {
       _sub = false;
     }
 }
+function update_info() {
+    if(_sub) return;
+    _sub = true;
+    errors = {};
+    try {
+        updateErrors("#settings");
+        var nickname = $('input[name=nickname]').val(),
+            email = $('input[name=email]').val(),
+            password = $('input[name=password]').val(),
+            gender = $("input[name=gender]:checked").val()
+            mstatus = $("input[name=status]:checked").val();
+        validateNickname(nickname);
+        validateEmail(email);
+        validatePassword(password);
+
+        // if no errors, submit to server
+        if (jQuery.isEmptyObject(errors)) {
+            var data = {
+                'nickname': nickname,
+                'email': email,
+                'password': password,
+                'gender': gender,
+                'mstatus': mstatus
+            };
+            $.ajax({
+                type: 'POST',
+                url: 'update.php',
+                data: data,
+                dataType: 'json',
+                encode: true
+            }).done(function(res) {
+                if (res['success']) {
+                    window.location.reload(true);
+                    window.location.href = 'profile.php';
+                }
+                errors = res['errors'];
+                updateErrors("#settings");
+                _sub = false;
+            });
+        } else {
+            updateErrors("#settings");
+            _sub = false;
+        }
+    } catch (err) {
+      console.log(err);
+      _sub = false;
+    }
+}
