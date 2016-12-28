@@ -21,7 +21,7 @@ if (is_logged()) {
             foreach ($requests as $request) {
                 $_GET['person'] = $request;
                 include 'person.php';
-                echo "<button id='cancelReq' onclick='cancel_freq({$request['uid']},{$list_friends})'>Cancel</button>";
+                echo "<button id='cancelReq' onclick='cancel_freq({$request['uid']})'>Cancel</button>";
             }
         }
         $requests = fetch_friend_requests($pdo);
@@ -30,12 +30,11 @@ if (is_logged()) {
             foreach ($requests as $request) {
                 $_GET['person'] = $request;
                 include 'person.php';
-                echo "<button id='accReq' onclick='accept_freq({$request['uid']},{$list_friends})'>Accept</button>";
-                echo "<button id='rejReq' onclick='reject_freq({$request['uid']},{$list_friends})'>Reject</button>";
+                echo "<button id='accReq' onclick='accept_freq({$request['uid']})'>Accept</button>";
+                echo "<button id='rejReq' onclick='reject_freq({$request['uid']})'>Reject</button>";
             }
         } else {
-            //No friends
-            echo '<center><h3>Oops! You have no friends,yet!</h3></center>';
+            echo '<center><h3>You have no friend requests!</h3></center>';
         }
     } else {
         echo 'Error retrieving requests.';
@@ -59,6 +58,8 @@ if ($list_friends) {
             $_GET['person'] = $friend;
             include 'person.php';
         }
+    } else {
+        echo '<center><h3>Oops! You have no friends,yet!</h3></center>';
     }
 }
 
