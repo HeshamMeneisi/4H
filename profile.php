@@ -5,6 +5,9 @@
 <?php
 require_once 'user.php';
 include_once 'db.php';
+if(!is_logged()){
+        header("Location: index.php");  exit;
+}
 if (isset($_GET['uid'])) {
     $uid = $_GET['uid'];
     $st = $pdo->prepare('SELECT * FROM user WHERE BINARY uid=:uid');
@@ -17,6 +20,7 @@ if (isset($_GET['uid'])) {
     $user = get_user();
     $uid = $user['uid'];
 }
+
 
 $pic = 'image/pic_'.$uid.'.png';
 $nopic = false;
@@ -37,9 +41,21 @@ include_once 'hud.php';
 <div class="nickname">
   <?php echo '('.$user['nickname'].')'; ?>
 </div>
+
 <div class="profile-picture">
 <table id="pp">
 <tr>
+    <td>
+<?php 
+    if (!is_friend($uid,$pdo)){
+        echo "<button class='friend_button' onclick='send_freq({$uid})'>Add friend</button>";
+    }
+    elseif ($uid!=get_user()['uid']){
+        echo "<button class='friend_button' onclick='send_freq({$uid})'>Remove friend</button>";
+    }
+
+?>
+    </td>
     <td>
     <a target="_blank" href="image/no_profile_pic.jpg"><img src=<?php echo $pic; ?> /></a>
     </td>
@@ -62,12 +78,28 @@ include_once 'hud.php';
     </div>
     <?php endif; ?>
     </td>
+
 </tr>
 </table>
 </div>
+
 <?php
     if ($user['about']) {
         echo '<p id="biolabel">Bio</p><br/>'.'<div id="bio">'.$user['about'].'</div>';
+    }
+    if ($user['bdate']) {
+        echo '<br/><p id="biolabel">Birthday: '.date('j F', strtotime($user['bdate'])).'</p>';
+    }
+    if ($user['email']) {
+        echo '<br/><br/><p id="biolabel">Email: '.$user['email'].'</p>';
+    }
+    $location = fetch_loc($user['uid'],$pdo);
+    if ($location) {
+        echo '<br/><br/><p id="biolabel">Location: '.$location['city'].'</p>';
+    }
+    $phone = fetch_phones($user['uid'],$pdo);
+    if ($phone) {
+        echo '<br/><br/><p id="biolabel">Phone: '.$phone['phone'].'</p>';
     }
 ?>
 </div>
