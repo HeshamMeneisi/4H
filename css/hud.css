@@ -291,7 +291,5 @@ ul.navbar-p{
     border-radius:5px;
 }
 .friend_button{
-   margin-left:-510px;
-   margin-bottom:70px;
-   margin-top:20px;
+    width:100px;
 }

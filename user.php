@@ -141,7 +141,7 @@ function is_friend($uid, $pdo)
     if ($ownuid == $uid) {
         return true;
     }
-    $st = $pdo->prepare('SELECT uid FROM `friends` WHERE accepted=1 AND (uid1=:uid1 AND uid2=:uid2) OR (uid1=:uid2 AND uid2=:uid1)');
+    $st = $pdo->prepare('SELECT uid1 FROM `friends` WHERE accepted=1 AND (uid1=:uid1 AND uid2=:uid2) OR (uid1=:uid2 AND uid2=:uid1)');
     if ($st->execute(array(':uid1' => $ownuid, ':uid2' => $uid)) && $st->rowCount() > 0) {
         return true;
     }
