@@ -15,11 +15,17 @@
     float:left;
     margin-right:20px;
     color:#2abada;
+    display:inline;
+
 }
 .nickname{
-    font-size:15px;
-    float:left;
+    font-size:12px;
     margin-top:15px;
+    display:inline;
+    margin-left:5px;
+}
+.nickname a{
+	text-decoration:none;
 }
 
 .profile-picture img{

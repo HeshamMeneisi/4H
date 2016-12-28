@@ -56,7 +56,7 @@ include_once 'hud.php';
 ?>
     </td>
     <td>
-    <a target="_blank" href="image/no_profile_pic.jpg"><img src=<?php echo $pic; ?> /></a>
+    <img src=<?php echo $pic; ?> />
     </td>
     <td id="pp-upload">
     <?php if ($nopic):?>
