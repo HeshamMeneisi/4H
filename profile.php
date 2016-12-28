@@ -66,13 +66,16 @@ include_once 'hud.php';
 </table>
 </div>
 <?php
-    if($user['about']){
+    if ($user['about']) {
         echo '<p id="biolabel">Bio</p><br/>'.'<div id="bio">'.$user['about'].'</div>';
     }
 ?>
 </div>
 </div>
 <?php
+$_GET['r'] = 1;
+$_GET['l'] = 1;
+include 'friends.php';
 $_GET['p'] = 1;
 include 'timeline.php';
 ?>
