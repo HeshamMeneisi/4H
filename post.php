@@ -89,6 +89,11 @@ if (!isset($_GET['mode'])) {
             echo "<button class='likebtn' onclick='like_post({$puid},{$pid})'>Like</button>";
         }
 
+        if ($puid == get_user()['uid']) {
+            $gdata = json_encode($_GET);
+            echo "<button class='likebtn' onclick='delete_post({$puid},{$pid},{$gdata})'>Delete</button>";
+        }
+
         echo '</div>';
         $_GET['puid'] = $the_post['puid'];
         $_GET['pid'] = $the_post['pid'];
@@ -103,13 +108,13 @@ if (!isset($_GET['mode'])) {
         // display the post form, the posting operation should be handled in ajax
               // Text area
               echo '<div class="postform"><table><textarea id="caption" rows="10" cols="85" placeholder="What\'s on your mind?"></textarea>';
-              
+
               // Submit button
               $gdata = json_encode($_GET);
         echo "<button id='submitPost' onclick='post({$gdata})'>Post</button>";
               //Form end
         //Privacy menu
               echo '<select name="privacy" id="privacy" style="width:100px;margin-right:10px;"><option value="0">Public</option><option value="1">Private</option></select>';
-              echo '</table></div>';
+        echo '</table></div>';
     }
 }

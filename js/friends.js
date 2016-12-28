@@ -90,6 +90,29 @@ function send_freq(uid,lf)
           }
       });
 }
+function unfriend(uid,lf)
+{
+  data = {
+    o : 'u',
+    uid : uid
+  };
+  $.ajax({
+      type: "POST",
+      url: "ajax_req.php",
+      data: data,
+      dataType: 'json',
+      encode: true,
+      cache: false,
+  }).done(
+      function(result) {
+          if (result['success']) {
+              reload_friends(lf);
+          } else {
+              // failed
+              alert("Try again later.")
+          }
+      });
+}
 function reload_friends(lf)
 {
   data = {

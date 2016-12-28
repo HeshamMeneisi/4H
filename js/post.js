@@ -1,3 +1,22 @@
+function delete_post(puid, pid, getdata)
+{
+  $.ajax({
+      type: "POST",
+      url: "ajax_post.php",
+      data: {d:1,puid:puid,pid:pid},
+      dataType: 'json',
+      encode: true,
+      cache: false,
+  }).done(
+      function(result) {
+          if (result['success']) {
+              update_timeline(getdata);
+          } else {
+              // failed
+              alert("Try again later.")
+          }
+      });
+}
 function like_post(puid, pid)
 {
   data = {
