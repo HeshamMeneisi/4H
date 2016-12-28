@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background:rgba(238, 238, 238, 0.55);
+    background:#eee;
 }
 
 * {
@@ -292,25 +292,4 @@ ul.navbar-p{
 }
 .friend_button{
     width:100px;
-}
-#update_settings h1{
-    text-align:center;
-}
-#settings{
-  background:rgba(255,255,255,0.5);
-  width:15%;
-  margin: 0 auto;
-  padding:60px;
-  padding-top:40px;
-  padding-bottom:20px;
-  border-radius:5px;
-  border: 4px solid #ddd;
-  margin-bottom:40px;
-}
-#settings input{
-    width:200px;
-    height:30px;
-}
-.emoji{
-    width:24px;
 }

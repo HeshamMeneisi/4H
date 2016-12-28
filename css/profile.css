@@ -1,11 +1,8 @@
 .profile-head{
 	width:50%;
 	margin: 0 auto;
-	padding-top:30px;
+	margin-top:30px;
 	margin-bottom:-20px;
-}
-#pheadcontainer{
-	background:#fff;
 }
 #pp tr{
     max-width:100px;
@@ -18,22 +15,11 @@
     float:left;
     margin-right:20px;
     color:#2abada;
-    display:inline;
-
-}
-.nickname-p{
-    font-size:18px;
-    padding-top:8px;
-    margin-left:5px;
 }
 .nickname{
-    font-size:12px;
+    font-size:15px;
+    float:left;
     margin-top:15px;
-    display:inline;
-    margin-left:5px;
-}
-.nickname a{
-	text-decoration:none;
 }
 
 .profile-picture img{
@@ -63,10 +49,6 @@
 }
 #label{
 	font-size:16px;
-	margin-top:-80px;
+	margin-top:-70px;
 	margin-bottom:50px;
-}
-hr{
-	height:2px;
-	background: #2abada;
 }

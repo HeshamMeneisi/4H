@@ -42,7 +42,7 @@ if (!isset($_GET['mode'])) {
         echo "<div id='post'>";
             // Display poster name and post time
         $link = './profile.php?uid='.$puid;
-        echo '<div class="posthead">'.$poster_name."<div class='nickname'><a href={$link}>".$nickname.'</a></div></div><div id="postdate">Posted at: '.date('l, F jS, Y', strtotime($time)).'</div><div class="postcontent">'.$caption.'</div>';
+        echo '<div class="posthead">'.$poster_name."<a href={$link}>".$nickname.'</a></div><div id="postdate">Posted at: '.date('l, F jS, Y', strtotime($time)).'</div><div class="postcontent">'.$caption.'</div>';
 
         // Check for post likes
         echo '<div class="likes">';

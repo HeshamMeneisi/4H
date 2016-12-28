@@ -34,12 +34,11 @@ if (!file_exists($pic)) {
 $_GET['p'] = 1;
 include_once 'hud.php';
 ?>
-<div id="pheadcontainer">
 <div class='profile-head'>
 <div class="name">
   <?php echo $user['fname'].' '.$user['lname']; ?>
 </div>
-<div class="nickname-p">
+<div class="nickname">
   <?php echo '('.$user['nickname'].')'; ?>
 </div>
 
@@ -57,7 +56,7 @@ include_once 'hud.php';
 ?>
     </td>
     <td>
-    <img src=<?php echo $pic; ?> />
+    <a target="_blank" href="image/no_profile_pic.jpg"><img src=<?php echo $pic; ?> /></a>
     </td>
     <td id="pp-upload">
     <?php if ($nopic):?>
@@ -103,7 +102,6 @@ include_once 'hud.php';
     }
 ?>
 </div>
-<hr>
 </div>
 <?php
 $_GET['p'] = 1;

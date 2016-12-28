@@ -395,12 +395,8 @@ function process(&$text)
       ':\'D' => 1,
       ':D' => 2,
       ':P' => 3,
-      ':(' => 4,
-      ':\'(' => 5,
-      '-_-' => 6,
-        ':*' => 7,
     );
     foreach ($emap as $key => $value) {
-        $text = str_replace($key, "<img class='emoji' src='./image/emoji/{$value}.png'>", $text);
+        $text = str_replace($key, "<img src='./image/emoji/{$value}.png'>", $text);
     }
 }
