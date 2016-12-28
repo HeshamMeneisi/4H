@@ -35,7 +35,7 @@ if (is_logged()) {
             }
         } else {
             //No friends
-            echo '<center><h3>Oops! You have no friends,yet!</h3></center>';
+            echo '<center><h3>Oops! You have no friends, yet!</h3></center>';
         }
     } else {
         echo 'Error retrieving requests.';
