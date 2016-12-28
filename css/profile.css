@@ -18,6 +18,11 @@
     display:inline;
 
 }
+.nickname-p{
+    font-size:18px;
+    padding-top:8px;
+    margin-left:5px;
+}
 .nickname{
     font-size:12px;
     margin-top:15px;

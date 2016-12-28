@@ -38,7 +38,7 @@ include_once 'hud.php';
 <div class="name">
   <?php echo $user['fname'].' '.$user['lname']; ?>
 </div>
-<div class="nickname">
+<div class="nickname-p">
   <?php echo '('.$user['nickname'].')'; ?>
 </div>
 
