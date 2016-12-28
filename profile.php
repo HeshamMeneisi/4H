@@ -34,6 +34,7 @@ if (!file_exists($pic)) {
 $_GET['p'] = 1;
 include_once 'hud.php';
 ?>
+<div id="pheadcontainer">
 <div class='profile-head'>
 <div class="name">
   <?php echo $user['fname'].' '.$user['lname']; ?>
@@ -102,6 +103,7 @@ include_once 'hud.php';
     }
 ?>
 </div>
+<hr>
 </div>
 <?php
 $_GET['p'] = 1;
