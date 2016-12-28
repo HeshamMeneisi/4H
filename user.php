@@ -352,3 +352,15 @@ function create_notf_likecomment($uid, $pid, $cid, $pdo)
 
     return true;
 }
+
+function count_unseen_notf($pdo)
+{
+    $st = $pdo->prepare('SELECT COUNT(*) AS c FROM notification WHERE uid=:uid AND seen=0');
+    if (!$st->execute(array(
+      ':uid' => get_user()['uid'],
+  ))) {
+        throw new Exception('DB connection failed.');
+    } elseif ($st->rowCount() == 1) {
+        return $st->fetch(PDO::FETCH_ASSOC)['c'];
+    }
+}

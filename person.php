@@ -1,7 +1,8 @@
 <?php
 
 $person = $_GET['person'];
-$person_name = $person['fname'].' '.$person['lname'].' ('.$person['nickname'].')';
+$link = './profile.php?uid='.$person['uid'];
+$person_name = $person['fname'].' '.$person['lname']." (<a href={$link}>".$person['nickname'].'</a>)';
 if (isset($person['_time'])) {
     $person_time = $person['_time'];
 } else {

@@ -1,14 +1,15 @@
 <?php
 include_once 'user.php';
+include_once 'db.php';
 
 ?>
 <a href="../"><img class="logo" src="files/logo.png" alt="Socio"/></a>
-<?php 
+<?php
 if (isset($_GET['p'])) {
-        echo '<ul class="navbar-p">';
-    } else {
-        echo '<ul class="navbar">';
-    }
+    echo '<ul class="navbar-p">';
+} else {
+    echo '<ul class="navbar">';
+}
 ?>
   <li><form method="get" action="search.php" id="search">
     <input type="hidden" name="mode" value="q">
@@ -16,7 +17,7 @@ if (isset($_GET['p'])) {
   </form>
   </li>
   <li><a href="index.php">Home</a></li>
-    <li class="notify-btn"><a href="#">Notifications<span class="notify pink">2</span></a></li>
+    <li class="notify-btn"><a href="notifications.php">Notifications<span class="notify pink"><?php echo count_unseen_notf($pdo) ?></span></a></li>
     <?php if (isset($_GET['p'])): ?>
   <li><a href="account.php">Account</a></li>
   <li><a href="friends.php?r=1&l=1">Friends</a></li>
