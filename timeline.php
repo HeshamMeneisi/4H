@@ -12,7 +12,7 @@ if (!isset($_GET['aj'])):
 endif;
 include_once 'user.php';
 include_once 'db.php';
-
+ echo '<title>Timeline - Socio</title>';
 $onprof = isset($_GET['p']);
 
 if (is_logged() && !($onprof && isset($_GET['uid']))) {

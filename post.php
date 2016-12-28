@@ -5,7 +5,7 @@
 
 require_once 'user.php';
 include_once 'db.php';
-
+$user=get_user();
 if (!isset($_GET['aj'])) {
     include_once 'hud.php';
 }
@@ -19,7 +19,7 @@ if (!isset($_GET['mode'])) {
 
         // view post with id = $_GET['id'] and make sure to display number of likes and an expandable comments section
         if (isset($_GET['post'])) {
-            $the_post = $_GET['post'];
+            $the_post = $_GET['post'];      
         } elseif (isset($_GET['id']) && isset($_GET['puid'])) {
             // Fetch post data
             $the_post = fetch_post($_GET['id'], $_GET['puid'], $pdo);
@@ -42,7 +42,7 @@ if (!isset($_GET['mode'])) {
         echo "<div id='post'>";
             // Display poster name and post time
         $link = './profile.php?uid='.$puid;
-        echo '<div class="posthead">'.$poster_name."<div class='nickname'><a href={$link}>".$nickname.'</a></div></div><div id="postdate">Posted at: '.date('l, F jS, Y', strtotime($time)).'</div><div class="postcontent">'.$caption.'</div>';
+        echo '<div class="posthead">'.$poster_name."<div class='nickname'><a href={$link}>".$nickname.'</a></div></div><img class="post_thumb" src="image/pic_'.$user['uid'].'.png"/><div id="postdate">Posted at: '.date('l, F jS, Y', strtotime($time)).'</div><div class="postcontent">'.$caption.'</div>';
 
         // Check for post likes
         echo '<div class="likes">';

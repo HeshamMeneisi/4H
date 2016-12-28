@@ -67,6 +67,7 @@ body {
 
 #post .postcontent {
     margin-bottom: 10px;
+    max-width:500px
 }
 
 #post .likes {
@@ -313,4 +314,26 @@ ul.navbar-p{
 }
 .emoji{
     width:24px;
+}
+.notification a{
+    font-size:20px;
+    color: #2abada;
+}
+.notifications_container{
+    padding:10px;
+    border-radius:5px;
+    border:2px solid #eee;
+    max-width:50%;
+    margin: 0 auto;
+    margin-top:40px;
+    background: #fff;
+
+}
+.post_thumb{
+    display:inline;
+    width:50px;
+    height:50px;
+    border-radius:50px;
+    float:right;
+    margin-top:10px;
 }

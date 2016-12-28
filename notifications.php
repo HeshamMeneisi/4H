@@ -3,9 +3,10 @@
 <?php
 include_once 'hud.php';
 include_once 'db.php';
-
 $notf = fetch_notf($pdo);
 if ($notf) {
+    echo '<div class="notifications_container">';
+    echo '<h1>Notifications</h1>';
     foreach ($notf as $nf) {
         switch ($nf['type']) {
            case 0: // add
@@ -38,6 +39,10 @@ if ($notf) {
          }
         mark_all_notf($pdo);
     }
+echo '</div>';
+}
+else{
+    echo '<div class="notifications_container"><h1>You have no notifications.</h1></div>';
 }
 
 function fetch_notf($pdo)
