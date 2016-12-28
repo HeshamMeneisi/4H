@@ -25,8 +25,13 @@ if ($onprof) {
     } else {
         $uid = get_user()['uid'];
     }
-    // display the user's posts
-    $posts = fetch_posts_of($uid, $pdo);
+    if (is_friend($uid, $pdo)) {
+        // display the user's posts
+        $posts = fetch_posts_of($uid, false, $pdo);
+    } else {
+        //only public posts
+        $posts = fetch_posts_of($uid, true, $pdo);
+    }
     foreach ($posts as $post) {
         $_GET['mode'] = 'v';
         $_GET['post'] = $post;
@@ -56,9 +61,14 @@ if ($onprof) {
     }
 }
 
-function fetch_posts_of($uid, $pdo)
+function fetch_posts_of($uid, $publiconly, $pdo)
 {
-    $st = $pdo->prepare('SELECT * FROM post WHERE puid=:uid ORDER BY `ptime` DESC');
+    $sql = 'SELECT * FROM post WHERE puid=:uid';
+    if ($publiconly) {
+        $sql .= ' AND privacy=0';
+    }
+    $sql .= ' ORDER BY `ptime` DESC';
+    $st = $pdo->prepare($sql);
     if (!$st->execute(array(':uid' => $uid))) {
         throw new Exception('DB connection failed.');
     } else {
