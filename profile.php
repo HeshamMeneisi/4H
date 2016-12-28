@@ -73,9 +73,6 @@ include_once 'hud.php';
 </div>
 </div>
 <?php
-$_GET['r'] = 1;
-$_GET['l'] = 1;
-include 'friends.php';
 $_GET['p'] = 1;
 include 'timeline.php';
 ?>

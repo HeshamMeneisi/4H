@@ -8,7 +8,7 @@ if (!isset($_GET['aj'])):
 endif;
 include_once 'db.php';
 include_once 'user.php';
-
+include_once 'hud.php';
 if (is_logged()) {
     $list_friends = isset($_GET['l']);
     if (isset($_GET['r'])) {
@@ -34,7 +34,8 @@ if (is_logged()) {
                 echo "<button id='rejReq' onclick='reject_freq({$request['uid']},{$list_friends})'>Reject</button>";
             }
         } else {
-            echo '<br/><br/><hr><h3 style="margin-bottom:-10px;">No one wants to befriend you. HA!</h3>';
+            //No friends
+            echo '<center><h3>Oops! You have no friends,yet!</h3></center>';
         }
     } else {
         echo 'Error retrieving requests.';
