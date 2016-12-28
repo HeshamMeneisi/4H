@@ -135,6 +135,20 @@ function fetch_friends($uid, $pdo)
     return null;
 }
 
+function is_friend($uid, $pdo)
+{
+    $ownuid = get_user()['uid'];
+    if ($ownuid == $uid) {
+        return true;
+    }
+    $st = $pdo->prepare('SELECT uid FROM `friends` WHERE accepted=1 AND (uid1=:uid1 AND uid2=:uid2) OR (uid1=:uid2 AND uid2=:uid1)');
+    if ($st->execute(array(':uid1' => $ownuid, ':uid2' => $uid)) && $st->rowCount() > 0) {
+        return true;
+    }
+
+    return false;
+}
+
 function fetch_sent_requests($pdo)
 {
     $uid = get_user()['uid'];
@@ -227,6 +241,34 @@ function fetch_users_in($city, $country, $pdo)
         throw new Exception('DB connection failed.');
     } elseif ($st->rowCount() > 0) {
         return $st->fetchALL(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}
+
+function fetch_loc($uid, $pdo)
+{
+    $st = $pdo->prepare('SELECT location.* FROM user INNER JOIN location ON lid=loc WHERE uid=:uid');
+    if (!$st->execute(array(
+      ':uid' => $uid,
+    ))) {
+        throw new Exception('DB connection failed.');
+    } elseif ($st->rowCount() == 1) {
+        return $st->fetch(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}
+
+function fetch_phones($uid, $pdo)
+{
+    $st = $pdo->prepare('SELECT phone FROM user_phone WHERE uid=:uid');
+    if (!$st->execute(array(
+      ':uid' => $uid,
+    ))) {
+        throw new Exception('DB connection failed.');
+    } elseif ($st->rowCount() > 0) {
+        return $st->fetchAll(PDO::FETCH_ASSOC);
     }
 
     return null;
