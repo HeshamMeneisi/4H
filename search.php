@@ -35,12 +35,20 @@ if (isset($_GET['query'])) {
                         echo 'No matching users.';
                     }
                 } elseif ($type == ':lives') {
-                    $city = values[1];
+                    $city = $values[1];
                     $country = null;
-                    if (count($matches) > 2) {
+                    if (count($values) > 2) {
                         $country = $values[2];
                     }
-                    fetch_users_in($city, $country, $pdo);
+                    $users = fetch_users_in($city, $country, $pdo);
+                    if ($users) {
+                        foreach ($users as $user) {
+                            $_GET['person'] = $user;
+                            include 'person.php';
+                        }
+                    } else {
+                        echo 'No matching users.';
+                    }
                 }
             } else {
                 echo 'Invalid query.';

@@ -212,3 +212,22 @@ function fetch_users_with_name($fname, $lname, $pdo)
 
     return null;
 }
+
+function fetch_users_in($city, $country, $pdo)
+{
+    $sql = 'SELECT user.* FROM location INNER JOIN user ON lid=loc WHERE city=:city';
+    $parm = array(
+    ':city' => $city, );
+    if ($country) {
+        $sql .= ' AND country=:country';
+        $parm[':country'] = $country;
+    }
+    $st = $pdo->prepare($sql);
+    if (!$st->execute($parm)) {
+        throw new Exception('DB connection failed.');
+    } elseif ($st->rowCount() > 0) {
+        return $st->fetchALL(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}
