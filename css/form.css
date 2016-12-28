@@ -2,7 +2,6 @@
 	margin-top:10px;
     position: relative;
     border: 0;
-    background: rgba(255, 255, 255, 0.4);
     transition: all 1 ease-in-out;
     -webkit-transtion: all 1 ease-in-out;
 		max-width:none;
@@ -86,7 +85,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 10px;
     border-radius: 5px;
     padding: 20 25 0 25;
     border:none;
@@ -218,6 +217,16 @@ input[type="radio"]:checked + label span.radio::after {
   left: -27px;
   background-color: #6C788A;
 }
+#registration{
+  background:rgba(255,255,255,0.5);
+  width:50%;
+  margin: 0 auto;
+  padding:10px;
+  margin-top:50px;
+  border-radius:5px;
+  border: 4px solid #ddd;
+  margin-bottom:40px;
+}
 #register_label{
   text-align:center;
 }
@@ -229,6 +238,7 @@ input[type="radio"]:checked + label span.radio::after {
 }
 #register_label input{
   margin-top:20px;
+  margin-bottom:20px;
   font-size:20px;
   height:30px;
 }
