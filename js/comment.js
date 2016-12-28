@@ -1,9 +1,10 @@
-function likes_comment(puid, pid, cid)
+function like_comment(puid, pid, cid)
 {
   data = {
-    t:'p',
+    t:'c',
     puid : puid,
-    pid : pid
+    pid : pid,
+    cid : cid
   };
   $.ajax({
       type: "POST",

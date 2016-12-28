@@ -27,10 +27,17 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                     $commenter_name = $commenter['fname'].' '.$commenter['lname'].' ('.$commenter['nickname'].')';
                     $comment_time = $comment['ctime'];
                     $comment_content = $comment['caption'];
+<<<<<<< HEAD
                     echo '<div id="commenthead">'.$commenter_name.'</div><div id="postdate">Commented at: '.date('l, F jS, Y', strtotime($time)).'</div>';
                     $fetched_comment_likes = fetch_comment_likes($puid, $pid, $comment['cid'], $pdo);
                     echo '<div id="commentbody">'.$comment_content.'</div>';
                     
+=======
+                    echo '<br/><br/>'.$commenter_name.' at '.$comment_time;
+                    $cid = $comment['cid'];
+                    $fetched_comment_likes = fetch_comment_likes($puid, $pid, $cid, $pdo);
+                    echo '<br />'.$comment_content;
+>>>>>>> origin/master
                     if ($fetched_comment_likes) {
                         $comment_likes = $fetched_comment_likes->fetchAll(PDO::FETCH_ASSOC);
 
@@ -71,7 +78,7 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                     }
 
                     if (!$liked) {
-                        echo "<button class='likebtn' onclick='like_comment({$puid},{$pid})'>Like</button>";
+                        echo "<button class='likebtn' onclick='like_comment({$puid},{$pid},{$cid})'>Like</button>";
                     }
                  echo '</div>';
                 }
