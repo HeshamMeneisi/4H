@@ -85,21 +85,21 @@ include_once 'hud.php';
 
 <?php
     if ($user['about']) {
-        echo '<p id="biolabel">Bio</p><br/>'.'<div id="bio">'.$user['about'].'</div>';
+        echo '<p id="label">Bio</p><br/>'.'<div id="bio">'.$user['about'].'</div>';
     }
     if ($user['bdate']) {
-        echo '<br/><p id="biolabel">Birthday: '.date('j F', strtotime($user['bdate'])).'</p>';
+        echo '<br/><p id="label">Birthday: '.date('j F', strtotime($user['bdate'])).'</p>';
     }
     if ($user['email']) {
-        echo '<br/><br/><p id="biolabel">Email: '.$user['email'].'</p>';
+        echo '<br/><br/><p id="label">Email: '.$user['email'].'</p>';
     }
     $location = fetch_loc($user['uid'],$pdo);
     if ($location) {
-        echo '<br/><br/><p id="biolabel">Location: '.$location['city'].'</p>';
+        echo '<br/><br/><p id="label">Location: '.$location['city'].'</p>';
     }
     $phone = fetch_phones($user['uid'],$pdo);
     if ($phone) {
-        echo '<br/><br/><p id="biolabel">Phone: '.$phone['phone'].'</p>';
+        echo '<br/><br/><p id="label">Phone: '.$phone['phone'].'</p>';
     }
 ?>
 </div>
