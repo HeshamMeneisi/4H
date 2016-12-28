@@ -167,3 +167,15 @@ function fetch_recent_friend_posts($pdo)
 
     return null;
 }
+
+function fetch_posts_matching($query, $pdo)
+{
+    $uid = get_user()['uid'];
+    $query = '%'.$query.'%';
+    $st = $pdo->prepare('SELECT * FROM (SELECT uid1 as puid FROM `friends` WHERE accepted=1 AND uid2 = :uid UNION (SELECT uid2 as puid FROM `friends` WHERE accepted=1 AND uid1 = :uid)) y, post WHERE (privacy=0 OR post.puid=y.puid) AND caption like :q GROUP BY post.puid,post.pid ORDER BY ptime DESC LIMIT 25');
+    if ($st->execute(array(':uid' => $uid, ':q' => $query))) {
+        return $st->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}
