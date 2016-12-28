@@ -179,3 +179,36 @@ function fetch_posts_matching($query, $pdo)
 
     return null;
 }
+
+function fetch_user_with_email($email, $pdo)
+{
+    $st = $pdo->prepare('SELECT * FROM user WHERE email=:email');
+    if (!$st->execute(array(
+      ':email' => $email,
+  ))) {
+        throw new Exception('DB connection failed.');
+    } elseif ($st->rowCount() == 1) {
+        return $st->fetch(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}
+
+function fetch_users_with_name($fname, $lname, $pdo)
+{
+    $sql = 'SELECT * FROM user WHERE fname=:fname';
+    $parm = array(
+    ':fname' => $fname, );
+    if ($lname) {
+        $sql .= ' AND lname=:lname';
+        $parm[':lname'] = $lname;
+    }
+    $st = $pdo->prepare($sql);
+    if (!$st->execute($parm)) {
+        throw new Exception('DB connection failed.');
+    } elseif ($st->rowCount() > 0) {
+        return $st->fetchALL(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}

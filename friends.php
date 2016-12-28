@@ -19,13 +19,8 @@ if (is_logged()) {
             echo '<br/><br/><hr><h3 style="margin-bottom:-10px;">Friend requests</h3>';
             echo '<br/><br/>Your pending requests.';
             foreach ($requests as $request) {
-                $name = $request['fname'].' '.$request['lname'].' ('.$request['nickname'].')';
-                $pic = 'image/pic_'.$uid.'.png';
-                if (!file_exists($pic)) {
-                    $pic = "./image/def_{$request['gender']}.jpg";
-                }
-                $request_time = $request['_time'];
-                echo "<br/><br/> <img src='{$pic}' height='50' width='50'>".$name.' at '.$request_time;
+                $_GET['person'] = $request;
+                include 'person.php';
                 echo "<button id='cancelReq' onclick='cancel_freq({$request['uid']},{$list_friends})'>Cancel</button>";
             }
         }
@@ -33,13 +28,8 @@ if (is_logged()) {
         if ($requests) {
             echo '<br/><br/>Those people want to be your friend!';
             foreach ($requests as $request) {
-                $name = $request['fname'].' '.$request['lname'].' ('.$request['nickname'].')';
-                $pic = 'image/pic_'.$uid.'.png';
-                if (!file_exists($pic)) {
-                    $pic = "./image/def_{$request['gender']}.jpg";
-                }
-                $request_time = $request['_time'];
-                echo "<br/><br/> <img src='{$pic}' height='50' width='50'>".$name.' at '.$request_time;
+                $_GET['person'] = $request;
+                include 'person.php';
                 echo "<button id='accReq' onclick='accept_freq({$request['uid']},{$list_friends})'>Accept</button>";
                 echo "<button id='rejReq' onclick='reject_freq({$request['uid']},{$list_friends})'>Reject</button>";
             }
@@ -65,14 +55,8 @@ if ($list_friends) {
     if ($friends) {
         echo '<br/><br/><hr><h3 style="margin-bottom:-10px;">Friends</h3>';
         foreach ($friends as $friend) {
-            $friend_name = $friend['fname'].' '.$friend['lname'].' ('.$friend['nickname'].')';
-            $friend_time = $friend['_time'];
-            $uid = $friend['uid'];
-            $pic = 'image/pic_'.$uid.'.png';
-            if (!file_exists($pic)) {
-                $pic = "./image/def_{$friend['gender']}.jpg";
-            }
-            echo "<br/><br/><img src='{$pic}' height='50' width='50'>".$friend_name.' since '.$friend_time; // _time igets updated to time of acceptance ?
+            $_GET['person'] = $friend;
+            include 'person.php';
         }
     }
 }
