@@ -91,7 +91,7 @@ if (!isset($_GET['mode'])) {
 
         if ($puid == get_user()['uid']) {
             $gdata = json_encode($_GET);
-            echo "<button class='likebtn' onclick='delete_post({$puid},{$pid},{$gdata})'>Delete</button>";
+            echo "<button class='delbtn' onclick='delete_post({$puid},{$pid},{$gdata})'>Delete Post</button>";
         }
 
         echo '</div>';
@@ -108,7 +108,7 @@ if (!isset($_GET['mode'])) {
         // display the post form, the posting operation should be handled in ajax
               // Text area
               echo '<div class="postform"><table><textarea id="caption" rows="10" cols="85" placeholder="What\'s on your mind?"></textarea>';
-
+              echo '<input id="attachment" name="attachment" type="file" title="Attach"/>';
               // Submit button
               $gdata = json_encode($_GET);
         echo "<button id='submitPost' onclick='post({$gdata})'>Post</button>";

@@ -255,6 +255,15 @@ ul.navbar-p{
     color:#fff;
     border-radius:3px;
 }
+.delbtn{
+    margin-left:10px;
+    background: crimson;
+    border:0;
+    color:#fff;
+    border-radius:3px;
+    float:right;
+    margin-top:-80px;
+}
 #postdate{
     margin-top:5px;
     margin-bottom:10px;
@@ -280,4 +289,9 @@ ul.navbar-p{
     padding:10px;
     margin-top:10px;
     border-radius:5px;
+}
+.friend_button{
+   margin-left:-510px;
+   margin-bottom:70px;
+   margin-top:20px;
 }
