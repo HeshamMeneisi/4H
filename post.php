@@ -32,6 +32,7 @@ if (!isset($_GET['mode'])) {
         $poster_name = $name['fname'].' '.$name['lname'];
         $nickname = ' ('.$name['nickname'].') ';
         $caption = $the_post['caption'];
+        process($caption);
         $time = $the_post['ptime'];
         $fetched_likes = fetch_likes($pid, $puid, $pdo);
         $conid = $puid.'_'.$pid;

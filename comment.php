@@ -28,6 +28,7 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                     $commenter_name = $commenter['fname'].' '.$commenter['lname']." (<a href={$link}>".$commenter['nickname'].'</a>)';
                     $comment_time = $comment['ctime'];
                     $comment_content = $comment['caption'];
+                    process($comment_content);
                     echo '<div id="commenthead">'.$commenter_name.'</div><div id="postdate">Commented at: '.date('l, F jS, Y', strtotime($time)).'</div>';
                     $cid = $comment['cid'];
                     $fetched_comment_likes = fetch_comment_likes($puid, $pid, $cid, $pdo);

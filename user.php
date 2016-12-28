@@ -387,3 +387,16 @@ function mark_all_notf($pdo)
         return $st->fetch(PDO::FETCH_ASSOC)['c'];
     }
 }
+function process(&$text)
+{
+    $emap =
+    array(
+      ':"D' => 1,
+      ':\'D' => 1,
+      ':D' => 2,
+      ':P' => 3,
+    );
+    foreach ($emap as $key => $value) {
+        $text = str_replace($key, "<img src='./image/emoji/{$value}.png'>", $text);
+    }
+}
