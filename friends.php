@@ -10,13 +10,14 @@ include_once 'db.php';
 include_once 'user.php';
 
 if (is_logged()) {
+    $list_friends = isset($_GET['l']);
     if (isset($_GET['r'])) {
         $uid = get_user()['uid'];
         // display all friend requests
         $requests = fetch_sent_requests($pdo);
         if ($requests) {
             echo '<br/><br/><hr><h3 style="margin-bottom:-10px;">Friend requests</h3>';
-            echo '<br/><br/>Pending.';
+            echo '<br/><br/>Your pending requests.';
             foreach ($requests as $request) {
                 $name = $request['fname'].' '.$request['lname'].' ('.$request['nickname'].')';
                 $pic = 'image/pic_'.$uid.'.png';
@@ -25,7 +26,7 @@ if (is_logged()) {
                 }
                 $request_time = $request['_time'];
                 echo "<br/><br/> <img src='{$pic}' height='50' width='50'>".$name.' at '.$request_time;
-                echo '<button id="cancelReq" onclick="cancel()">Cancel</button>';
+                echo "<button id='cancelReq' onclick='cancel_freq({$request['uid']},{$list_friends})'>Cancel</button>";
             }
         }
         $requests = fetch_friend_requests($pdo);
@@ -39,7 +40,8 @@ if (is_logged()) {
                 }
                 $request_time = $request['_time'];
                 echo "<br/><br/> <img src='{$pic}' height='50' width='50'>".$name.' at '.$request_time;
-                echo "<button id='rejReq' onclick='reject({$request['uid']})'>Reject</button>";
+                echo "<button id='accReq' onclick='accept_freq({$request['uid']},{$list_friends})'>Accept</button>";
+                echo "<button id='rejReq' onclick='reject_freq({$request['uid']},{$list_friends})'>Reject</button>";
             }
         } else {
             echo '<br/><br/><hr><h3 style="margin-bottom:-10px;">No one wants to befriend you. HA!</h3>';
@@ -49,7 +51,7 @@ if (is_logged()) {
     }
 }
 
-if (isset($_GET['l'])) {
+if ($list_friends) {
     if (isset($_GET['uid'])) {
         $uid = $_GET['uid'];
     } elseif (is_logged()) {
