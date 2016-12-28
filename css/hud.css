@@ -4,7 +4,7 @@ body {
 }
 
 * {
-    font-family: 'Lato', sans-serif !important;
+    font-family:'Lato',sans-serif !important;
 }
 
 *:focus {
@@ -17,8 +17,8 @@ body {
     padding: 0;
     margin: 0;
     width: 100%;
-    background: #444444;
-    box-shadow: 0 0 5px black;
+    background: #8b9dc3;
+    box-shadow: 0px 0px 5px 0px #fff;
     min-width: 800px;
 }
 
@@ -41,10 +41,12 @@ body {
 #post {
     margin: 0 auto;
     margin-top: 30px;
+    margin-bottom: 30px;
     background: #fff;
     border: 2px solid #ddd;
     max-width: 600px;
     padding: 30px;
+    padding-bottom:40px;
     border-radius: 5px;
 }
 
@@ -53,6 +55,8 @@ body {
     border-radius: 5px;
     background: #ddd;
     border: none;
+    margin-top:20px;
+    margin-bottom:20px;
 }
 
 #post .posthead {
@@ -72,12 +76,14 @@ body {
 .postform {
     margin: 0 auto;
     margin-top: 50px;
+    margin-bottom: 50px;
     width: 625px;
 }
 
 #privacy {
-    display: block;
+    display:inline;
     height: 30px;
+    float:right;
 }
 
 #caption {
@@ -86,21 +92,52 @@ body {
     resize: none;
     margin: 0 auto;
     margin-bottom: 10px;
+    margin-left:-15px;
     height:100px;
-    min-width:600px;
-    max-width:600px;
-    border: 5px solid #999;
+    min-width:625px;
+    border: 5px solid lightblue;
     padding:10px;
 }
 #submitPost {
-    margin-top:-30px;
+    background:#2abada;
+    border:0;
+    font-size:20px;
+    color:#fff;
+    border-radius:5px;
     width: 100px;
     height: 30px;
-    float: right;
-}
+    display:inline;
+    float:right;
 
+}
+#comment {
+    font-size: 15px;
+    border-radius: 5px;
+    resize: none;
+    margin: 0 auto;
+    margin-top:20px;
+    margin-bottom: 15px;
+    height:100px;
+    width:580px;
+    border: 5px solid lightblue;
+    padding:10px;
+}
+#submitComment {
+    background:#2abada;
+    border:0;
+    font-size:15px;
+    color:#fff;
+    border-radius:5px;
+    width: 80px;
+    height: 25px;
+    display:inline;
+    float:left;
+
+}
 .logo {
-float:left;
+    float:left;
+    width: 194px;
+    height: 75px;
 }
 
 ul {
@@ -119,15 +156,7 @@ ul {
     color: #bebebe;
     width: 200px;
     padding: 5px 10px 5px 5px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
-    -webkit-transition: all 0.7s ease 0s;
-    -moz-transition: all 0.7s ease 0s;
-    -o-transition: all 0.7s ease 0s;
     transition: all 0.7s ease 0s;
 }
 
@@ -149,7 +178,9 @@ li a {
 }
 
 li a:hover {
-    background-color: #111;
+    background-color: #fff;
+    color:#3b5998;
+    border-radius: 0 10 0 10;
 }
 
 
@@ -165,16 +196,16 @@ li a:hover {
 
 .pink {
     margin-top: 1px;
-    background-color: #f6788c;
+    background-color: crimson;
     border-radius: 50% 50% 50% 50%;
     display: inline-block;
     background: -moz-linear-gradient(center top, #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
     background: -webkit-linear-gradient(center top, #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
     background: -o-linear-gradient(center top, #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
     background: linear-gradient(center top, #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
-    border: 1px solid #9f2438;
+    border:0;
     color: #FFF;
-    text-shadow: 0 1px 1px #666;
+
 }
 
 div.comment {
@@ -216,4 +247,36 @@ ul.navbar-p{
     float:right;
     padding:0;
     max-width:1000px;
+}
+.likebtn{
+    margin-left:10px;
+    background: #2abada;
+    border:0;
+    color:#fff;
+    border-radius:3px;
+}
+#postdate{
+    margin-top:5px;
+    margin-bottom:10px;
+    font-size:12px;
+    color: #888;
+}
+#commentslabel{
+    margin-top:10px;
+    font-size:25px;
+    margin-bottom:10px;
+}
+#commenthead{
+    color:#2abada;
+}
+#commentbody{
+    margin-top:10px;
+    margin-bottom:10px;
+    font-size:12px;
+}
+.post_comment{
+    border: 2px solid #eee;
+    background:rgba(221, 221, 221, 0.17);
+    padding:10px;
+    border-radius:5px;
 }
