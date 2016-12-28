@@ -1,0 +1,3 @@
+ALTER TABLE `notification` DROP FOREIGN KEY `notification_ibfk_3`;
+ALTER TABLE `notification` ADD CONSTRAINT `notification_ibfk_3` FOREIGN KEY (`pid`, `uid`) REFERENCES `4h`.`post`(`pid`, `puid`) ON DELETE CASCADE ON UPDATE CASCADE; 
+ALTER TABLE `notification` ADD CONSTRAINT `notification_ibfk_4` FOREIGN KEY (`pid`, `uid`, `cid`) REFERENCES `4h`.`comment`(`pid`, `puid`, `cid`) ON DELETE RESTRICT ON UPDATE RESTRICT;

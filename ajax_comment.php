@@ -26,5 +26,6 @@ include_once 'db.php';
         $return['success'] = false;
     } else {
         $return['success'] = true;
+        create_notf_comment($puid, $pid, $pdo);
     }
     echo json_encode($return);

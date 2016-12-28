@@ -14,6 +14,7 @@ if (is_logged() && isset($_POST['t']) && isset($_POST['puid']) && isset($_POST['
             $return['success'] = false;
         } else {
             $return['success'] = true;
+            create_notf_likepost($puid, $pid, $pdo);
         }
     } else {
         $cid = $_POST['cid'];
@@ -23,6 +24,7 @@ if (is_logged() && isset($_POST['t']) && isset($_POST['puid']) && isset($_POST['
             $return['success'] = false;
         } else {
             $return['success'] = true;
+            create_notf_likecomment($puid, $pid, $cid, $pdo);
         }
     }
 } else {

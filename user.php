@@ -276,21 +276,79 @@ function fetch_phones($uid, $pdo)
 
 function create_notf_add($uid, $pdo)
 {
-    $pdo->prepare(
-    'INSERT INTO `notification`(`uid`,`seen`,`iuid`,`type`,`_time`)
-    VALUES (:uid, 0, :iuid, 0, NOW())');
+    $st = $pdo->prepare(
+    'INSERT INTO `notification`(`uid`,`seen`,`iuid`,`type`,`_time`) VALUES (:uid, 0, :iuid, 0, NOW())');
     $data = array(
-    ':uid' => $uid,
-    ':iuid' => get_user()['uid'],
-);
+      ':uid' => $uid,
+      ':iuid' => get_user()['uid'],
+    );
+    if (!$st->execute($data)) {
+        throw new Exception('DB connection failed.');
+    }
+
+    return true;
 }
+
 function create_notf_acc($uid, $pdo)
 {
-    $pdo->prepare(
-  'INSERT INTO `notification`(`uid`,`seen`,`iuid`,`type`,`_time`)
-  VALUES (:uid, 0, :iuid, 1, NOW())');
+    $st = $pdo->prepare(
+  'INSERT INTO `notification`(`uid`,`seen`,`iuid`,`type`,`_time`) VALUES (:uid, 0, :iuid, 1, NOW())');
     $data = array(
-  ':uid' => $uid,
-  ':iuid' => get_user()['uid'],
-);
+      ':uid' => $uid,
+      ':iuid' => get_user()['uid'],
+    );
+    if (!$st->execute($data)) {
+        throw new Exception('DB connection failed.');
+    }
+
+    return true;
+}
+
+function create_notf_comment($uid, $pid, $pdo)
+{
+    $st = $pdo->prepare(
+  'INSERT INTO `notification`(`uid`,`seen`,`iuid`,`type`, `pid`,`_time`) VALUES (:uid, 0, :iuid, b\'010\', :pid, NOW())');
+    $data = array(
+      ':uid' => $uid,
+      ':iuid' => get_user()['uid'],
+      ':pid' => $pid,
+    );
+    if (!$st->execute($data)) {
+        throw new Exception('DB connection failed.');
+    }
+
+    return true;
+}
+
+function create_notf_likepost($uid, $pid, $pdo)
+{
+    $st = $pdo->prepare(
+  'INSERT INTO `notification`(`uid`,`seen`,`iuid`,`type`, `pid`,`_time`) VALUES (:uid, 0, :iuid, b\'011\', :pid, NOW())');
+    $data = array(
+      ':uid' => $uid,
+      ':iuid' => get_user()['uid'],
+      ':pid' => $pid,
+    );
+    if (!$st->execute($data)) {
+        throw new Exception('DB connection failed.');
+    }
+
+    return true;
+}
+
+function create_notf_likecomment($uid, $pid, $cid, $pdo)
+{
+    $st = $pdo->prepare(
+  'INSERT INTO `notification`(`uid`,`seen`,`iuid`,`type`, `pid`, `cid`, `_time`) VALUES (:uid, 0, :iuid, b\'100\', :pid, :cid, NOW())');
+    $data = array(
+      ':uid' => $uid,
+      ':iuid' => get_user()['uid'],
+      ':pid' => $pid,
+      ':cid' => $cid,
+    );
+    if (!$st->execute($data)) {
+        throw new Exception('DB connection failed.');
+    }
+
+    return true;
 }
