@@ -1,4 +1,6 @@
 <!--  view, submit modes should be implemented, $_GET['mode']={'v','s'} -->
+<script src="js/post.js"></script>
+<script src="js/comment.js"></script>
 <?php
 
 require_once 'user.php';

@@ -1,3 +1,4 @@
+<script src="js/updater.js"></script>
 <?php
 include_once 'user.php';
 include_once 'db.php';
@@ -17,7 +18,7 @@ if (isset($_GET['p'])) {
   </form>
   </li>
   <li><a href="index.php">Home</a></li>
-    <li class="notify-btn"><a href="notifications.php">Notifications<span class="notify pink"><?php echo count_unseen_notf($pdo) ?></span></a></li>
+    <li class="notify-btn"><a href="notifications.php">Notifications<span id="ncounter" class="notify pink"><?php echo count_unseen_notf($pdo) ?></span></a></li>
     <?php if (isset($_GET['p'])): ?>
   <li><a href="account.php">Account</a></li>
   <li><a href="friends.php?r=1&l=1">Friends</a></li>

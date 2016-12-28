@@ -336,12 +336,23 @@ function create_notf_likepost($uid, $pid, $pdo)
     return true;
 }
 
-function create_notf_likecomment($uid, $pid, $cid, $pdo)
+function create_notf_likecomment($puid, $pid, $cid, $pdo)
 {
-    $st = $pdo->prepare(
-  'INSERT INTO `notification`(`uid`,`seen`,`iuid`,`type`, `pid`, `cid`, `_time`) VALUES (:uid, 0, :iuid, b\'100\', :pid, :cid, NOW())');
+    $st = $pdo->prepare('SELECT cuid FROM comment WHERE puid=:puid AND pid=:pid AND cid=:cid');
     $data = array(
-      ':uid' => $uid,
+      ':puid' => $puid,
+      ':pid' => $pid,
+      ':cid' => $cid,
+    );
+    if (!$st->execute($data)) {
+        throw new Exception('DB connection failed.');
+    }
+    $cuid = $st->fetch(PDO::FETCH_ASSOC)['cuid'];
+    $st = $pdo->prepare(
+      'INSERT INTO `notification`(`uid`,`seen`,`iuid`,`type`, `pid`, `cid`, `cpuid`, `_time`) VALUES (:cuid, 0, :iuid, b\'100\', :pid, :cid, :cpuid, NOW())');
+    $data = array(
+      ':cpuid' => $puid,
+      ':cuid' => $cuid,
       ':iuid' => get_user()['uid'],
       ':pid' => $pid,
       ':cid' => $cid,
@@ -359,6 +370,18 @@ function count_unseen_notf($pdo)
     if (!$st->execute(array(
       ':uid' => get_user()['uid'],
   ))) {
+        throw new Exception('DB connection failed.');
+    } elseif ($st->rowCount() == 1) {
+        return $st->fetch(PDO::FETCH_ASSOC)['c'];
+    }
+}
+
+function mark_all_notf($pdo)
+{
+    $st = $pdo->prepare('UPDATE `notification` SET `seen` = 1 WHERE `uid` = :uid');
+    if (!$st->execute(array(
+    ':uid' => get_user()['uid'],
+))) {
         throw new Exception('DB connection failed.');
     } elseif ($st->rowCount() == 1) {
         return $st->fetch(PDO::FETCH_ASSOC)['c'];

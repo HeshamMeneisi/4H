@@ -5,8 +5,9 @@
 <?php
 require_once 'user.php';
 include_once 'db.php';
-if(!is_logged()){
-        header("Location: index.php");  exit;
+if (!is_logged()) {
+    header('Location: index.php');
+    exit;
 }
 if (isset($_GET['uid'])) {
     $uid = $_GET['uid'];
@@ -20,7 +21,6 @@ if (isset($_GET['uid'])) {
     $user = get_user();
     $uid = $user['uid'];
 }
-
 
 $pic = 'image/pic_'.$uid.'.png';
 $nopic = false;
@@ -46,12 +46,11 @@ include_once 'hud.php';
 <table id="pp">
 <tr>
     <td>
-<?php 
-    if (!is_friend($uid,$pdo)){
+<?php
+    if (!is_friend($uid, $pdo)) {
         echo "<button class='friend_button' onclick='send_freq({$uid})'>Add friend</button>";
-    }
-    elseif ($uid!=get_user()['uid']){
-        echo "<button class='friend_button' onclick='unfriend()({$uid})'>Remove friend</button>";
+    } elseif ($uid != get_user()['uid']) {
+        echo "<button class='friend_button' onclick='unfriend({$uid})'>Remove friend</button>";
     }
 
 ?>
@@ -93,11 +92,11 @@ include_once 'hud.php';
     if ($user['email']) {
         echo '<br/><br/><p id="label">Email: '.$user['email'].'</p>';
     }
-    $location = fetch_loc($user['uid'],$pdo);
+    $location = fetch_loc($user['uid'], $pdo);
     if ($location) {
         echo '<br/><br/><p id="label">Location: '.$location['city'].'</p>';
     }
-    $phone = fetch_phones($user['uid'],$pdo);
+    $phone = fetch_phones($user['uid'], $pdo);
     if ($phone) {
         echo '<br/><br/><p id="label">Phone: '.$phone['phone'].'</p>';
     }
