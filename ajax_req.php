@@ -14,6 +14,7 @@ if (is_logged() && isset($_POST['o']) && isset($_POST['uid'])) {
               $return['success'] = false;
           } else {
               $return['success'] = true;
+              create_notf_acc($uid, $pdo);
           }
         break;
       case 'r': // reject request from uid
@@ -50,6 +51,7 @@ if (is_logged() && isset($_POST['o']) && isset($_POST['uid'])) {
               $return['success'] = false;
           } else {
               $return['success'] = true;
+              create_notf_add($uid, $pdo);
           }
         break;
       default:

@@ -1,4 +1,4 @@
-function accept_freq(uid,lf)
+function accept_freq(uid)
 {
   data = {
     o : 'a',
@@ -14,14 +14,14 @@ function accept_freq(uid,lf)
   }).done(
       function(result) {
           if (result['success']) {
-              reload_friends(lf);
+              reload_friends(1);
           } else {
               // failed
               alert("Try again later.")
           }
       });
 }
-function reject_freq(uid,lf)
+function reject_freq(uid)
 {
   data = {
     o : 'r',
@@ -37,14 +37,14 @@ function reject_freq(uid,lf)
   }).done(
       function(result) {
           if (result['success']) {
-              reload_friends(lf);
+              reload_friends(1);
           } else {
               // failed
               alert("Try again later.")
           }
       });
 }
-function cancel_freq(uid,lf)
+function cancel_freq(uid)
 {
   data = {
     o : 'c',
@@ -60,14 +60,14 @@ function cancel_freq(uid,lf)
   }).done(
       function(result) {
           if (result['success']) {
-              reload_friends(lf);
+              reload_friends(1);
           } else {
               // failed
               alert("Try again later.")
           }
       });
 }
-function send_freq(uid,lf)
+function send_freq(uid)
 {
   data = {
     o : 's',
@@ -83,14 +83,14 @@ function send_freq(uid,lf)
   }).done(
       function(result) {
           if (result['success']) {
-              reload_friends(lf);
+              reload_friends(1);
           } else {
               // failed
               alert("Try again later.")
           }
       });
 }
-function unfriend(uid,lf)
+function unfriend(uid)
 {
   data = {
     o : 'u',
@@ -106,7 +106,7 @@ function unfriend(uid,lf)
   }).done(
       function(result) {
           if (result['success']) {
-              reload_friends(lf);
+              reload_friends(1);
           } else {
               // failed
               alert("Try again later.")

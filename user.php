@@ -273,3 +273,24 @@ function fetch_phones($uid, $pdo)
 
     return null;
 }
+
+function create_notf_add($uid, $pdo)
+{
+    $pdo->prepare(
+    'INSERT INTO `notification`(`uid`,`seen`,`iuid`,`type`,`_time`)
+    VALUES (:uid, 0, :iuid, 0, NOW())');
+    $data = array(
+    ':uid' => $uid,
+    ':iuid' => get_user()['uid'],
+);
+}
+function create_notf_acc($uid, $pdo)
+{
+    $pdo->prepare(
+  'INSERT INTO `notification`(`uid`,`seen`,`iuid`,`type`,`_time`)
+  VALUES (:uid, 0, :iuid, 1, NOW())');
+    $data = array(
+  ':uid' => $uid,
+  ':iuid' => get_user()['uid'],
+);
+}
