@@ -28,9 +28,10 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                     $comment_time = $comment['ctime'];
                     $comment_content = $comment['caption'];
                     echo '<div id="commenthead">'.$commenter_name.'</div><div id="postdate">Commented at: '.date('l, F jS, Y', strtotime($time)).'</div>';
-                    $fetched_comment_likes = fetch_comment_likes($puid, $pid, $comment['cid'], $pdo);
+                    $cid = $comment['cid'];
+                    $fetched_comment_likes = fetch_comment_likes($puid, $pid, $cid, $pdo);
                     echo '<div id="commentbody">'.$comment_content.'</div>';
-                    
+
                     if ($fetched_comment_likes) {
                         $comment_likes = $fetched_comment_likes->fetchAll(PDO::FETCH_ASSOC);
 
@@ -71,19 +72,17 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                     }
 
                     if (!$liked) {
-                        echo "<button class='likebtn' onclick='like_comment({$puid},{$pid})'>Like</button>";
+                        echo "<button class='likebtn' onclick='like_comment({$puid},{$pid},{$cid})'>Like</button>";
                     }
-                 echo '</div>';
+                    echo '</div>';
                 }
             }
         } elseif ($_GET['mode'] == 's') {
             // display the comment form, the commenting operation should be handled in ajax
             // Text area
-            $fid = $puid.'_'.$pid;
-            echo "<div class='commentform' id={$fid}><table><textarea id='comment' rows='10' cols='85' placeholder='Leave a comment!'></textarea>";
+            echo "<div class='commentform'><table><textarea id='comment_cap' rows='10' cols='85' placeholder='Leave a comment!'></textarea>";
             // Submit button
-            $gdata = json_encode($_GET);
-            echo "<button id='submitComment' onclick='comment({$puid},{$pid}, {$gdata})'>Comment</button>";
+            echo "<button id='submitComment' onclick='comment({$puid},{$pid})'>Comment</button>";
             //Form end
             echo '</table></div>';
         } else {

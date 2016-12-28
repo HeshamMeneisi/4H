@@ -24,8 +24,8 @@ function like_comment(puid, pid, cid)
       });
 }
 
-function comment(puid, pid, getdata) {
-    var caption = $('#' + puid + '_' + pid + ' #caption').val();
+function comment(puid, pid) {
+    var caption = $('#' + puid + '_' + pid + ' #comment_cap').val();
     var data = {
         'puid': puid,
         'pid': pid,
@@ -44,7 +44,7 @@ function comment(puid, pid, getdata) {
         }).done(
             function(result) {
                 if (result['success']) {
-                    reload_post(puid, pid, getdata);
+                    reload_post(puid, pid);
                 } else {
                     // failed
                     alert("Try again later.")
