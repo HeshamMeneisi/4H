@@ -127,7 +127,29 @@ function fetch_most_liked($pdo)
 
 function fetch_friends($uid, $pdo)
 {
-    $st = $pdo->prepare('SELECT uid1 AS fuid,_time AS since FROM `friends` WHERE accepted=1 AND uid2 = :uid UNION (SELECT uid2,_time FROM `friends` WHERE accepted=1 AND uid1 = :uid)');
+    $st = $pdo->prepare('SELECT `user`.*, _time FROM `friends` INNER JOIN `user` ON `user`.uid=`friends`.uid1 WHERE accepted=1 AND uid2=:uid UNION (SELECT `user`.*, _time FROM `friends` INNER JOIN `user` ON `user`.uid=`friends`.uid2  WHERE accepted=1 AND uid1=:uid)');
+    if ($st->execute(array(':uid' => $uid))) {
+        return $st->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}
+
+function fetch_sent_requests($pdo)
+{
+    $uid = get_user()['uid'];
+    $st = $pdo->prepare('SELECT `user`.* ,_time FROM `friends` INNER JOIN `user` ON `user`.uid=`friends`.uid2 WHERE accepted=0 AND uid1=:uid');
+    if ($st->execute(array(':uid' => $uid))) {
+        return $st->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return null;
+}
+
+function fetch_friend_requests($pdo)
+{
+    $uid = get_user()['uid'];
+    $st = $pdo->prepare('SELECT `user`.* ,_time FROM `friends` INNER JOIN `user` ON `user`.uid=`friends`.uid1 WHERE accepted=0 AND uid2=:uid');
     if ($st->execute(array(':uid' => $uid))) {
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
