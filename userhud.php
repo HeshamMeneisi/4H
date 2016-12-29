@@ -17,7 +17,7 @@ if (isset($_GET['p'])) {
     <input name="query" type="text" size="40" placeholder="Search..." />
   </form>
   </li>
-  <li><a href="/">Home</a></li>
+  <li><a href="./">Home</a></li>
     <li class="notify-btn"><a href="notifications">Notifications<span class="notify notification_counter"><?php echo count_unseen_notf($pdo) ?></span></a></li>
     <?php if (isset($_GET['p'])): ?>
   <li><a href="settings">Settings</a></li>
