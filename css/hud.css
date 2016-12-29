@@ -164,6 +164,7 @@ ul {
     margin-top:-60px;
 }
 #search input[type="text"] {
+    font-size:13px;
     margin-top: 22px;
     margin-right:10px;
     margin-left:200px;
