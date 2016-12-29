@@ -51,7 +51,7 @@ include_once 'hud.php';
     </tr>
     <tr id="pp-upload">
     <?php if ($nopic):?>
-    <?php if ($uid==get_user()['uid']):?>
+    <?php if ($uid == get_user()['uid']):?>
     <input type="button" id="EditButton" value="Edit" onclick="show_upload()" />
     <?php endif; ?>
     <div id="uploadSection">
@@ -61,7 +61,7 @@ include_once 'hud.php';
     </form>
     </div>
     <?php else:?>
-    <?php if ($uid==get_user()['uid']):?>
+    <?php if ($uid == get_user()['uid']):?>
     <input type="button" id="EditButton" value="Edit" onclick="show_upload()" />
     <?php endif; ?>
     <div id="uploadSection">
@@ -73,10 +73,19 @@ include_once 'hud.php';
     <?php endif; ?>
     </tr>
 <?php
-    if (!is_friend($uid, $pdo)) {
-        echo "<button class='friend_button' onclick='send_freq({$uid})'>Add friend</button>";
-    } elseif ($uid != get_user()['uid']) {
-        echo "<button class='friend_button' onclick='unfriend({$uid})'>Remove friend</button>";
+    $fs = get_friend_state($uid, $pdo);
+    switch ($fs) {
+      case 1:
+          echo "<button class='friend_button' onclick='unfriend({$uid})'>Unfriend</button>"; break;
+      case 2: // request pending
+          echo 'Pending request.'; break;
+      case 3: // request exists
+          echo "<button class='friend_button' onclick='accept_freq({$uid})'>Accept</button>";
+          echo "<button class='friend_button' onclick='reject_freq({$uid})'>Reject</button>"; break;
+        break;
+      case 4: // not friends
+          echo "<button class='friend_button' onclick='send_freq({$uid})'>Add friend</button>"; break;
+        break;
     }
 
 ?>

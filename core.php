@@ -149,6 +149,33 @@ function is_friend($uid, $pdo)
     return false;
 }
 
+function get_friend_state($uid, $pdo)
+{
+    if ($uid == get_user()['uid']) {
+        return 0; // same user
+    }
+    $ownuid = get_user()['uid'];
+    if ($ownuid == $uid) {
+        return true;
+    }
+    $st = $pdo->prepare('SELECT uid1,accepted FROM `friends` WHERE (uid1=:uid1 AND uid2=:uid2) OR (uid1=:uid2 AND uid2=:uid1)');
+    if ($st->execute(array(':uid1' => $ownuid, ':uid2' => $uid)) && $st->rowCount() > 0) {
+        $val = $st->fetch(PDO::FETCH_ASSOC);
+
+        if ($val['accepted']) {
+            return 1; // friends
+        }
+
+        if ($val['uid1'] == get_user()['uid']) {
+            return 2; // pending request
+        }
+
+        return 3; // incoming request
+    }
+
+    return 4; // not friends
+}
+
 function fetch_sent_requests($pdo)
 {
     $uid = get_user()['uid'];
@@ -409,4 +436,3 @@ function process(&$text)
         $text = str_ireplace($key, "<img class='emoji' src='./content/static/emojis/{$value}.png'>", $text);
     }
 }
-
