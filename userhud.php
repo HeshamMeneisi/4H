@@ -4,7 +4,7 @@ include_once 'core.php';
 include_once 'db.php';
 
 ?>
-<a href="../"><img class="logo" src="files/logo.png" alt="Socio"/></a>
+<a href="../"><img class="logo" style="margin-top:5px;" src="files/logo.png" alt="Hallo"/></a>
 <?php
 if (isset($_GET['p'])) {
     echo '<ul class="navbar-p">';

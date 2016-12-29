@@ -1,7 +1,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<a href="../"><img class="logo" src="files/logo.png" style="margin-top:20px;margin-left:20px;" alt="Socio"/></a>
+<a href="../"><img class="logo" src="files/logo.png" style="margin-top:20px;margin-left:20px;" alt="Hallo"/></a>
 <table class="xform" id="lform">
     </tr>
       <td><label>Email</label></td>

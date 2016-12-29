@@ -4,8 +4,8 @@
 <head>
 <div id="registration">
 <div id="register_label">
-    <h2>Welcome to Socio!</h2>
-    <p>Don't have a Socio account?</p>
+    <h2>Welcome to Hallo!</h2>
+    <p>Don't have a Hallo account?</p>
     <input type="button" id="StartRegistration" value="Create an account" onclick="register()" />
 </div>
 <table class="xform" id="rform">
