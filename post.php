@@ -26,6 +26,10 @@ if (!isset($_GET['mode'])) {
         } else {
             echo 'Unable to retrieve post.';
         }
+        if(!$the_post){
+            echo '<center><h3>Post not found.</h3></center>';
+            exit();
+        }
         $puid = $the_post['puid'];
         $pid = $the_post['pid'];
         $name = fetch_name($the_post['puid'], $pdo);
@@ -36,6 +40,7 @@ if (!isset($_GET['mode'])) {
         $time = $the_post['ptime'];
         $fetched_likes = fetch_likes($pid, $puid, $pdo);
         $conid = $puid.'_'.$pid;
+        //Invalid post
         if (!isset($_GET['aj'])) {
             echo "<container id={$conid}>";
         }
@@ -43,7 +48,13 @@ if (!isset($_GET['mode'])) {
             // Display poster name and post time
         $link = './profile?uid='.$puid;
         $user = get_user();
-        echo '<div class="posthead"><img class="post_thumb" src="content/users/'.$puid.'/profile_picture.png"/>'.$poster_name."<div class='nickname'><a href={$link}>".$nickname.'</a></div></div><div id="postdate">Posted at: '.date('l, F jS, Y', strtotime($time)).'</div><div class="postcontent">'.$caption.'</div>';
+        if(!file_exists('content/users/'.$puid.'/profile_picture.png')){
+            $profile_picture = "content/static/default_picture/{$user['gender']}.jpg";
+        }
+        else{
+            $profile_picture = 'content/users/'.$puid.'/profile_picture.png';
+        }
+        echo '<div class="posthead"><img class="post_thumb" src="'.$profile_picture.'"/>'.$poster_name."<div class='nickname'><a href={$link}>".$nickname.'</a></div></div><div id="postdate">Posted at: '.date('l, F jS, Y', strtotime($time)).'</div><div class="postcontent">'.$caption.'</div>';
 
         // Check for post likes
         echo '<div class="likes">';
