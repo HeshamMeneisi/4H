@@ -1,5 +1,6 @@
 <!-- should support default query mode and advanced search mode $_GET['mode'] = {'q','a'} -->
 <?php
+echo '<title>Search - Hallo</title>';
 include_once 'core.php';
 include_once 'db.php';
 include_once 'hud.php';
@@ -9,8 +10,8 @@ if (isset($_GET['query'])) {
         $q = $_GET['query'];
         if (preg_match('#^email:#i', $q) === 1 || preg_match('#^name:#i', $q) === 1 || preg_match('#^location:#i', $q) === 1) {
             $values = explode(' ', $q);
+            $type = strtolower($values[0]);
             if (count($values) > 1) {
-                $type = strtolower($values[0]);
                 if ($type == 'email:') {
                     $user = fetch_user_with_email($values[1], $pdo);
                     if ($user) {
@@ -51,7 +52,7 @@ if (isset($_GET['query'])) {
                     }
                 }
             } else {
-                echo 'Invalid query.';
+                echo 'Please specify a '.rtrim($type, ":").'.';
             }
         } else {
             // search for posts/comments containing $q in caption
@@ -63,8 +64,11 @@ if (isset($_GET['query'])) {
                     include 'post.php';
                 }
             }
+            else{
+                echo 'No matching posts.';
+            }
         }
-    }
+    }   
 } else {
     echo 'Nothing found.';
 }
