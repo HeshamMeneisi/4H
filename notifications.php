@@ -12,32 +12,32 @@ if ($notf) {
            case 0: // add
              $_GET['n'] = $nf['nickname'];
              $_GET['c'] = ' sent you a friend request!';
-             $_GET['l'] = './friends.php?r=1&l=1';
+             $_GET['l'] = './friends?r=1&l=1';
              include 'notification.php';
              break;
            case 1: // accept
              $_GET['n'] = $nf['nickname'];
              $_GET['c'] = ' accepted your friend request!';
-             $_GET['l'] = './profile.php?uid='.$nf['iuid'];
+             $_GET['l'] = './profile?uid='.$nf['iuid'];
              include 'notification.php';
              break;
            case 2: // comment
              $_GET['n'] = $nf['nickname'];
              $_GET['c'] = ' commented on your post.';
-             $_GET['l'] = "./post.php?mode=v&puid={$nf['uid']}&id={$nf['pid']}";
+             $_GET['l'] = "./post?mode=v&puid={$nf['uid']}&id={$nf['pid']}";
              include 'notification.php';
              break;
            case 3: // like post
              $_GET['n'] = $nf['nickname'];
              $_GET['c'] = ' liked your post.';
-             $_GET['l'] = "./post.php?mode=v&puid={$nf['uid']}&id={$nf['pid']}";
+             $_GET['l'] = "./post?mode=v&puid={$nf['uid']}&id={$nf['pid']}";
              include 'notification.php';
              break;
              break;
            case 4: // like comment
              $_GET['n'] = $nf['nickname'];
              $_GET['c'] = ' liked your comment on a post.';
-             $_GET['l'] = "./post.php?mode=v&puid={$nf['cpuid']}&id={$nf['pid']}";
+             $_GET['l'] = "./post?mode=v&puid={$nf['cpuid']}&id={$nf['pid']}";
              include 'notification.php';
              break;
              break;
