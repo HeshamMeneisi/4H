@@ -20,7 +20,10 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
         // view comments for post with id = $pid and make sure to display number of likes
             $comments = fetch_comments($pid, $puid, $pdo);
             if ($comments) {
+                echo "<button class='shbtn' id='showComm' onclick='show_comments({$puid},{$pid})'>Show Comments</button>";
+                echo "<div id='commentsec'>";
                 echo '<hr><div id="commentslabel">Comments</div>';
+                echo "<button class='shbtn' id='hideComm' onclick='hide_comments({$puid},{$pid})'>Hide</button>";
                 foreach ($comments as $comment) {
                     echo '<div class="post_comment">';
                     $commenter = fetch_commenter_name($comment['cuid'], $pdo);
@@ -29,17 +32,16 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                     $comment_time = $comment['ctime'];
                     $comment_content = $comment['caption'];
                     process($comment_content);
-                    if(!file_exists('content/users/'.$puid.'/profile_picture.png')){
+                    if (!file_exists('content/users/'.$puid.'/profile_picture.png')) {
                         $profile_picture = "content/static/default_picture/{$user['gender']}.jpg";
-                    }
-                    else{
+                    } else {
                         $profile_picture = 'content/users/'.$puid.'/profile_picture.png';
                     }
                     echo '<img class="comment_thumb" src="'.$profile_picture.'"/profile_picture.png"/><div id="commenthead">'.$commenter_name.'</div><div id="postdate">Commented at: '.date('l, F jS, Y', strtotime($time)).'</div>';
                     $cid = $comment['cid'];
                     $fetched_comment_likes = fetch_comment_likes($puid, $pid, $cid, $pdo);
                     echo '<div id="commentbody">'.$comment_content.'</div>';
-                    
+
                     echo '<div class="comment_like">';
                     if ($fetched_comment_likes) {
                         $comment_likes = $fetched_comment_likes->fetchAll(PDO::FETCH_ASSOC);
@@ -84,6 +86,7 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                     }
                     echo '</div>';
                 }
+                echo '</div>';
             }
         } elseif ($_GET['mode'] == 's') {
             // display the comment form, the commenting operation should be handled in ajax

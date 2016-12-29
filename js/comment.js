@@ -16,7 +16,7 @@ function like_comment(puid, pid, cid)
   }).done(
       function(result) {
           if (result['success']) {
-              reload_post(puid, pid);
+              reload_post(puid, pid, true);
           } else {
               // failed
               alert("Try again later.")
@@ -44,11 +44,25 @@ function comment(puid, pid) {
         }).done(
             function(result) {
                 if (result['success']) {
-                    reload_post(puid, pid);
+                    reload_post(puid, pid, true);
                 } else {
                     // failed
                     alert("Try again later.")
                 }
             });
     }
+}
+
+function show_comments(puid, pid)
+{
+  conid = puid+'_'+pid;
+  $('#'+conid+' #showComm').hide();
+  $('#'+conid+' #commentsec').show();
+}
+
+function hide_comments(puid, pid)
+{
+  conid = puid+'_'+pid;
+  $('#'+conid+' #commentsec').hide();
+  $('#'+conid+' #showComm').show();
 }

@@ -1,46 +1,52 @@
-function delete_post(puid, pid, getdata)
-{
-  $.ajax({
-      type: "POST",
-      url: "ajax_post.php",
-      data: {d:1,puid:puid,pid:pid},
-      dataType: 'json',
-      encode: true,
-      cache: false,
-  }).done(
-      function(result) {
-          if (result['success']) {
-              update_timeline(getdata);
-          } else {
-              // failed
-              alert("Try again later.")
-          }
-      });
+function delete_post(puid, pid, getdata) {
+    $.ajax({
+        type: "POST",
+        url: "ajax_post.php",
+        data: {
+            d: 1,
+            puid: puid,
+            pid: pid
+        },
+        dataType: 'json',
+        encode: true,
+        cache: false,
+    }).done(
+        function(result) {
+            if (result['success']) {
+                update_timeline(getdata);
+            } else {
+                // failed
+                alert("Try again later.")
+            }
+        });
 }
-function like_post(puid, pid)
-{
-  data = {
-    t:'p',
-    puid : puid,
-    pid : pid
-  };
-  $.ajax({
-      type: "POST",
-      url: "ajax_like.php",
-      data: data,
-      dataType: 'json',
-      encode: true,
-      cache: false,
-  }).done(
-      function(result) {
-          if (result['success']) {
-              reload_post(puid, pid);
-          } else {
-              // failed
-              alert("Try again later.")
-          }
-      });
+
+function like_post(puid, pid) {
+    data = {
+        t: 'p',
+        puid: puid,
+        pid: pid
+    };
+    $.ajax({
+        type: "POST",
+        url: "ajax_like.php",
+        data: data,
+        dataType: 'json',
+        encode: true,
+        cache: false,
+    }).done(
+        function(result) {
+            if (result['success']) {
+                conid = puid + '_' + pid;
+                csv = $('#' + conid + ' #commentsec').is(':visible');
+                reload_post(puid, pid, csv);
+            } else {
+                // failed
+                alert("Try again later.")
+            }
+        });
 }
+
 function post(getdata) {
     var caption = $('#caption').val();
     var privacy = $('#privacy option:selected').val();
@@ -70,23 +76,25 @@ function post(getdata) {
     }
 }
 
-function reload_post(puid, pid)
-{
-  conid = puid+'_'+pid;
-  data = {
-    mode : 'v',
-    puid : puid,
-    id : pid,
-    aj : '1'
-  };
-  $.ajax({
-      type: "GET",
-      url: "post.php",
-      data: data,
-      encode: true,
-      cache: false,
-  }).done(
-      function(result) {
-          $('#'+conid).replaceWith(result);
-      });
+function reload_post(puid, pid, showcomments) {
+    conid = puid + '_' + pid;
+    data = {
+        mode: 'v',
+        puid: puid,
+        id: pid,
+        aj: '1'
+    };
+    $.ajax({
+        type: "GET",
+        url: "post.php",
+        data: data,
+        encode: true,
+        cache: false,
+    }).done(
+        function(result) {
+            $('#' + conid).replaceWith(result);
+            if (showcomments) {
+                show_comments(puid, pid);
+            }
+        });
 }

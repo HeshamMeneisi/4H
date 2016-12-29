@@ -418,3 +418,17 @@ i
 input[type="file"]{
     max-width:160px;
 }
+#commentsec{
+  display: none;
+}
+.shbtn{
+  margin-top: 5px;
+  background: lightblue;
+  border:0;
+  border-radius:3px;
+  transition: all 0.5s;
+}
+.shbtn:hover{
+  background: lightgreen;
+  cursor: pointer;
+}
