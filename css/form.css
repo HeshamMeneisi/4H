@@ -36,25 +36,22 @@
     font-size:15px;
 }
 .uhud .sbtn {
-    background:#fff;
-    color:#444;
+    background:#444;
+    color:#fff;
     margin-top:0px;
-    font-size:16px;
+    font-size:14px;
+    height:24px;
     font-family: sans-serif !important;
     border:none;
+    width:70px;
 }
 .uhud .sbtn:hover {
-    margin-top:0px;
-    background:#fff;
-    color:#444;
-    border:none;
-    font-size:18px;
+    color:lightblue;
     transition:0.3s;
 }
 
 .sbtn:hover {
     cursor: pointer;
-    font-size:18px;
 }
 
 .sbtn:focus{
@@ -106,16 +103,15 @@
     min-width: 300px;
 }
 #rform .sbtn {
-    background: #2abada;
+    background: #444;
     color: #fff;
     transition: 0.3s;
-    font-size:24px;
+    font-size:22px;
+    height: 40px;
 }
 #rform .sbtn:hover {
-    background: #2abada;
-    color: #fff;
+    color: lightblue;
     transition: 0.3s;
-    font-size:30px;
 }
 
 
@@ -234,6 +230,7 @@ input[type="radio"]:checked + label span.radio::after {
   text-align:center;
 }
 #register_label h2{
+  color:#2abada;
   font-size:50px;
 }
 #register_label p{
@@ -241,7 +238,17 @@ input[type="radio"]:checked + label span.radio::after {
 }
 #register_label input{
   margin-top:20px;
-  margin-bottom:20px;
+  margin-bottom:50px;
   font-size:20px;
   height:30px;
+  background:#444;
+  border:0;
+  color:#fff;
+  border-radius:5px;
+  cursor:pointer;
+  transition:0.5s;
+}
+#register_label input:hover{
+  background:#444;
+  color: #2abada;
 }

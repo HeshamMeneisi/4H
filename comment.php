@@ -29,7 +29,13 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                     $comment_time = $comment['ctime'];
                     $comment_content = $comment['caption'];
                     process($comment_content);
-                    echo '<img class="comment_thumb" src="content/users/'.$comment['cuid'].'/profile_picture.png"/><div id="commenthead">'.$commenter_name.'</div><div id="postdate">Commented at: '.date('l, F jS, Y', strtotime($time)).'</div>';
+                    if(!file_exists('content/users/'.$puid.'/profile_picture.png')){
+                        $profile_picture = "content/static/default_picture/{$user['gender']}.jpg";
+                    }
+                    else{
+                        $profile_picture = 'content/users/'.$puid.'/profile_picture.png';
+                    }
+                    echo '<img class="comment_thumb" src="'.$profile_picture.'"/profile_picture.png"/><div id="commenthead">'.$commenter_name.'</div><div id="postdate">Commented at: '.date('l, F jS, Y', strtotime($time)).'</div>';
                     $cid = $comment['cid'];
                     $fetched_comment_likes = fetch_comment_likes($puid, $pid, $cid, $pdo);
                     echo '<div id="commentbody">'.$comment_content.'</div>';
