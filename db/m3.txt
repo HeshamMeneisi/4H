@@ -1,2 +1,2 @@
 ALTER TABLE `notification` DROP FOREIGN KEY `notification_ibfk_3`;
-ALTER TABLE `notification` ADD `cpuid` BIGINT NULL DEFAULT NULL AFTER `cpid`;
+ALTER TABLE `notification` ADD `cpuid` BIGINT NULL DEFAULT NULL AFTER `cid`;
