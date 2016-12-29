@@ -248,13 +248,10 @@ div.comment {
 ul.navbar{
     float:right;
     padding:0;
-    max-width:900px;
-
 }
 ul.navbar-p{
     float:right;
     padding:0;
-    max-width:900px;
 }
 .likebtn{
     margin-left:10px;

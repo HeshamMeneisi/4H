@@ -108,7 +108,9 @@ function fetch_comment_likes($puid, $pid, $comment_id, $pdo)
 function fetch_most_commented($pdo)
 {
     $st = $pdo->query('SELECT *  FROM (SELECT COUNT(*) AS c ,puid,pid FROM `comment` GROUP BY puid,pid) y, post WHERE post.puid=y.puid AND post.pid=y.pid AND privacy=0 HAVING MAX(y.c)');
-    if ($st->rowCount() == 1) {
+    if (!$st) {
+        throw new Exception('DB connection failed.');
+    } elseif ($st->rowCount() == 1) {
         return $st->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -118,7 +120,9 @@ function fetch_most_commented($pdo)
 function fetch_most_liked($pdo)
 {
     $st = $pdo->query('SELECT *  FROM (SELECT COUNT(*) AS c ,puid,pid FROM `likes_post` GROUP BY puid,pid) y, post WHERE post.puid=y.puid AND post.pid=y.pid AND privacy=0 HAVING MAX(y.c)');
-    if ($st->rowCount() == 1) {
+    if (!$st) {
+        throw new Exception('DB connection failed.');
+    } elseif ($st->rowCount() == 1) {
         return $st->fetch(PDO::FETCH_ASSOC);
     }
 
