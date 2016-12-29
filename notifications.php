@@ -1,6 +1,6 @@
 <!-- retrieve top user notifications and display them in chronological order -->
-
 <?php
+echo '<title>Notifications - Hallo</title>';
 include_once 'hud.php';
 include_once 'db.php';
 $notf = fetch_notf($pdo);

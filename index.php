@@ -3,7 +3,6 @@
   <link rel="stylesheet" href="css/hud.css">
   <link rel="stylesheet" href="css/form.css">
   <script src="js/jquery-3.1.1.js"></script>
-  <title>Hallo</title>
 </head>
 <body>
   <?php

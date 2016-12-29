@@ -1,8 +1,7 @@
 <?php
+echo '<title>Friends - Hallo</title>';
 require_once 'core.php';
-
 include_once 'db.php';
-
 include_once 'hud.php';
 
 $user = get_user();

@@ -27,7 +27,7 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                 foreach ($comments as $comment) {
                     echo '<div class="post_comment">';
                     $commenter = fetch_commenter_name($comment['cuid'], $pdo);
-                    $link = './profile?uid='.$puid;
+                    $link = './profile?uid='.$comment['cuid'];
                     $commenter_name = $commenter['fname'].' '.$commenter['lname']."<a class='nickname' href={$link}>(".$commenter['nickname'].')</a>';
                     $comment_time = $comment['ctime'];
                     $comment_content = $comment['caption'];

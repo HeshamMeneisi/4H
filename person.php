@@ -18,4 +18,5 @@ if (isset($_GET['f'])) {
 if (!file_exists($pic)) {
     $pic = "./content/static/default_picture/{$person['gender']}.jpg";
 }
-echo "<img class='request_thumb' src='{$pic}' height='50' width='50'>".$person_name.($person_time ? "<br>{$ttext}: ".date('l, F jS, Y', strtotime($person_time)) : '').'<br>';
+
+echo "<div class='person'><img class='request_thumb' src='{$pic}' height='50' width='50'>".$person_name.($person_time ? '<br>Request time: '.date('l, F jS, Y', strtotime($person_time)): '')."</div>";

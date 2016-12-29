@@ -12,8 +12,10 @@
 <?php
 require_once 'core.php';
 if (is_logged()):
+  echo '<title>Timeline - Hallo</title>';
   include 'userhud.php';
 else:
+  echo '<title>Hallo</title>';
   include 'loginform.php';
 endif
 ?>

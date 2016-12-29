@@ -3,7 +3,7 @@
 include_once 'core.php';
 include_once 'db.php';
 include_once 'hud.php';
-
+echo '<div class="friends_container">';
 if (isset($_GET['query'])) {
     if ($_GET['mode'] == 'q') {
         $q = $_GET['query'];
@@ -68,3 +68,4 @@ if (isset($_GET['query'])) {
 } else {
     echo 'Nothing found.';
 }
+echo '</div>';

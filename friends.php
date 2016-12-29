@@ -1,6 +1,7 @@
 <!-- display all requests if $_GET['r'] and display all friends if $_GET['l'] -->
 <?php
 if (!isset($_GET['aj'])):
+echo '<title>Friends - Hallo</title>';
  ?>
  <script src="js/friends.js"></script>
  <container id='friends'>

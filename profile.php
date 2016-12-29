@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head><link rel="stylesheet" href="css/profile.css"></head>
+<head><link rel="stylesheet" href="css/profile.css">
+<title>Profile - Hallo</title>
+</head>
 <body>
 <container id="profilecontainer">
 <?php
