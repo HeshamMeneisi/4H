@@ -3,15 +3,15 @@
 include_once 'core.php';
 include_once 'db.php';
 include_once 'hud.php';
-echo '<div class="friends_container">';
+echo '<h1 class="page_title">Search</h1><div class="friends_container">';
 if (isset($_GET['query'])) {
     if ($_GET['mode'] == 'q') {
         $q = $_GET['query'];
-        if ($q[0] == ':') {
+        if (preg_match('#^email:#i', $q) === 1 || preg_match('#^name:#i', $q) === 1 || preg_match('#^location:#i', $q) === 1) {
             $values = explode(' ', $q);
             if (count($values) > 1) {
-                $type = $values[0];
-                if ($type == ':email') {
+                $type = strtolower($values[0]);
+                if ($type == 'email:') {
                     $user = fetch_user_with_email($values[1], $pdo);
                     if ($user) {
                         $_GET['person'] = $user;
@@ -19,7 +19,7 @@ if (isset($_GET['query'])) {
                     } else {
                         echo 'User not found.';
                     }
-                } elseif ($type == ':name') {
+                } elseif ($type == 'name:') {
                     $fname = $values[1];
                     $lname = null;
                     if (count($values) > 2) {
@@ -34,7 +34,7 @@ if (isset($_GET['query'])) {
                     } else {
                         echo 'No matching users.';
                     }
-                } elseif ($type == ':lives') {
+                } elseif ($type == 'location:') {
                     $city = $values[1];
                     $country = null;
                     if (count($values) > 2) {
