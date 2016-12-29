@@ -13,7 +13,7 @@ if (!isset($_GET['aj'])) {
 // Handle invalid invoking
 
 if (!isset($_GET['mode'])) {
-    echo 'Error retrieving post.';
+    echo '<center><h3>Post not found.</h3></center>';
 } else {
     if ($_GET['mode'] == 'v') {
 
@@ -24,7 +24,7 @@ if (!isset($_GET['mode'])) {
             // Fetch post data
             $the_post = fetch_post($_GET['id'], $_GET['puid'], $pdo);
         } else {
-            echo 'Unable to retrieve post.';
+            echo '<center><h3>Post not found.</h3></center>';
         }
         if (!$the_post) {
             echo '<center><h3>Post not found.</h3></center>';
@@ -34,7 +34,7 @@ if (!isset($_GET['mode'])) {
         $pid = $the_post['pid'];
         $name = fetch_name($the_post['puid'], $pdo);
         $poster_name = $name['fname'].' '.$name['lname'];
-        $nickname = '('.$name['nickname'].')';
+        $nickname = $name['nickname'];
         $caption = $the_post['caption'];
         process($caption);
         $time = $the_post['ptime'];
@@ -51,7 +51,7 @@ if (!isset($_GET['mode'])) {
         } else {
             $profile_picture = 'content/users/'.$puid.'/profile_picture.png';
         }
-        echo '<div class="posthead"><img class="post_thumb" src="'.$profile_picture.'"/>'.$poster_name."<div class='nickname'><a href={$link}>".$nickname.'</a></div></div><div id="postdate">Posted at: '.date('l, F jS, Y', strtotime($time)).'</div><div class="postcontent">'.$caption.'</div>';
+        echo '<div class="posthead"><img class="post_thumb" src="'.$profile_picture.'"/>'.$poster_name."<div class='nickname'>(<a href={$link}>".$nickname.'</a>)</div></div><div id="postdate">Posted at: <a href="post?mode=v&puid='.$puid.'&id='.$pid.'">'.date('l, F jS, Y', strtotime($time)).'</a></div><div class="postcontent">'.$caption.'</div>';
 
         // Check for post likes
         echo '<div class="likes">';
