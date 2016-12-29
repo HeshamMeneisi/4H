@@ -4,7 +4,7 @@ body {
 }
 
 * {
-    font-family:'Roboto',sans-serif !important;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 *:focus {
@@ -182,13 +182,15 @@ ul {
 li {
     float: left;
     list-style-type: none;
+    margin-top:0px;
 }
 
 li a {
     display: block;
     color: white;
-    padding: 25px 16px;
+    padding: 20px 16px;
     text-decoration: none;
+    margin-top:8px;
 }
 
 li a:hover {
