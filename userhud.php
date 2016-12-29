@@ -18,7 +18,7 @@ if (isset($_GET['p'])) {
   </form>
   </li>
   <li><a href="./">Home</a></li>
-    <li class="notify-btn"><a href="notifications">Notifications<span class="notify notification_counter"><?php echo count_unseen_notf($pdo) ?></span></a></li>
+    <li class="notify-btn"><a href="notifications">Notifications<span id="ncounter" class="notify notification_counter"><?php echo count_unseen_notf($pdo) ?></span></a></li>
     <?php if (isset($_GET['p'])): ?>
   <li><a href="settings">Settings</a></li>
   <li><a href="friends.php?r=1&l=1">Friends</a></li>
