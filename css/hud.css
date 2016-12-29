@@ -284,9 +284,10 @@ ul.navbar-p{
 }
 #postdate a{
 
-    color: #444;
+    color: #2abada;
 }
 #commentslabel{
+    color: #444;
     margin-top:10px;
     font-size:25px;
     margin-bottom:10px;
@@ -412,6 +413,9 @@ i
     display:inline;
     margin-left:5px;
     text-decoration:none;
+}
+.nickname a{
+   color: #2abada
 }
 .comment_like{
     font-size:12px;
