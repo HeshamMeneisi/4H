@@ -17,14 +17,14 @@ if (isset($_GET['p'])) {
     <input name="query" type="text" size="40" placeholder="Search..." />
   </form>
   </li>
-  <li><a href="index.php">Home</a></li>
-    <li class="notify-btn"><a href="notifications.php">Notifications<span class="notify notification_counter"><?php echo count_unseen_notf($pdo) ?></span></a></li>
+  <li><a href="/">Home</a></li>
+    <li class="notify-btn"><a href="notifications">Notifications<span class="notify notification_counter"><?php echo count_unseen_notf($pdo) ?></span></a></li>
     <?php if (isset($_GET['p'])): ?>
-  <li><a href="settings.php">Settings</a></li>
+  <li><a href="settings">Settings</a></li>
   <li><a href="friends.php?r=1&l=1">Friends</a></li>
   <?php else:
     $nickname = get_user()['nickname'];
-  echo "<li><a href='./profile.php'>{$nickname}</a></li>";
+  echo "<li><a href='./profile'>{$nickname}</a></li>";
   endif; ?>
-  <li><a href='./auth.php?op=x'>Logout</a></li>
+  <li><a href='./auth?op=x'>Logout</a></li>
 </ul>

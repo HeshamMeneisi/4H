@@ -14,15 +14,12 @@ if(isset($_POST["submit"])) {
 if ($_FILES["uploaded_image"]["size"] > 500000) {
     $upload = false;
 }
-if($type != "jpg" && $type != "png" && $type != "jpeg" && $type != "gif" ) {
+if($type != "jpg" && $type != "png" && $type != "jpeg") {
     $upload = false;
 }
-if (!$upload) {
-} else {
-    if (move_uploaded_file($_FILES["uploaded_image"]["tmp_name"], $target_file)) {
-        header("location: profile");  exit;
-    } else {
-        //Upload failed
-    }
-}
+if ($upload) {
+    move_uploaded_file($_FILES["uploaded_image"]["tmp_name"], $target_file);
+} 
+    header("Location: profile",303);
+    exit();
 ?>
