@@ -87,6 +87,6 @@ function reload_post(puid, pid)
       cache: false,
   }).done(
       function(result) {
-          $('#'+conid).html(result)
+          $('#'+conid).replaceWith(result);
       });
 }

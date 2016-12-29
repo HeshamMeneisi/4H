@@ -5,7 +5,7 @@
 
 require_once 'core.php';
 include_once 'db.php';
-$user=get_user();
+$user = get_user();
 if (!isset($_GET['aj'])) {
     include_once 'hud.php';
 }
@@ -19,14 +19,14 @@ if (!isset($_GET['mode'])) {
 
         // view post with id = $_GET['id'] and make sure to display number of likes and an expandable comments section
         if (isset($_GET['post'])) {
-            $the_post = $_GET['post'];      
+            $the_post = $_GET['post'];
         } elseif (isset($_GET['id']) && isset($_GET['puid'])) {
             // Fetch post data
             $the_post = fetch_post($_GET['id'], $_GET['puid'], $pdo);
         } else {
             echo 'Unable to retrieve post.';
         }
-        if(!$the_post){
+        if (!$the_post) {
             echo '<center><h3>Post not found.</h3></center>';
             exit();
         }
@@ -41,17 +41,14 @@ if (!isset($_GET['mode'])) {
         $fetched_likes = fetch_likes($pid, $puid, $pdo);
         $conid = $puid.'_'.$pid;
         //Invalid post
-        if (!isset($_GET['aj'])) {
-            echo "<container id={$conid}>";
-        }
+        echo "<container id={$conid}>";
         echo "<div id='post'>";
             // Display poster name and post time
         $link = './profile?uid='.$puid;
         $user = get_user();
-        if(!file_exists('content/users/'.$puid.'/profile_picture.png')){
+        if (!file_exists('content/users/'.$puid.'/profile_picture.png')) {
             $profile_picture = "content/static/default_picture/{$user['gender']}.jpg";
-        }
-        else{
+        } else {
             $profile_picture = 'content/users/'.$puid.'/profile_picture.png';
         }
         echo '<div class="posthead"><img class="post_thumb" src="'.$profile_picture.'"/>'.$poster_name."<div class='nickname'><a href={$link}>".$nickname.'</a></div></div><div id="postdate">Posted at: '.date('l, F jS, Y', strtotime($time)).'</div><div class="postcontent">'.$caption.'</div>';
@@ -116,9 +113,7 @@ if (!isset($_GET['mode'])) {
         $_GET['mode'] = 's';
         include 'comment.php';
         echo '</div>';
-        if (!isset($_GET['aj'])) {
-            echo '</container>';
-        }
+        echo '</container>';
     } elseif ($_GET['mode'] == 's') {
         // display the post form, the posting operation should be handled in ajax
               // Text area
