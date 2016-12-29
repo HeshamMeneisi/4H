@@ -1,6 +1,10 @@
 <?php
 include 'core.php';
-$target_file = 'content/users/'.get_user()['uid'].'/profile_picture.png';
+$target_dir = 'content/users/'.get_user()['uid'];
+if (!file_exists($target_dir)) {
+    mkdir($target_dir);
+}
+$target_file = $target_dir.'/profile_picture.png';
 $upload = true;
 $type = pathinfo($target_file,PATHINFO_EXTENSION);
 if(isset($_POST["submit"])) {

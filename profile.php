@@ -26,7 +26,7 @@ if (isset($_GET['uid'])) {
 $pic = 'content/users/'.$uid.'/profile_picture.png';
 $nopic = false;
 if (!file_exists($pic)) {
-    $pic = "./content/static/def_{$user['gender']}.png";
+    $pic = "./content/static/default_picture/{$user['gender']}.jpg";
     $nopic = true;
 }
 
