@@ -14,7 +14,7 @@ if (isset($_GET['p'])) {
 ?>
   <li><form method="get" action="search.php" id="search">
     <input type="hidden" name="mode" value="q">
-    <input name="query" type="text" size="40" placeholder="Search..." />
+    <input name="query" type="text" size="40" placeholder="Search" />
   </form>
   </li>
   <li><a href="./">Home</a></li>
