@@ -2,7 +2,7 @@
 define('PEPPER', 'mypepper');
 define('SALTSIZE', 32);
 define('HFACTOR', 10); // If changed, all existing hashes must be modified.
-include 'user.php';
+include 'core.php';
 
 include 'db.php';
 
@@ -15,6 +15,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $gender = intval($_POST['gender']);
 $mstatus = $_POST['mstatus'];
+$about = $_POST['about'];
 validatePassword($password, $errors);
 validateNickname($nickname, $errors);
 validateGender($gender, $errors);
@@ -24,7 +25,7 @@ $phash = calcPhash($password, $salt);
 
 if (empty($errors))
 	{
-	$st = $pdo->prepare('UPDATE user SET email=:email,nickname=:nickname,phash=:phash,salt=:salt,gender=:gender,mstatus=:mstatus WHERE uid=:uid');
+	$st = $pdo->prepare('UPDATE user SET email=:email,nickname=:nickname,phash=:phash,salt=:salt,gender=:gender,mstatus=:mstatus,about=:about WHERE uid=:uid');
 	$data = array(
 		':email' => $email,
 		':nickname' => $nickname,
@@ -32,6 +33,7 @@ if (empty($errors))
 		':phash' => $phash,
 		':salt' => $salt,
 		':mstatus' => $mstatus,
+		':about' => $about,
 		':uid' => $user['uid']
 	);
 	if ($st->execute($data))
@@ -42,6 +44,7 @@ if (empty($errors))
 		$_SESSION['user']['phash'] = $phash;
 		$_SESSION['user']['salt'] = $salt;
 		$_SESSION['user']['mstatus'] = $mstatus;
+        $_SESSION['user']['about'] = $about;
 		$return['success'] = true;
 		}
 	  else

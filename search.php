@@ -1,6 +1,6 @@
 <!-- should support default query mode and advanced search mode $_GET['mode'] = {'q','a'} -->
 <?php
-include_once 'user.php';
+include_once 'core.php';
 include_once 'db.php';
 include_once 'hud.php';
 

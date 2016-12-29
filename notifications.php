@@ -5,33 +5,38 @@ include_once 'hud.php';
 include_once 'db.php';
 $notf = fetch_notf($pdo);
 if ($notf) {
+    echo '<h1 class="page_title">Notifications</h1>';
     echo '<div class="notifications_container">';
-    echo '<h1>Notifications</h1>';
     foreach ($notf as $nf) {
         switch ($nf['type']) {
            case 0: // add
-             $_GET['c'] = $nf['nickname'].' sent you an add request!';
+             $_GET['n'] = $nf['nickname'];
+             $_GET['c'] = ' sent you a friend request!';
              $_GET['l'] = './friends.php?r=1&l=1';
              include 'notification.php';
              break;
            case 1: // accept
-             $_GET['c'] = $nf['nickname'].' accepted your add request!';
+             $_GET['n'] = $nf['nickname'];
+             $_GET['c'] = ' accepted your friend request!';
              $_GET['l'] = './profile.php?uid='.$nf['iuid'];
              include 'notification.php';
              break;
            case 2: // comment
-             $_GET['c'] = $nf['nickname'].' commented on your post.';
+             $_GET['n'] = $nf['nickname'];
+             $_GET['c'] = ' commented on your post.';
              $_GET['l'] = "./post.php?mode=v&puid={$nf['uid']}&id={$nf['pid']}";
              include 'notification.php';
              break;
            case 3: // like post
-             $_GET['c'] = $nf['nickname'].' liked your post.';
+             $_GET['n'] = $nf['nickname'];
+             $_GET['c'] = ' liked your post.';
              $_GET['l'] = "./post.php?mode=v&puid={$nf['uid']}&id={$nf['pid']}";
              include 'notification.php';
              break;
              break;
            case 4: // like comment
-             $_GET['c'] = $nf['nickname'].' liked your comment on a post.';
+             $_GET['n'] = $nf['nickname'];
+             $_GET['c'] = ' liked your comment on a post.';
              $_GET['l'] = "./post.php?mode=v&puid={$nf['cpuid']}&id={$nf['pid']}";
              include 'notification.php';
              break;

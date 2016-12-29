@@ -1,6 +1,6 @@
 <?php
-include 'user.php';
-$target_file = 'image/pic_'.get_user()['uid'].'.png';
+include 'core.php';
+$target_file = 'content/users/'.get_user()['uid'].'/profile_picture.png';
 $upload = true;
 $type = pathinfo($target_file,PATHINFO_EXTENSION);
 if(isset($_POST["submit"])) {
@@ -20,7 +20,7 @@ if($type != "jpg" && $type != "png" && $type != "jpeg" && $type != "gif" ) {
 if (!$upload) {
 } else {
     if (move_uploaded_file($_FILES["uploaded_image"]["tmp_name"], $target_file)) {
-        header("location: profile.php",  true,  301 );  exit;
+        header("location: profile");  exit;
     } else {
         //Upload failed
     }

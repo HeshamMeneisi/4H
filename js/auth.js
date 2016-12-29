@@ -123,6 +123,8 @@ function update_info() {
             password = $('input[name=password]').val(),
             gender = $("input[name=gender]:checked").val()
             mstatus = $("input[name=status]:checked").val();
+            about = $("#about-field").val();
+            alert(about);
         validateNickname(nickname);
         validateEmail(email);
         validatePassword(password);
@@ -134,7 +136,8 @@ function update_info() {
                 'email': email,
                 'password': password,
                 'gender': gender,
-                'mstatus': mstatus
+                'mstatus': mstatus,
+                'about': about
             };
             $.ajax({
                 type: 'POST',

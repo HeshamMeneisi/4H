@@ -10,11 +10,10 @@ if (!isset($_GET['aj'])):
  <container id='timeline'>
 <?php
 endif;
-include_once 'user.php';
+include_once 'core.php';
 include_once 'db.php';
- echo '<title>Timeline - Socio</title>';
+echo '<title>Timeline - Socio</title>';
 $onprof = isset($_GET['p']);
-
 if (is_logged() && !($onprof && isset($_GET['uid']))) {
     $_GET['mode'] = 's';
     include 'post.php';

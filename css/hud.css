@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background:rgba(238, 238, 238, 0.55);
+    background:rgba(238, 238, 238, 0.65);
 }
 
 * {
@@ -46,14 +46,14 @@ body {
     border: 2px solid #ddd;
     max-width: 600px;
     padding: 30px;
-    padding-bottom:40px;
+    padding-bottom:50px;
     border-radius: 5px;
 }
 
 #post hr {
     height: 5px;
     border-radius: 5px;
-    background: #ddd;
+    background: #eee;
     border: none;
     margin-top:20px;
     margin-bottom:20px;
@@ -66,8 +66,10 @@ body {
 }
 
 #post .postcontent {
-    margin-bottom: 10px;
-    max-width:500px
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width:500px;
+    font-size:16px;
 }
 
 #post .likes {
@@ -78,9 +80,11 @@ body {
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    width: 625px;
+    max-width: 625px;
 }
-
+.postform textarea{
+    max-width:625px;
+}
 #privacy {
     display:inline;
     height: 30px;
@@ -95,22 +99,32 @@ body {
     margin-bottom: 10px;
     margin-left:-15px;
     height:100px;
-    min-width:625px;
+    min-width:650px;
+    height:120px;
     border: 5px solid lightblue;
     padding:10px;
 }
 #submitPost {
+    cursor:pointer;
     background:#2abada;
     border:0;
-    font-size:20px;
+    font-size:18px;
     color:#fff;
     border-radius:5px;
     width: 100px;
     height: 30px;
     display:inline;
     float:right;
+    transition:0.3s;
 
 }
+#submitPost:hover{
+    cursor:pointer;
+    background:lightblue;
+    transition:0.3s;
+
+}
+
 #comment_cap {
     font-size: 15px;
     border-radius: 5px;
@@ -119,7 +133,7 @@ body {
     margin-top:20px;
     margin-bottom: 15px;
     height:100px;
-    width:580px;
+    width:600px;
     border: 5px solid lightblue;
     padding:10px;
 }
@@ -135,10 +149,14 @@ body {
     float:left;
 
 }
+#submitComment:hover{
+    cursor:pointer;
+    background:lightblue;
+    transition:0.3s;
+}
 .logo {
     float:left;
-    width: 194px;
-    height: 75px;
+    height: 55px;
 }
 
 ul {
@@ -146,10 +164,11 @@ ul {
     width: 100%;
     list-style-type: none;
     margin-left:300px;
-    margin-top:-80px;
+    margin-bottom:0;
+    margin-top:-60px;
 }
 #search input[type="text"] {
-    margin-top: 24px;
+    margin-top: 22px;
     margin-right:100px;
     margin-left:100px;
     border: 1px solid #d1d1d1;
@@ -195,10 +214,11 @@ li a:hover {
     font-size:12px;
 }
 
-.pink {
-    margin-top: 1px;
+.notification_counter{
+    margin-top: 3px;
+    margin-left: 5px;
     background-color: crimson;
-    border-radius: 50% 50% 50% 50%;
+    border-radius: 50%;
     display: inline-block;
     background: -moz-linear-gradient(center top, #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
     background: -webkit-linear-gradient(center top, #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
@@ -233,7 +253,6 @@ div.comment {
 }
 .notify-btn{
     min-width:140px;
-    margin-right:-10px;
     display: block;
     color: white;
     text-decoration: none;
@@ -241,7 +260,7 @@ div.comment {
 ul.navbar{
     float:right;
     padding:0;
-    max-width:1000px;
+    max-width:900px;
 
 }
 ul.navbar-p{
@@ -256,6 +275,10 @@ ul.navbar-p{
     color:#fff;
     border-radius:3px;
 }
+.likebtn:hover{
+    cursor:pointer;
+    background:lightblue;
+}
 .delbtn{
     margin-left:10px;
     background: crimson;
@@ -263,7 +286,10 @@ ul.navbar-p{
     color:#fff;
     border-radius:3px;
     float:right;
-    margin-top:-80px;
+}
+.delbtn:hover{
+    cursor: pointer;
+    background: darkred;
 }
 #postdate{
     margin-top:5px;
@@ -282,48 +308,58 @@ ul.navbar-p{
 #commentbody{
     margin-top:10px;
     margin-bottom:10px;
-    font-size:12px;
+    font-size:16px;
 }
 .post_comment{
-    border: 2px solid #eee;
-    background:rgba(221, 221, 221, 0.17);
+    border: 2px solid rgba(238, 238, 238, 0.46);
+    background:rgba(251, 251, 251, 0.17);
     padding:10px;
     margin-top:10px;
     border-radius:5px;
 }
 .friend_button{
     width:100px;
+    margin-left:15px;
 }
 #update_settings h1{
     text-align:center;
+    margin-top:50px;
 }
 #settings{
-  background:rgba(255,255,255,0.5);
-  width:15%;
+  background:#fff;
   margin: 0 auto;
-  padding:60px;
-  padding-top:40px;
-  padding-bottom:20px;
+  padding:20px;
+  padding-top:20px;
+  padding-bottom:0px;
+  margin-top:50px;
   border-radius:5px;
-  border: 4px solid #ddd;
+  border: 2px solid #ddd;
   margin-bottom:40px;
 }
 #settings input{
-    width:200px;
+    width:300px;
     height:30px;
 }
+
 .emoji{
-    width:24px;
+    width:16px;
+    height:16px;
+}
+i
+.notifications_container h1{
+    font-size:50px;
+    color: #444;
 }
 .notification a{
-    font-size:20px;
+    font-size:16px;
     color: #2abada;
 }
 .notifications_container{
-    padding:10px;
+    max-width:45%;
+    padding:30px;
+    padding-bottom:20px;
     border-radius:5px;
-    border:2px solid #eee;
-    max-width:50%;
+    border:2px solid #ddd;
     margin: 0 auto;
     margin-top:40px;
     background: #fff;
@@ -334,6 +370,66 @@ ul.navbar-p{
     width:50px;
     height:50px;
     border-radius:50px;
-    float:right;
-    margin-top:10px;
+    float:left;
+    margin-right:10px;
+}
+.comment_thumb{
+    display:inline;
+    width:30px;
+    height:30px;
+    border-radius:50px;
+    float:left;
+    margin-right:10px;
+    margin-top:5px;
+}
+.request_thumb{
+    display:inline;
+    width:30px;
+    height:30px;
+    border-radius:50px;
+    float:left;
+    margin-right:10px;
+    margin-top:5px;
+}
+#about-field{
+    width:300px;
+    height:100px;
+    border-radius:5px;
+    border: 2px solid #eee;
+    resize:none;
+    padding:5px;
+}
+.page_title{
+    width:50%;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:-20px;
+}
+.friends_container{
+    width:46%;
+    background: #fff;
+    padding:20px;
+    margin: 0 auto;
+    margin-top:50px;
+    padding-top:5px;
+    border-radius:5px;
+    border: 2px solid #ddd;
+}
+.nickname{
+    font-size:12px;
+    margin-top:15px;
+    display:inline;
+    margin-left:5px;
+    text-decoration:none;
+}
+.comment_like{
+    font-size:12px;
+    color:#2abada;
+    display:inline;
+}
+#pending_requests{
+    color: #2abada;
+}
+input[type="file"]{
+    max-width:160px;
 }

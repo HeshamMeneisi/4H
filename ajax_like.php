@@ -1,6 +1,6 @@
 <?php
 
-include_once 'user.php';
+include_once 'core.php';
 include_once 'db.php';
 $return = array();
 if (is_logged() && isset($_POST['t']) && isset($_POST['puid']) && isset($_POST['pid']) && (isset($_POST['cid']) || $_POST['t'] = 'p')) {

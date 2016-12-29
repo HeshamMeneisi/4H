@@ -3,7 +3,7 @@
 <script src="js/comment.js"></script>
 <?php
 
-require_once 'user.php';
+require_once 'core.php';
 include_once 'db.php';
 $user=get_user();
 if (!isset($_GET['aj'])) {
@@ -30,7 +30,7 @@ if (!isset($_GET['mode'])) {
         $pid = $the_post['pid'];
         $name = fetch_name($the_post['puid'], $pdo);
         $poster_name = $name['fname'].' '.$name['lname'];
-        $nickname = ' ('.$name['nickname'].') ';
+        $nickname = '('.$name['nickname'].')';
         $caption = $the_post['caption'];
         process($caption);
         $time = $the_post['ptime'];
@@ -41,8 +41,9 @@ if (!isset($_GET['mode'])) {
         }
         echo "<div id='post'>";
             // Display poster name and post time
-        $link = './profile.php?uid='.$puid;
-        echo '<div class="posthead">'.$poster_name."<div class='nickname'><a href={$link}>".$nickname.'</a></div></div><img class="post_thumb" src="image/pic_'.$user['uid'].'.png"/><div id="postdate">Posted at: '.date('l, F jS, Y', strtotime($time)).'</div><div class="postcontent">'.$caption.'</div>';
+        $link = './profile?uid='.$puid;
+        $user = get_user();
+        echo '<div class="posthead"><img class="post_thumb" src="content/users/'.$puid.'/profile_picture.png"/>'.$poster_name."<div class='nickname'><a href={$link}>".$nickname.'</a></div></div><div id="postdate">Posted at: '.date('l, F jS, Y', strtotime($time)).'</div><div class="postcontent">'.$caption.'</div>';
 
         // Check for post likes
         echo '<div class="likes">';

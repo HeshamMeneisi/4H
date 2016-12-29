@@ -4,7 +4,7 @@ define('PEPPER', 'mypepper');
 define('SALTSIZE', 32);
 define('HFACTOR', 10); // If changed, all existing hashes must be modified.
 
-include 'user.php';
+include 'core.php';
 
 if (isset($_GET['op']) && $_GET['op'] == 'x') {
     logout();

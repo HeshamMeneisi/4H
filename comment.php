@@ -1,7 +1,7 @@
 <!--  view and submit modes should be implemented, $_GET['mode']={'v','s'} -->
 <?php
 include_once 'db.php';
-include_once 'user.php';
+include_once 'core.php';
 
 // Handle invalid invoking
 
@@ -24,16 +24,17 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                 foreach ($comments as $comment) {
                     echo '<div class="post_comment">';
                     $commenter = fetch_commenter_name($comment['cuid'], $pdo);
-                    $link = './profile.php?uid='.$puid;
-                    $commenter_name = $commenter['fname'].' '.$commenter['lname']." (<a href={$link}>".$commenter['nickname'].'</a>)';
+                    $link = './profile?uid='.$puid;
+                    $commenter_name = $commenter['fname'].' '.$commenter['lname']."<a class='nickname' href={$link}>(".$commenter['nickname'].')</a>';
                     $comment_time = $comment['ctime'];
                     $comment_content = $comment['caption'];
                     process($comment_content);
-                    echo '<div id="commenthead">'.$commenter_name.'</div><div id="postdate">Commented at: '.date('l, F jS, Y', strtotime($time)).'</div>';
+                    echo '<img class="comment_thumb" src="content/users/'.$comment['cuid'].'/profile_picture.png"/><div id="commenthead">'.$commenter_name.'</div><div id="postdate">Commented at: '.date('l, F jS, Y', strtotime($time)).'</div>';
                     $cid = $comment['cid'];
                     $fetched_comment_likes = fetch_comment_likes($puid, $pid, $cid, $pdo);
                     echo '<div id="commentbody">'.$comment_content.'</div>';
-
+                    
+                    echo '<div class="comment_like">';
                     if ($fetched_comment_likes) {
                         $comment_likes = $fetched_comment_likes->fetchAll(PDO::FETCH_ASSOC);
 
@@ -48,7 +49,6 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                         }
 
                         // One like
-
                         if ($fetched_comment_likes->rowCount() == 1) {
                             $liker = fetch_name($comment_likes[0]['uid'], $pdo);
                             echo $liker['fname'].' '.$liker['lname'].' likes this comment.';
@@ -72,7 +72,7 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                         echo 'No likes yet';
                         $liked = false;
                     }
-
+                    echo '</div>';
                     if (!$liked) {
                         echo "<button class='likebtn' onclick='like_comment({$puid},{$pid},{$cid})'>Like</button>";
                     }
@@ -94,5 +94,3 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
         echo 'Error retrieving comment.';
     }
 }
-
-// This function returns the name fields fetched via user id

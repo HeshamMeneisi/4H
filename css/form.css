@@ -8,7 +8,7 @@
 }
 
 .xform label {
-    font-size: 12;
+    font-size: 16px;
 }
 
 .xform input {
@@ -26,11 +26,14 @@
 
 .sbtn {
     margin-top:20px;
-    background: #444;
+    background: #2abada;
     border-radius: 3px;
     color: #fff;
     font-size: 20px;
     border: 0;
+    transition:0.3s;
+    width:120px;
+    font-size:15px;
 }
 .uhud .sbtn {
     background:#fff;
@@ -51,7 +54,7 @@
 
 .sbtn:hover {
     cursor: pointer;
-    font-size:22px;
+    font-size:18px;
 }
 
 .sbtn:focus{
@@ -130,7 +133,7 @@
 }
 
 .loading .balls div {
-    background-color: rgba(255, 255, 0, 0.5);
+    background-color: rgba(42, 186, 218, 0.56);
     border: 1px solid black;
     width: 5px;
     height: 5px;

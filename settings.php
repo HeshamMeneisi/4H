@@ -1,5 +1,5 @@
 <?php
-require_once 'user.php';
+require_once 'core.php';
 
 include_once 'db.php';
 
@@ -17,6 +17,9 @@ $user = get_user();
 <h1>Account Settings</h1>
 <table class="xform" id="settings">
   <tr>
+    <td><label>Nickname</label></td>
+  </tr>
+  <tr>
       <td><input type="text" name="nickname" placeholder="Nickname" value="<?php
 echo $user['nickname']; ?>"</td>
   </tr>
@@ -25,6 +28,9 @@ echo $user['nickname']; ?>"</td>
           <div class="error" id="uerror"></div>
       </td>
     </tr>
+  <tr>
+    <td><label>Email</label></td>
+  </tr>
    <tr>
     <td><input type="text" name="email" placeholder="Email" value="<?php
 echo $user['email']; ?>"></td>
@@ -33,6 +39,9 @@ echo $user['email']; ?>"></td>
       <td colspan="2">
           <div class="error" id="eerror"></div>
       </td>
+  </tr>
+  <tr>
+    <td><label>Password</label></td>
   </tr>
     <tr>
       <td><input type="password" name="password" placeholder="Password"></td>
@@ -112,6 +121,12 @@ if ($user['mstatus'] == "m") echo 'checked="1"'; ?>>
       <td colspan="2">
           <div class="error" id="mserror"></div>
       </td>
+  </tr>
+  <tr>
+    <td><label>Bio</label></td>
+  </tr>                              
+ <tr>
+<td><textarea name="about" id="about-field" placeholder="Bio"><?php echo $user['about']; ?></textarea></td>
   </tr>
   <!-- The Resgister button and loading animation -->
   <tr>

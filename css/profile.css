@@ -1,72 +1,92 @@
 .profile-head{
-	width:50%;
+	width:100%;
 	margin: 0 auto;
-	padding-top:30px;
-	margin-bottom:-20px;
+	padding:30px;
+	padding-bottom:10px;
 }
 #pheadcontainer{
 	background:#fff;
+	width:60%;
+	margin: 0 auto;
+	border-radius:10px;
+	border: 2px solid #ddd;
+	margin-top:40px;
 }
-#pp tr{
-    max-width:100px;
-    float:right;
-    margin-left:200px;
-    margin-top:10px;
+#pp{
+    display
 }
 .name{
     font-size:30px;
     float:left;
     margin-right:20px;
     color:#2abada;
-    display:inline;
-
+   display:inline;
 }
 .nickname-p{
     font-size:18px;
     padding-top:8px;
     margin-left:5px;
 }
-.nickname{
-    font-size:12px;
-    margin-top:15px;
-    display:inline;
-    margin-left:5px;
-}
 .nickname a{
 	text-decoration:none;
 }
-
+.profile-picture {
+	max-width:120px;
+	float:right;
+	margin-right:60px;
+	margin-top:-55px;
+    padding:20px;
+}
 .profile-picture img{
 	background:#fff;
-	float:left;
-    width:120px;
-	height:120px;
-    border-radius: 100px;
-    display:block;
-}
-#pp-upload{
-	margin-top:10px;
-	margin-left:;
+	float:right;
+    width:100px;
+	height:100px;
+    border-radius: 120px;
+    margin-bottom:10px
 }
 #uploadSection{
     display: none;
 }
+
 #bio{
-	margin-top:-60px;
-	margin-bottom:80px;
 	width:400px;
 	background:rgba(255,255,255,0.5);
 	border-radius:5px;
 	border: 2px solid #ddd;
 	padding:10px;
 	max-height:100px;
+	margin-top:10px;
 }
 #label{
 	font-size:16px;
-	margin-top:-80px;
-	margin-bottom:50px;
+	margin-bottom:-20px;
+	margin-top:-5px;
+}
+#profile_info{
+	min-height:120px;
+	max-width:400px;
+}
+#EditButton{
+	margin-left:50px;
 }
 hr{
 	height:2px;
 	background: #2abada;
+}
+#caption {
+    font-size: 15px;
+    border-radius: 5px;
+    resize: none;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-left:-15px;
+    height:90px !important;
+    min-width:620px !important;
+    height:120px;
+    border: 5px solid lightblue;
+    padding:10px;
+}
+#comment_cap{
+	width:570px !important
 }

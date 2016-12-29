@@ -84,6 +84,7 @@ function send_freq(uid)
       function(result) {
           if (result['success']) {
               reload_friends(1);
+              alert("Friend request sent!")
           } else {
               // failed
               alert("Try again later.")

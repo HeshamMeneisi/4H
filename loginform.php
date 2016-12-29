@@ -4,7 +4,7 @@
 <a href="../"><img class="logo" src="files/logo.png" alt="Socio"/></a>
 <table class="xform" id="lform">
     </tr>
-      <td><label>Username or Email</label></td>
+      <td><label>Email</label></td>
       <td><label>Password</label></td>
     </tr>
     <tr>

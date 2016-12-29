@@ -1,6 +1,6 @@
 <?php
 
-include_once 'user.php';
+include_once 'core.php';
 include_once 'db.php';
 
     $return = array();
