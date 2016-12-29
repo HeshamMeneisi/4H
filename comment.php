@@ -19,8 +19,8 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
 
         // view comments for post with id = $pid and make sure to display number of likes
             $comments = fetch_comments($pid, $puid, $pdo);
+            echo '<hr><div id="commentslabel">Comments</div>';
             if ($comments) {
-                echo '<hr><div id="commentslabel">Comments</div>';
                 echo "<button class='shbtn' id='showComm' onclick='show_comments({$puid},{$pid})'>Show comments</button>";
                 echo "<button class='shbtn' id='hideComm' onclick='hide_comments({$puid},{$pid})'>Hide comments</button>";
                 echo "<div id='commentsec'>";

@@ -102,18 +102,18 @@ include_once 'hud.php';
     }
     echo '<div id="profile_info">';
     if ($user['bdate']) {
-        echo '<br/><p id="label">Birthday: '.date('j F', strtotime($user['bdate'])).'</p>';
+        echo '<br/><p id="label">Birthday:</p> <p id="info_content">'.date('j F', strtotime($user['bdate']));
     }
     if ($user['email']) {
-        echo '<br/><br/><p id="label">Email: '.$user['email'].'</p>';
+        echo '<br/><br/><p id="label">Email:</p> <p id="info_content">'.$user['email'].'</p>';
     }
     $location = fetch_loc($user['uid'], $pdo);
     if ($location) {
-        echo '<br/><br/><p id="label">Location: '.$location['city'].'</p>';
+        echo '<br/><br/><p id="label">Location:</p> <p id="info_content">'.$location['city'].'</p>';
     }
     $phone = fetch_phones($user['uid'], $pdo);
     if ($phone) {
-        echo '<br/><br/><p id="label">Phone: '.$phone['phone'].'</p>';
+        echo '<br/><br/><p id="label">Phone:</p> <p id="info_content">'.$phone['phone'].'</p>';
     }
     echo '</div>';
 ?>
