@@ -57,6 +57,7 @@ function show_comments(puid, pid)
 {
   conid = puid+'_'+pid;
   $('#'+conid+' #showComm').hide();
+  $('#'+conid+' #hideComm').show();
   $('#'+conid+' #commentsec').show();
 }
 
@@ -65,4 +66,5 @@ function hide_comments(puid, pid)
   conid = puid+'_'+pid;
   $('#'+conid+' #commentsec').hide();
   $('#'+conid+' #showComm').show();
+  $('#'+conid+' #hideComm').hide();
 }

@@ -280,12 +280,18 @@ ul.navbar-p{
     margin-top:5px;
     margin-bottom:10px;
     font-size:12px;
-    color: #888;
+    color: #444;
+}
+#postdate a{
+
+    color: #444;
 }
 #commentslabel{
     margin-top:10px;
     font-size:25px;
     margin-bottom:10px;
+    display:inline;
+    margin-right:50px;
 }
 #commenthead{
     color:#2abada;
@@ -421,14 +427,28 @@ input[type="file"]{
 #commentsec{
   display: none;
 }
-.shbtn{
+#showComm{
+  color: #fff;
   margin-top: 5px;
-  background: lightblue;
+  background: #2abada;
   border:0;
   border-radius:3px;
   transition: all 0.5s;
 }
-.shbtn:hover{
-  background: lightgreen;
+#showComm:hover{
+  background: lightblue;
+  cursor: pointer;
+}
+#hideComm{
+  display:none;
+  color: #fff;
+  margin-top: 5px;
+  background: #2abada;
+  border:0;
+  border-radius:3px;
+  transition: all 0.5s;
+}
+#hideComm:hover{
+  background: lightblue;
   cursor: pointer;
 }
