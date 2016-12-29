@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head><link rel="stylesheet" href="css/profile.css">
-<title>Profile - Hallo</title>
 </head>
 <body>
 <container id="profilecontainer">
@@ -24,7 +23,12 @@ if (isset($_GET['uid'])) {
     $user = get_user();
     $uid = $user['uid'];
 }
-
+if ($uid == get_user()['uid']){
+    echo '<title>Profile - Hallo</title>';
+}
+else{
+    echo '<title>'.$user['nickname'].' - Hallo</title>';
+}
 $pic = 'content/users/'.$uid.'/profile_picture.png';
 $nopic = false;
 if (!file_exists($pic)) {
