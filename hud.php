@@ -1,7 +1,7 @@
 <head>
 <link rel="stylesheet" href="css/hud.css">
 <link rel="stylesheet" href="css/form.css">
-<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <script src="js/auth.js"></script>
 <script src="js/form.js"></script>
 <script src="js/friends.js"></script>

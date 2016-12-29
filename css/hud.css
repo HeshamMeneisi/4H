@@ -4,7 +4,7 @@ body {
 }
 
 * {
-    font-family:'Lato',sans-serif !important;
+    font-family:'Roboto',sans-serif !important;
 }
 
 *:focus {
@@ -192,7 +192,6 @@ li a {
 li a:hover {
     background-color: #fff;
     color:#3b5998;
-    border-radius: 0 10 0 10;
 }
 
 
@@ -207,18 +206,15 @@ li a:hover {
 }
 
 .notification_counter{
-    margin-top: 3px;
+    margin-top: 0px;
     margin-left: 5px;
     background-color: crimson;
     border-radius: 50%;
     display: inline-block;
-    background: -moz-linear-gradient(center top, #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
-    background: -webkit-linear-gradient(center top, #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
-    background: -o-linear-gradient(center top, #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
-    background: linear-gradient(center top, #f6788c 0%, #d35367 100%) repeat scroll 0 0 transparent;
     border:0;
     color: #FFF;
-
+    padding:2px;
+    padding-top:4px;
 }
 
 div.comment {
