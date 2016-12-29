@@ -124,7 +124,6 @@ function update_info() {
             gender = $("input[name=gender]:checked").val()
             mstatus = $("input[name=status]:checked").val();
             about = $("#about-field").val();
-            alert(about);
         validateNickname(nickname);
         validateEmail(email);
         validatePassword(password);
