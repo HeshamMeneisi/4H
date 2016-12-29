@@ -13,4 +13,9 @@ $pic = 'content/users/'.$uid.'/profile_picture.png';
 if (!file_exists($pic)) {
     $pic = "./content/static/default_picture/{$person['gender']}.jpg";
 }
-echo "<img class='request_thumb' src='{$pic}' height='50' width='50'>".$person_name.($person_time ? '<br>Request time: '.date('l, F jS, Y', strtotime($person_time)) : '');
+if (isset($_GET['f'])) {
+    $ttext = 'Friends since';
+} else {
+    $ttext = 'Request time';
+}
+echo "<img class='request_thumb' src='{$pic}' height='50' width='50'>".$person_name.($person_time ? "<br>{$ttext}: ".date('l, F jS, Y', strtotime($person_time)) : '').'<br>';

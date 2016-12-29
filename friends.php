@@ -12,6 +12,7 @@ include_once 'hud.php';
 if (is_logged()) {
     echo '<h1 class="page_title">Friends</h1>';
     $list_friends = isset($_GET['l']);
+    $_GET['f'] = null;
     if (isset($_GET['r'])) {
         $uid = get_user()['uid'];
         // display all friend requests
@@ -23,8 +24,7 @@ if (is_logged()) {
                 include 'person.php';
                 echo "<button id='cancelReq' style='margin-left:25px;' onclick='cancel_freq({$request['uid']})'>Cancel</button>";
             }
-        }
-        else{
+        } else {
             echo '<center><h3>You have no sent requests</h3></center>';
         }
         echo '</div>';
@@ -48,6 +48,7 @@ if (is_logged()) {
 }
 echo '<div class="friends_container"><h2 id="pending_requests">Friends</h2>';
 if ($list_friends) {
+    $_GET['f'] = 1;
     if (isset($_GET['uid'])) {
         $uid = $_GET['uid'];
     } elseif (is_logged()) {
@@ -65,11 +66,11 @@ if ($list_friends) {
             include 'person.php';
         }
     } else {
-            echo '<center><h3>You have no friends on your list, yet.</h3></center>';
+        echo '<center><h3>You have no friends on your list, yet.</h3></center>';
     }
 }
 echo '</div>';
-     
+
 if (!isset($_GET['aj'])) {
     echo '</container>';
 }
