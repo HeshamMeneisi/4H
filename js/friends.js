@@ -15,6 +15,8 @@ function accept_freq(uid)
       function(result) {
           if (result['success']) {
               reload_friends(1);
+              window.location = "profile?uid=".concat(uid);
+              
           } else {
               // failed
               alert("Try again later.")
@@ -38,6 +40,7 @@ function reject_freq(uid)
       function(result) {
           if (result['success']) {
               reload_friends(1);
+              window.location = "profile?uid=".concat(uid);
           } else {
               // failed
               alert("Try again later.")
@@ -61,6 +64,7 @@ function cancel_freq(uid)
       function(result) {
           if (result['success']) {
               reload_friends(1);
+              window.location = "profile?uid=".concat(uid);
           } else {
               // failed
               alert("Try again later.")
@@ -84,7 +88,7 @@ function send_freq(uid)
       function(result) {
           if (result['success']) {
               reload_friends(1);
-              window.location = "profile?uid=".concat(uid)
+              window.location = "profile?uid=".concat(uid);
           } else {
               // failed
               alert("Try again later.")
@@ -108,7 +112,7 @@ function unfriend(uid)
       function(result) {
           if (result['success']) {
               reload_friends(1);
-              window.location = "profile?uid=".concat(uid)
+              window.location = "profile?uid=".concat(uid);
           } else {
               // failed
               alert("Try again later.")
