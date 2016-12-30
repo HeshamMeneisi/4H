@@ -96,7 +96,7 @@ function rsub() {
                 encode: true
             }).done(function(res) {
                 if (res['success']) {
-                    window.location.href = 'index.php';
+                    window.location.href = './';
                 }
                 stopWaiting('rsub');
                 errors = res['errors'];
@@ -147,7 +147,7 @@ function update_info() {
             }).done(function(res) {
                 if (res['success']) {
                     window.location.reload(true);
-                    window.location.href = 'profile.php';
+                    window.location.href = 'profile';
                 }
                 errors = res['errors'];
                 updateErrors("#settings");
