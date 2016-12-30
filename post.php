@@ -55,6 +55,7 @@ if (!isset($_GET['mode'])) {
 
         // Check for post likes
         echo '<div class="likes">';
+        $like_icon = '<img id="like_icon" src="content/static/ui/like.png" height="20px" width="20px"/>';
         if ($fetched_likes) {
             $likes = $fetched_likes->fetchAll(PDO::FETCH_ASSOC);
             $uid = get_user()['uid'];
@@ -68,7 +69,6 @@ if (!isset($_GET['mode'])) {
             }
 
             // One like
-
             if ($fetched_likes->rowCount() == 1) {
                 $liker = fetch_name($likes[0]['uid'], $pdo);
                 echo $liker['fname'].' '.$liker['lname'].' likes this.';
@@ -79,21 +79,21 @@ if (!isset($_GET['mode'])) {
             elseif ($fetched_likes->rowCount() == 2) {
                 $first_liker = fetch_name($likes[0]['uid'], $pdo);
                 $second_liker = fetch_name($likes[1]['uid'], $pdo);
-                echo $first_liker['fname'].' '.$first_liker['lname'].' and '.$second_liker['fname'].' '.$second_liker['lname'].' like this.';
+                echo $like_icon.$first_liker['fname'].' '.$first_liker['lname'].' and '.$second_liker['fname'].' '.$second_liker['lname'].' like this.';
             }
 
             // More than two likes
 
             else {
                 $liker = fetch_name($likes[0]['uid'], $pdo);
-                echo $liker['fname'].' '.$liker['lname'].' and '.($fetched_likes->rowCount() - 1).' others like this.';
+                echo $like_icon.$liker['fname'].' '.$liker['lname'].' and '.($fetched_likes->rowCount() - 1).' others like this.';
             }
         }
 
         // No likes
 
         else {
-            echo 'No likes yet';
+            echo $like_icon.'No likes yet';
             $liked = false;
         }
 

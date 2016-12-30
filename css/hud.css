@@ -74,6 +74,7 @@ body {
 
 #post .likes {
     color: #2abada;
+    font-size:13px;
 }
 
 .postform {
@@ -396,6 +397,7 @@ i
     padding:5px;
 }
 .page_title{
+    color:#444;
     width:50%;
     margin:0 auto;
     margin-top:20px;
@@ -458,4 +460,7 @@ input[type="file"]{
 #hideComm:hover{
   background: lightblue;
   cursor: pointer;
+}
+#like_icon{
+  margin-right:5px;
 }

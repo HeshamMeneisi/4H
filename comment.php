@@ -43,6 +43,7 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                     echo '<div id="commentbody">'.$comment_content.'</div>';
 
                     echo '<div class="comment_like">';
+                    $like_icon = '<img id="like_icon" src="content/static/ui/like.png" height="12px" width="12px"/>';
                     if ($fetched_comment_likes) {
                         $comment_likes = $fetched_comment_likes->fetchAll(PDO::FETCH_ASSOC);
 
@@ -55,11 +56,10 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                                 break;
                             }
                         }
-
                         // One like
                         if ($fetched_comment_likes->rowCount() == 1) {
                             $liker = fetch_name($comment_likes[0]['uid'], $pdo);
-                            echo $liker['fname'].' '.$liker['lname'].' likes this comment.';
+                            echo $like_icon.$liker['fname'].' '.$liker['lname'].' likes this comment.';
                         }
 
                         // Two likes
@@ -67,17 +67,17 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
                         elseif ($fetched_comment_likes->rowCount() == 2) {
                             $first_liker = fetch_name($comment_likes[0]['uid'], $pdo);
                             $second_liker = fetch_name($comment_likes[1]['uid'], $pdo);
-                            echo $first_liker['fname'].' '.$first_liker['lname'].' and '.$second_liker['fname'].' '.$second_liker['lname'].' like this comment.';
+                            echo $like_icon.$first_liker['fname'].' '.$first_liker['lname'].' and '.$second_liker['fname'].' '.$second_liker['lname'].' like this comment.';
                         }
 
                         // More than two likes
 
                         else {
                             $liker = fetch_name($comment_likes[0]['uid'], $pdo);
-                            echo $liker['fname'].' '.$liker['lname'].' and '.($fetched_comment_likes->rowCount() - 1).' others like this comment.';
+                            echo $like_icon.$liker['fname'].' '.$liker['lname'].' and '.($fetched_comment_likes->rowCount() - 1).' others like this comment.';
                         }
                     } else {
-                        echo 'No likes yet';
+                        echo $like_icon.'No likes yet';
                         $liked = false;
                     }
                     echo '</div>';
