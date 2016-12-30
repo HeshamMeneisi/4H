@@ -1,4 +1,4 @@
-function delete_post(puid, pid, getdata) {
+function delete_post(puid, pid) {
     $.ajax({
         type: "POST",
         url: "ajax_post.php",
@@ -13,7 +13,7 @@ function delete_post(puid, pid, getdata) {
     }).done(
         function(result) {
             if (result['success']) {
-                update_timeline(getdata);
+                update_timeline();
             } else {
                 // failed
                 alert("Try again later.")
@@ -47,7 +47,7 @@ function like_post(puid, pid) {
         });
 }
 
-function post(getdata) {
+function post() {
     var caption = $('#caption').val();
     var privacy = $('#privacy option:selected').val();
     var post_data = {
@@ -67,7 +67,7 @@ function post(getdata) {
         }).done(
             function(result) {
                 if (result['success']) {
-                    update_timeline(getdata);
+                    update_timeline();
                 } else {
                     // failed
                     alert("Try again later.")

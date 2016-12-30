@@ -102,8 +102,7 @@ if (!isset($_GET['mode'])) {
         }
 
         if ($puid == get_user()['uid']) {
-            $gdata = json_encode($_GET);
-            echo "<button class='delbtn' onclick='delete_post({$puid},{$pid},{$gdata})'>Delete Post</button>";
+            echo "<button class='delbtn' onclick='delete_post({$puid},{$pid})'>Delete Post</button>";
         }
 
         echo '</div>';
@@ -120,8 +119,7 @@ if (!isset($_GET['mode'])) {
               echo '<div class="postform"><table><textarea id="caption" rows="10" cols="85" placeholder="What\'s on your mind?"></textarea>';
         echo '<input id="attachment" name="attachment" type="file" title="Attach"/>';
               // Submit button
-              $gdata = json_encode($_GET);
-        echo "<button id='submitPost' onclick='post({$gdata})'>Post</button>";
+        echo "<button id='submitPost' onclick='post()'>Post</button>";
               //Form end
         //Privacy menu
               echo '<select name="privacy" id="privacy" style="width:100px;margin-right:10px;"><option value="0">Public</option><option value="1">Private</option></select>';

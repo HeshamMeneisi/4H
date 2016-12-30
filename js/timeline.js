@@ -1,15 +1,20 @@
-function update_timeline(getdata)
+var mode = 0;
+function set_timeline_mode(m)
 {
-  getdata['aj'] = 1;
-  $.ajax({
-      type: "GET",
-      url: "timeline.php",
-      data: getdata,
-      encode: true,
-  }).done(
-      function(result) {
-          $("#timeline").html(result);
-      }).fail(function(xhr, status, error){
+  mode = m;
+}
+function update_timeline() {
+    data ={aj:1, p:mode}
+    $.ajax({
+        type: "GET",
+        url: "timeline.php",
+        data: data,
+        encode: true,
+    }).done(
+        function(result) {
+            $("#timeline").replaceWith(result);
+            timelineupdated = true;
+        }).fail(function(xhr, status, error) {
         alert("failed");
-      });
+    });
 }

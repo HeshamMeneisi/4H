@@ -1,18 +1,15 @@
 <!-- a post form -->
 <!-- some of the most recent friend posts, plus some public posts -->
 <!-- should use post.php in view mode $_GET['mode']='v' -->
+<script src="js/timeline.js"></script>
+<script src="js/post.js"></script>
+<script src="js/comment.js"></script>
+<container id='timeline'>
 <?php
-if (!isset($_GET['aj'])):
- ?>
- <script src="js/timeline.js"></script>
- <script src="js/post.js"></script>
- <script src="js/comment.js"></script>
- <container id='timeline'>
-<?php
-endif;
 include_once 'core.php';
 include_once 'db.php';
 $onprof = isset($_GET['p']);
+echo "<script>set_timeline_mode({$onprof})</script>";
 if (is_logged() && !($onprof && isset($_GET['uid']))) {
     $_GET['mode'] = 's';
     include 'post.php';
@@ -73,7 +70,5 @@ function fetch_posts_of($uid, $publiconly, $pdo)
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-if (!isset($_GET['aj'])) {
-    echo '</container>';
-}
+echo '</container>';
 ?>
