@@ -154,7 +154,7 @@ function logout()
 
 function goHome()
 {
-    header('Location: index.php');
+    header('Location: ./');
     exit;
 }
 

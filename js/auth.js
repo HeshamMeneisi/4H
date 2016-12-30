@@ -27,7 +27,7 @@ function lsub() {
                 encode: true
             }).done(function(res) {
                 if (res['success']) {
-                    window.location.href = 'index.php';
+                    window.location.href = './';
                 }
                 stopWaiting('lsub');
                 errors = res['errors'];

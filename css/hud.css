@@ -211,7 +211,7 @@ li a:hover {
 }
 
 .notification_counter{
-    margin-top: 0px;
+    margin-top: -3px;
     margin-left: 5px;
     background-color: crimson;
     border-radius: 50%;
