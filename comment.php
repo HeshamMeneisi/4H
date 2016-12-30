@@ -43,7 +43,7 @@ else {
 						$profile_picture = 'content/users/' . $comment['cuid'] . '/profile_picture.png';
 					}
 
-					echo '<img class="comment_thumb" src="' . $profile_picture . '"/profile_picture.png"/><div id="commenthead">' . $commenter_name . '</div><div id="postdate">Commented on ' . date('l, F jS, Y', strtotime($time)) .' at '. date('h:i A', strtotime($time)) .'</div>';
+					echo '<img class="comment_thumb" src="' . $profile_picture . '"/profile_picture.png"/><div id="commenthead">' . $commenter_name . '</div><div id="postdate">Commented on ' . date('l, F jS, Y', strtotime($comment_time)) .' at '. date('h:i A', strtotime($comment_time)) .'</div>';
 					$cid = $comment['cid'];
 					$fetched_comment_likes = fetch_comment_likes($puid, $pid, $cid, $pdo);
 					echo '<div id="commentbody">' . $comment_content . '</div>';
