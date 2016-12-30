@@ -43,7 +43,7 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
     background: #fff;
-    border: 2px solid #ddd;
+    border: 1px solid #ddd;
     max-width: 600px;
     padding: 30px;
     padding-bottom:50px;
@@ -128,14 +128,14 @@ body {
 
 #comment_cap {
     font-size: 15px;
-    border-radius: 5px;
+    border-radius: 3px;
     resize: none;
     margin: 0 auto;
     margin-top:20px;
     margin-bottom: 15px;
     height:100px;
-    width:525px;
-    border: 5px solid lightblue;
+    width:600px;
+    border: 2px solid lightblue;
     padding:10px;
 }
 #submitComment {
@@ -404,7 +404,7 @@ i
     margin-bottom:-20px;
 }
 .friends_container{
-    width:46%;
+    width:50%;
     background: #fff;
     padding:20px;
     margin: 0 auto;

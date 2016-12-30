@@ -61,7 +61,8 @@ if (isset($_GET['query'])) {
             // search for posts/comments containing $q in caption
             $resposts = fetch_posts_matching($q, $pdo);
             if ($resposts) {
-                echo '<h2 style="color:#444;">Matching post(s)</h2>';
+                echo '<h2 style="color:#444;">Matching post(s)</h2></div>';
+                
                 foreach ($resposts as $post) {
                     $_GET['mode'] = 'v';
                     $_GET['post'] = $post;
