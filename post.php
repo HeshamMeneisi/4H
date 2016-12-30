@@ -67,7 +67,7 @@ else {
 			$profile_picture = 'content/users/' . $puid . '/profile_picture.png';
 		}
 
-		echo '<div class="posthead"><img class="post_thumb" src="' . $profile_picture . '"/>' . $poster_name . "<div class='nickname'>(<a href={$link}>" . $nickname . '</a>)</div></div><div id="postdate">Posted at: <a href="post?mode=v&puid=' . $puid . '&id=' . $pid . '">' . date('l, F jS, Y', strtotime($time)) . '</a></div><div class="postcontent">' . $caption . '</div>';
+		echo '<div class="posthead"><img class="post_thumb" src="' . $profile_picture . '"/>' . $poster_name . "<div class='nickname'>(<a href={$link}>" . $nickname . '</a>)</div></div><div id="postdate">Posted on <a href="post?mode=v&puid=' . $puid . '&id=' . $pid . '">' . date('l, F jS, Y', strtotime($time)) .' at '. date('h:i A', strtotime($time)) .'</a></div><div class="postcontent">' . $caption . '</div>';
 
 		// Check for post likes
 

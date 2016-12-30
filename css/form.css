@@ -233,6 +233,6 @@ input[type="radio"]:checked + label span.radio::after {
     transition: 0.5s;
 }
 #register_label input:hover {
-    background: #444;
-    color: #2abada;
+    background: #2abada;
+    color: #fff;
 }
