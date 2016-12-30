@@ -11,7 +11,7 @@ include_once 'db.php';
 
 include_once 'core.php';
 
-include_once 'hud.php';
+include_once 'header.php';
 
 if (is_logged()) {
 	echo '<h1 class="page_title">Friends</h1>';

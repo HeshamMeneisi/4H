@@ -8,7 +8,7 @@ include_once 'db.php';
 $user = get_user();
 
 if (!isset($_GET['aj'])) {
-	include_once 'hud.php';
+	include_once 'header.php';
 
 }
 
@@ -139,7 +139,9 @@ else {
 		// Text area
 
 		echo '<div class="postform"><table><textarea id="caption" rows="10" cols="85" placeholder="What\'s on your mind?"></textarea>';
-		echo '<input id="attachment" name="attachment" type="file" title="Attach"/>';
+		
+        //To be implemented
+        //echo '<input id="attachment" name="attachment" type="file" title="Attach"/>';
 
 		// Submit button
 

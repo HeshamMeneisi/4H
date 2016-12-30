@@ -1,6 +1,6 @@
 <?php
 echo '<title>Notifications - Hallo</title>';
-include_once 'hud.php';
+include_once 'header.php';
 
 include_once 'db.php';
 

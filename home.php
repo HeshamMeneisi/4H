@@ -8,5 +8,5 @@
      echo '<h1 class="page_title">Howdy, '.$name.'!</h1>';
      include 'timeline.php';
  } else {
-     include 'regform.php';
+     include 'register.php';
  }

@@ -49,7 +49,7 @@ if (!file_exists($pic)) {
 // echo implode('|', $user);
 
 $_GET['p'] = 1;
-include_once 'hud.php';
+include_once 'header.php';
 
 ?>
 <div id="pheadcontainer">

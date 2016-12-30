@@ -6,7 +6,7 @@
 </head>
 <body>
   <?php
-    include_once 'hud.php';
+    include_once 'header.php';
     include 'home.php';
   ?>
 </body>

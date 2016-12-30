@@ -4,7 +4,7 @@ include_once 'core.php';
 
 include_once 'db.php';
 
-include_once 'hud.php';
+include_once 'header.php';
 
 echo '<h1 class="page_title">Search</h1><div class="friends_container">';
 
