@@ -1,16 +1,14 @@
 .xform {
-	margin-top:10px;
+    margin-top: 10px;
     position: relative;
     border: 0;
     transition: all 1 ease-in-out;
     -webkit-transtion: all 1 ease-in-out;
-		max-width:none;
+    max-width: none;
 }
-
 .xform label {
     font-size: 16px;
 }
-
 .xform input {
     border: 1px solid #eee;
     border-radius: 4px;
@@ -18,72 +16,64 @@
     color: #444;
     box-shadow: 0 0 2px #eee;
 }
-
 .xform .error {
     display: block;
     color: #fff;
 }
-
 .sbtn {
-    margin-top:20px;
+    margin-top: 20px;
     background: #2abada;
     border-radius: 3px;
     color: #fff;
     font-size: 20px;
     border: 0;
-    transition:0.3s;
-    width:120px;
-    font-size:15px;
+    transition: 0.3s;
+    width: 120px;
+    font-size: 15px;
 }
-.sbtn:hover{
-  background: lightblue;
+.sbtn:hover {
+    background: lightblue;
 }
 .uhud .sbtn {
-    background:#444;
-    color:#fff;
-    margin-top:0px;
-    font-size:14px;
-    height:24px;
+    background: #444;
+    color: #fff;
+    margin-top: 0px;
+    font-size: 14px;
+    height: 24px;
     font-family: sans-serif !important;
-    border:none;
-    width:70px;
+    border: none;
+    width: 70px;
 }
 .uhud .sbtn:hover {
-    color:lightblue;
-    transition:0.3s;
+    color: lightblue;
+    transition: 0.3s;
 }
-
 .sbtn:hover {
     cursor: pointer;
 }
-
-.sbtn:focus{
+.sbtn:focus {
     box-shadow: 0 0 1px 1px black;
 }
-
 #lform {
     background: transparent;
     float: right;
     margin: 10px;
-    margin-right:20px;
+    margin-right: 20px;
 }
-
 #lform input {
     border-radius: 2px;
-    width:180px;
-    height:25px;
-    margin-right:5px;
-    font-size:15px;
+    width: 180px;
+    height: 25px;
+    margin-right: 5px;
+    font-size: 15px;
 }
-
 #lform label {
     color: #fff;
-    font-size:14px;
+    font-size: 14px;
     font-family: sans-serif !important;
-    text-shadow:none;
-    float:left;
+    text-shadow: none;
+    float: left;
 }
-
 #rform {
     margin-left: auto;
     margin-right: auto;
@@ -91,46 +81,40 @@
     margin-bottom: 10px;
     border-radius: 5px;
     padding: 20 25 0 25;
-    border:none;
-    display:none;
+    border: none;
+    display: none;
 }
-
 #rform label {
-    margin-top:100px;
+    margin-top: 100px;
     color: #444;
     font-size: 18px;
 }
-
 #rform input {
-    font-size:16px;
+    font-size: 16px;
     min-width: 300px;
 }
 #rform .sbtn {
     background: #444;
     color: #fff;
     transition: 0.3s;
-    font-size:22px;
+    font-size: 22px;
     height: 40px;
 }
 #rform .sbtn:hover {
     color: lightblue;
     transition: 0.3s;
 }
-
-
 /*contains loading and sbtn*/
 
 .subblock {
     position: relative;
 }
-
 .subblock .loading {
     width: 100%;
     height: 10px;
     visibility: hidden;
     position: absolute;
 }
-
 .loading .balls div {
     background-color: rgba(42, 186, 218, 0.56);
     border: 1px solid black;
@@ -141,23 +125,22 @@
     margin: -2px;
     padding: 0;
 }
-
 .loading .balls {
     -webkit-animation: first-ball ease-in-out 1s infinite;
     animation: first-ball ease-in-out 1s infinite;
     transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
 }
-select{
+select {
     background: #fff;
-    color:#999;
-    width:300px;
+    color: #999;
+    width: 300px;
     height: 28px;
-    font-size:16px;
+    font-size: 16px;
     border: 2px solid #eee;
 }
-#rform tr td{
-    padding-bottom:5px;
+#rform tr td {
+    padding-bottom: 5px;
 }
 @keyframes first-ball {
     10% {
@@ -170,88 +153,86 @@ select{
         opacity: 1;
     }
 }
-
 .section {
-  padding: 10px;
-  padding-left: 50px;
+    padding: 10px;
+    padding-left: 50px;
 }
-.section input[type="radio"]{
-  display: none;
+.section input[type="radio"] {
+    display: none;
 }
 .container {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
-
 .container label {
-  position: relative;
+    position: relative;
 }
-
 /* Base styles for spans */
+
 .container span::before,
 .container span::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
-
 /* Radio buttons */
+
 .container span.radio:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 .container span.radio::before {
-  left: -52px;
-  width: 45px;
-  height: 25px;
-  background-color: #eee;
-  border-radius: 50px;
+    left: -52px;
+    width: 45px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 50px;
 }
 .container span.radio::after {
-  left: -49px;
-  width: 17px;
-  height: 17px;
-  border-radius: 10px;
-  background-color: #fff;
-  transition: left .25s, background-color .25s;
+    left: -49px;
+    width: 17px;
+    height: 17px;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: left .25s, background-color .25s;
 }
 input[type="radio"]:checked + label span.radio::after {
-  left: -27px;
-  background-color: #6C788A;
+    left: -27px;
+    background-color: #6C788A;
 }
-#registration{
-  background:rgba(255,255,255,0.5);
-  width:50%;
-  margin: 0 auto;
-  padding:10px;
-  margin-top:50px;
-  border-radius:5px;
-  border: 4px solid #ddd;
-  margin-bottom:40px;
+#registration {
+    background: rgba(255, 255, 255, 0.5);
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: 50px;
+    border-radius: 5px;
+    border: 4px solid #ddd;
+    margin-bottom: 40px;
 }
-#register_label{
-  text-align:center;
+#register_label {
+    text-align: center;
 }
-#register_label h2{
-  color:#2abada;
-  font-size:50px;
+#register_label h2 {
+    color: #2abada;
+    font-size: 50px;
 }
-#register_label p{
-  font-size:20px;
+#register_label p {
+    font-size: 20px;
 }
-#register_label input{
-  margin-top:20px;
-  margin-bottom:50px;
-  font-size:20px;
-  height:30px;
-  background:#444;
-  border:0;
-  color:#fff;
-  border-radius:5px;
-  cursor:pointer;
-  transition:0.5s;
+#register_label input {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    height: 30px;
+    background: #444;
+    border: 0;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
 }
-#register_label input:hover{
-  background:#444;
-  color: #2abada;
+#register_label input:hover {
+    background: #444;
+    color: #2abada;
 }

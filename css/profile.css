@@ -1,84 +1,83 @@
-.profile-head{
-	width:100%;
-	margin: 0 auto;
-	padding:30px;
-	padding-bottom:10px;
+.profile-head {
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    padding-bottom: 10px;
 }
-#pheadcontainer{
-	background:#fff;
-	width:60%;
-	margin: 0 auto;
-	border-radius:10px;
-	border: 2px solid #ddd;
-	margin-top:40px;
+#pheadcontainer {
+    background: #fff;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    margin-top: 40px;
 }
-#pp{
+#pp {
     display
 }
-.name{
-    font-size:30px;
-    float:left;
-    margin-right:20px;
-    color:#2abada;
-   display:inline;
+.name {
+    font-size: 30px;
+    float: left;
+    margin-right: 20px;
+    color: #2abada;
+    display: inline;
 }
-.nickname-p{
-    font-size:18px;
-    padding-top:8px;
-    margin-left:5px;
+.nickname-p {
+    font-size: 18px;
+    padding-top: 8px;
+    margin-left: 5px;
 }
-.nickname a{
-	color: #2abada;
+.nickname a {
+    color: #2abada;
 }
 .profile-picture {
-	max-width:120px;
-	float:right;
-	margin-right:60px;
-	margin-top:-55px;
-    padding:20px;
+    max-width: 120px;
+    float: right;
+    margin-right: 60px;
+    margin-top: -55px;
+    padding: 20px;
 }
-.profile-picture img{
-	background:#fff;
-	float:right;
-    width:100px;
-	height:100px;
+.profile-picture img {
+    background: #fff;
+    float: right;
+    width: 100px;
+    height: 100px;
     border-radius: 120px;
-    margin-bottom:10px
+    margin-bottom: 10px
 }
-#uploadSection{
+#uploadSection {
     display: none;
 }
-
-#bio{
-	color: #808080;
-	width:50%;
-	background:rgba(255,255,255,0.5);
-	border-radius:5px;
-	border: 2px solid #eee;
-	padding:10px;
-	max-height:100px;
-	margin-top:20px;
+#bio {
+    color: #808080;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    border: 2px solid #eee;
+    padding: 10px;
+    max-height: 100px;
+    margin-top: 20px;
 }
-#label{
-	color: #2abada;
-	font-size:16px;
-	margin-bottom:-20px;
-	margin-top:-5px;
-	display:inline-block;
+#label {
+    color: #2abada;
+    font-size: 16px;
+    margin-bottom: -20px;
+    margin-top: -5px;
+    display: inline-block;
 }
-#profile_info{
-	min-height:120px;
-	max-width:400px;
+#profile_info {
+    min-height: 120px;
+    max-width: 400px;
 }
-#EditButton{
-	margin-left:50px;
+#EditButton {
+    margin-left: 50px;
 }
-hr{
-	height:2px;
-	background: #2abada;
+hr {
+    height: 2px;
+    background: #2abada;
 }
-#info_content{
-	color:#808080;
-	display:inline;
-	font-size:13px;
+#info_content {
+    color: #808080;
+    display: inline;
+    font-size: 13px;
 }

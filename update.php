@@ -23,8 +23,7 @@ validateMStatus($mstatus, $errors);
 $salt = bin2hex(random_bytes(SALTSIZE / 2));
 $phash = calcPhash($password, $salt);
 
-if (empty($errors))
-	{
+if (empty($errors)) {
 	$st = $pdo->prepare('UPDATE user SET email=:email,nickname=:nickname,phash=:phash,salt=:salt,gender=:gender,mstatus=:mstatus,about=:about WHERE uid=:uid');
 	$data = array(
 		':email' => $email,
@@ -36,57 +35,50 @@ if (empty($errors))
 		':about' => $about,
 		':uid' => $user['uid']
 	);
-	if ($st->execute($data))
-		{
+	if ($st->execute($data)) {
 		$_SESSION['user']['email'] = $email;
 		$_SESSION['user']['nickname'] = $nickname;
 		$_SESSION['user']['gender'] = $gender;
 		$_SESSION['user']['phash'] = $phash;
 		$_SESSION['user']['salt'] = $salt;
 		$_SESSION['user']['mstatus'] = $mstatus;
-        $_SESSION['user']['about'] = $about;
+		$_SESSION['user']['about'] = $about;
 		$return['success'] = true;
-		}
-	  else
-		{
-		throw new Exception(implode(',', $st->errorInfo()));
-		}
 	}
+	else {
+		throw new Exception(implode(',', $st->errorInfo()));
+	}
+}
 
 echo json_encode($return);
 
 function validatePassword($password, &$errors)
-	{
-	if (preg_match('/[\s\t]/', $password))
-		{
+{
+	if (preg_match('/[\s\t]/', $password)) {
 		$errors['perror'] = 'Cannot contain empty spaces.';
-		}
-	elseif (strlen($password) < 4)
-		{
-		$errors['perror'] = 'Must be at least 4 characters long.';
-		}
 	}
+	elseif (strlen($password) < 4) {
+		$errors['perror'] = 'Must be at least 4 characters long.';
+	}
+}
 
 function validateEmail($email)
-	{
+{
 	$re = '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
 	return preg_match($re, $email);
-	}
+}
 
 function validateNickname($nickname, &$errors)
-	{
-	}
+{
+}
 
 function validateGender(&$gender, &$errors)
-	{
-	if (!isset($gender) || $gender > 2 || $gender < 0)
-		{
+{
+	if (!isset($gender) || $gender > 2 || $gender < 0) {
 		$errors['gerror'] = 'Invalid gender selection.';
-		}
-	  else
-		{
-		switch ($gender)
-			{
+	}
+	else {
+		switch ($gender) {
 		case 0:
 			$gender = 'u';
 			break;
@@ -98,20 +90,17 @@ function validateGender(&$gender, &$errors)
 		case 2:
 			$gender = 'f';
 			break;
-			}
 		}
 	}
+}
 
 function validateMStatus(&$mstatus, &$errors)
-	{
-	if (!isset($mstatus) || $mstatus > 3 || $mstatus < 0)
-		{
+{
+	if (!isset($mstatus) || $mstatus > 3 || $mstatus < 0) {
 		$errors['mserror'] = 'Invalid status selection.';
-		}
-	  else
-		{
-		switch ($mstatus)
-			{
+	}
+	else {
+		switch ($mstatus) {
 		case 0:
 			$mstatus = 'u';
 			break;
@@ -127,19 +116,18 @@ function validateMStatus(&$mstatus, &$errors)
 		case 3:
 			$mstatus = 'm';
 			break;
-			}
 		}
 	}
+}
 
 function calcPhash($password, $salt)
-	{
+{
 	$hash = $password;
-	for ($i = 0; $i < HFACTOR; ++$i)
-		{
+	for ($i = 0; $i < HFACTOR; ++$i) {
 		$hash = hash_hmac('sha256', $salt . $hash, PEPPER);
-		}
+	}
 
 	return $hash;
-	}
+}
 
 ?>

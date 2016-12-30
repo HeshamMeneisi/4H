@@ -6,8 +6,8 @@
 </head>
 <body>
   <?php
-  include_once 'hud.php';
-  include 'home.php';
+    include_once 'hud.php';
+    include 'home.php';
   ?>
 </body>
 </html>
