@@ -91,7 +91,7 @@ if (!isset($_GET['mode']) || !isset($_GET['pid'])) {
         } elseif ($_GET['mode'] == 's') {
             // display the comment form, the commenting operation should be handled in ajax
             // Text area
-            echo "<div class='commentform'><table><textarea id='comment_cap' rows='10' cols='85' placeholder='Leave a comment!'></textarea>";
+            echo "<div class='commentform'><table><textarea id='comment_cap' rows='10' cols='85' placeholder='Leave a comment'></textarea><br/>";
             // Submit button
             echo "<button id='submitComment' onclick='comment({$puid},{$pid})'>Comment</button>";
             //Form end

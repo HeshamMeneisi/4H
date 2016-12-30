@@ -8,7 +8,6 @@
       <td><label>Password</label></td>
     </tr>
     <tr>
-        <form id="login_form">
         <td><input type="text" name="l_email" value=""></td>
         <td><input type="password" name="l_password" value=""></td>
         <td align="center">
@@ -25,7 +24,6 @@
               </div>
           </div>
         </td>
-        </form>
     </tr>
     <tr>
       <td colspan="2">

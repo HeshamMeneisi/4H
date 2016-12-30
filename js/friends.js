@@ -108,6 +108,7 @@ function unfriend(uid)
       function(result) {
           if (result['success']) {
               reload_friends(1);
+              window.location = "profile?uid=".concat(uid)
           } else {
               // failed
               alert("Try again later.")

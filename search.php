@@ -13,12 +13,13 @@ if (isset($_GET['query'])) {
             $type = strtolower($values[0]);
             if (count($values) > 1) {
                 if ($type == 'email:') {
+                    echo '<h2 style="color:#444;">Matching user</h2>';
                     $user = fetch_user_with_email($values[1], $pdo);
                     if ($user) {
                         $_GET['person'] = $user;
                         include 'person.php';
                     } else {
-                        echo 'User not found.</div>';
+                        echo 'User not found.';
                     }
                 } elseif ($type == 'name:') {
                     $fname = $values[1];
@@ -28,17 +29,16 @@ if (isset($_GET['query'])) {
                     }
                     $users = fetch_users_with_name($fname, $lname, $pdo);
                     if ($users) {
-                        echo '<h2 style="color:#444;">Matches</h2>';
+                        echo '<h2 style="color:#444;">Matching user(s)</h2>';
                         foreach ($users as $user) {
                             $_GET['person'] = $user;
                             include 'person.php';
-                            echo '<br/>';
                         }
-                        echo '</div>';
                     } else {
-                        echo 'No matching users.</div>';
+                        echo 'No matching users.';
                     }
                 } elseif ($type == 'location:') {
+                    echo '<h2 style="color:#444;">Matching user(s)</h2>';
                     $city = $values[1];
                     $country = null;
                     if (count($values) > 2) {
@@ -51,17 +51,17 @@ if (isset($_GET['query'])) {
                             include 'person.php';
                         }
                     } else {
-                        echo 'No matching users.</div>';
-
+                        echo 'No matching users.';
                     }
                 }
             } else {
-                echo 'Please specify a query.</div>';
+                echo 'Please specify a query';
             }
         } else {
             // search for posts/comments containing $q in caption
             $resposts = fetch_posts_matching($q, $pdo);
             if ($resposts) {
+                echo '<h2 style="color:#444;">Matching post(s)</h2>';
                 foreach ($resposts as $post) {
                     $_GET['mode'] = 'v';
                     $_GET['post'] = $post;
@@ -69,11 +69,11 @@ if (isset($_GET['query'])) {
                 }
             }
             else{
-                echo 'No matching posts.</div>';
-
+                echo 'No matching posts.';
             }
         }
     }   
 } else {
-    echo 'Nothing found.</div>';
+    echo 'Nothing found.';
 }
+echo '</div>';
