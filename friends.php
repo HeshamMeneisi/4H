@@ -21,9 +21,9 @@ if (is_logged()) {
         echo '<div class="friends_container"><h2 id="pending_requests">Sent requests</h2>';
         if ($requests) {
             foreach ($requests as $request) {
+                echo "<button id='cancelReq' style='margin-left:25px;' onclick='cancel_freq({$request['uid']})'>Cancel</button>";
                 $_GET['person'] = $request;
                 include 'person.php';
-                echo "<button id='cancelReq' style='margin-left:25px;' onclick='cancel_freq({$request['uid']})'>Cancel</button>";
             }
         } else {
             echo '<center><h3>You have no sent requests</h3></center>';
@@ -32,12 +32,11 @@ if (is_logged()) {
         $requests = fetch_friend_requests($pdo);
         echo '<div class="friends_container"><h2 id="pending_requests">Friend requests</h2>';
         if ($requests) {
-            echo '<p id="friend_requests">Friend Requests</p>';
             foreach ($requests as $request) {
-                $_GET['person'] = $request;
-                include 'person.php';
                 echo "<button id='accReq' onclick='accept_freq({$request['uid']})'>Accept</button>";
                 echo "<button id='rejReq' onclick='reject_freq({$request['uid']})'>Reject</button>";
+                $_GET['person'] = $request;
+                include 'person.php';
             }
         } else {
             echo '<center><h3>You have no friend requests</h3></center>';
@@ -61,7 +60,6 @@ if ($list_friends) {
     // display friend list of $uid
     $friends = fetch_friends($uid, $pdo);
     if ($friends) {
-        echo '<h1>Friends</h3>';
         foreach ($friends as $friend) {
             $_GET['person'] = $friend;
             include 'person.php';

@@ -18,7 +18,7 @@ if (isset($_GET['query'])) {
                         $_GET['person'] = $user;
                         include 'person.php';
                     } else {
-                        echo 'User not found.';
+                        echo 'User not found.</div>';
                     }
                 } elseif ($type == 'name:') {
                     $fname = $values[1];
@@ -28,12 +28,15 @@ if (isset($_GET['query'])) {
                     }
                     $users = fetch_users_with_name($fname, $lname, $pdo);
                     if ($users) {
+                        echo '<h2 style="color:#444;">Matches</h2>';
                         foreach ($users as $user) {
                             $_GET['person'] = $user;
                             include 'person.php';
+                            echo '<br/>';
                         }
+                        echo '</div>';
                     } else {
-                        echo 'No matching users.';
+                        echo 'No matching users.</div>';
                     }
                 } elseif ($type == 'location:') {
                     $city = $values[1];
@@ -48,11 +51,12 @@ if (isset($_GET['query'])) {
                             include 'person.php';
                         }
                     } else {
-                        echo 'No matching users.';
+                        echo 'No matching users.</div>';
+
                     }
                 }
             } else {
-                echo 'Please specify a '.rtrim($type, ":").'.';
+                echo 'Please specify a query.</div>';
             }
         } else {
             // search for posts/comments containing $q in caption
@@ -65,11 +69,11 @@ if (isset($_GET['query'])) {
                 }
             }
             else{
-                echo 'No matching posts.';
+                echo 'No matching posts.</div>';
+
             }
         }
     }   
 } else {
-    echo 'Nothing found.';
+    echo 'Nothing found.</div>';
 }
-echo '</div>';

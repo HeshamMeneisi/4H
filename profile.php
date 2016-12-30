@@ -83,7 +83,7 @@ include_once 'hud.php';
       case 1:
           echo "<button class='friend_button' onclick='unfriend({$uid})'>Unfriend</button>"; break;
       case 2: // request pending
-          echo 'Pending request.'; break;
+          echo "<button class='friend_button' disabled>Pending request</button>"; break;
       case 3: // request exists
           echo "<button class='friend_button' onclick='accept_freq({$uid})'>Accept</button>";
           echo "<button class='friend_button' onclick='reject_freq({$uid})'>Reject</button>"; break;

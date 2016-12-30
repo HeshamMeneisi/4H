@@ -359,6 +359,7 @@ i
     border:2px solid #ddd;
     margin: 0 auto;
     margin-top:40px;
+    margin-bottom:40px;
     background: #fff;
 
 }
@@ -380,14 +381,13 @@ i
     margin-top:5px;
 }
 .request_thumb{
-    display:inline;
-    width:30px;
-    height:30px;
+    display:inline-block;
+    width:20px;
+    height:20px;
     border-radius:50px;
-    float:left;
     margin-right:10px;
-    margin-top:5px;
 }
+
 #about-field{
     width:300px;
     height:100px;
@@ -409,6 +409,9 @@ i
     padding:20px;
     margin: 0 auto;
     margin-top:50px;
+    padding-top:10px;
+    padding-bottom:20px;
+    margin-bottom:50px;
     border-radius:5px;
     border: 2px solid #ddd;
 }
@@ -463,4 +466,48 @@ input[type="file"]{
 }
 #like_icon{
   margin-right:5px;
+}
+#friend_detail{
+  font-size:12px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+#cancelReq{
+  background:crimson;
+  color: #fff;
+  border:0;
+  border-radius:3px;
+  float:right;
+  margin-top:20px;
+}
+#cancelReq:hover{
+  cursor:pointer;
+  background: red;
+}
+#accReq{
+  background:#009900;
+  color: #fff;
+  border: 0;
+  border-radius:3px;
+  float:right;
+  margin-top:20px;
+  margin:5px;
+}
+#accReq:hover{
+  cursor:pointer;
+  background: #00b200;
+}
+
+#rejReq{
+  background:crimson;
+  color: #fff;
+  border:0;
+  border-radius:3px;
+  float:right;
+  margin-top:20px;
+  margin:5px;
+}
+#rejReq:hover{
+  cursor:pointer;
+  background: red;
 }
