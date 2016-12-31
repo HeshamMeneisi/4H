@@ -14,7 +14,7 @@ body {
     padding: 0;
     margin: 0;
     width: 100%;
-    background: #8b9dc3;
+    background: #2abada;
     box-shadow: 0px 0px 5px 0px #fff;
     min-width: 800px;
 }
@@ -89,7 +89,7 @@ body {
     height: 100px;
     min-width: 650px;
     height: 120px;
-    border: 5px solid lightblue;
+    border: 5px solid #2abada;
     padding: 10px;
 }
 #submitPost {
@@ -107,7 +107,7 @@ body {
 }
 #submitPost:hover {
     cursor: pointer;
-    background: lightblue;
+    background: #2abada;
     transition: 0.3s;
 }
 #comment_cap {
@@ -119,7 +119,7 @@ body {
     margin-bottom: 15px;
     height: 100px;
     width: 600px;
-    border: 2px solid lightblue;
+    border: 2px solid #ddd;
     padding: 10px;
 }
 #submitComment {
@@ -131,11 +131,11 @@ body {
     width: 80px;
     height: 25px;
     display: inline;
-    float: left;
+    float: right;
 }
 #submitComment:hover {
     cursor: pointer;
-    background: lightblue;
+    background: #2abada;
     transition: 0.3s;
 }
 ul {
@@ -153,13 +153,13 @@ ul {
     margin-left: 200px;
     border: 1px solid #d1d1d1;
     color: #bebebe;
-    width: 80px;
+    width: 200px;
     padding: 5px 10px 5px 5px;
     border-radius: 3px;
     transition: 1s;
 }
 #search input[type="text"]:hover {
-    width: 200px;
+    width: 250px;
 }
 li {
     float: left;
@@ -175,7 +175,7 @@ li a {
 }
 li a:hover {
     background-color: #fff;
-    color: #3b5998;
+    color: #2abada;
 }
 .notify {
     position: absolute;
@@ -241,7 +241,7 @@ ul.navbar-p {
 }
 .likebtn:hover {
     cursor: pointer;
-    background: lightblue;
+    background: #2abada;
 }
 .delbtn {
     margin-left: 10px;
@@ -417,7 +417,7 @@ input[type="file"] {
     transition: all 0.5s;
 }
 #showComm:hover {
-    background: lightblue;
+    background: #2abada;
     cursor: pointer;
 }
 #hideComm {
@@ -430,7 +430,7 @@ input[type="file"] {
     transition: all 0.5s;
 }
 #hideComm:hover {
-    background: lightblue;
+    background: #2abada;
     cursor: pointer;
 }
 #like_icon {
