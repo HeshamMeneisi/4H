@@ -18,7 +18,7 @@
 }
 .xform .error {
     display: block;
-    color: #fff;
+    color: red;
 }
 .sbtn {
     margin-top: 20px;

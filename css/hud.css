@@ -406,10 +406,10 @@ input[type="file"] {
 #commentsec {
     display: none;
 }
-#showComm {
+#showComm, #hideComm {
     float:right;
     height:25px;
-    width:100px;
+    min-width: 100px;
     color: #fff;
     margin-top: 5px;
     background: #2abada;
@@ -417,25 +417,12 @@ input[type="file"] {
     border-radius: 3px;
     transition: all 0.5s;
 }
-#showComm:hover {
+#showComm:hover, #hideComm:hover {
     background: #7dc8e0;
     cursor: pointer;
 }
 #hideComm {
     display: none;
-    float:right;
-    height:25px;
-    width:100px;
-    color: #fff;
-    margin-top: 5px;
-    background: #2abada;
-    border: 0;
-    border-radius: 3px;
-    transition: all 0.5s;
-}
-#hideComm:hover {
-    background: #7dc8e0;
-    cursor: pointer;
 }
 #like_icon {
     margin-right: 5px;
