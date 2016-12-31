@@ -9,4 +9,4 @@ A simple social networking platform, implemented in PHP.
  
 
 ##Screenshot
- ![Screenshot](http://i.imgur.com/2s0fzQU.png)
+ ![Screenshot](http://i.imgur.com/pb1gLRI.png)
