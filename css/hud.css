@@ -96,7 +96,7 @@ body {
     cursor: pointer;
     background: #2abada;
     border: 0;
-    font-size: 18px;
+    font-size: 16px;
     color: #fff;
     border-radius: 5px;
     width: 100px;
@@ -107,7 +107,7 @@ body {
 }
 #submitPost:hover {
     cursor: pointer;
-    background: #2abada;
+    background: #7dc8e0;
     transition: 0.3s;
 }
 #comment_cap {
@@ -125,7 +125,7 @@ body {
 #submitComment {
     background: #2abada;
     border: 0;
-    font-size: 15px;
+    font-size: 12px;
     color: #fff;
     border-radius: 5px;
     width: 80px;
@@ -135,7 +135,7 @@ body {
 }
 #submitComment:hover {
     cursor: pointer;
-    background: #2abada;
+    background: #7dc8e0;
     transition: 0.3s;
 }
 ul {
@@ -241,7 +241,7 @@ ul.navbar-p {
 }
 .likebtn:hover {
     cursor: pointer;
-    background: #2abada;
+    background: #7dc8e0;
 }
 .delbtn {
     margin-left: 10px;
@@ -270,7 +270,7 @@ ul.navbar-p {
     font-size: 25px;
     margin-bottom: 10px;
     display: inline;
-    margin-right: 50px;
+    margin-right: 20px;
 }
 #commenthead {
     color: #2abada;
@@ -417,7 +417,7 @@ input[type="file"] {
     transition: all 0.5s;
 }
 #showComm:hover {
-    background: #2abada;
+    background: #7dc8e0;
     cursor: pointer;
 }
 #hideComm {
@@ -430,7 +430,7 @@ input[type="file"] {
     transition: all 0.5s;
 }
 #hideComm:hover {
-    background: #2abada;
+    background: #7dc8e0;
     cursor: pointer;
 }
 #like_icon {

@@ -8,7 +8,7 @@
       <td><label>Password</label></td>
     </tr>
     <tr>
-        <td><input type="text" name="l_email" value=""></td>
+        <td><input type="username" name="l_email" value=""></td>
         <td><input type="password" name="l_password" value=""></td>
         <td align="center">
           <div class="subblock" id="lsub">
