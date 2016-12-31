@@ -2,12 +2,15 @@ body {
     margin: 0;
     background: rgba(238, 238, 238, 0.65);
 }
+
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
+
 *:focus {
     outline: none;
 }
+
 .uhud {
     position: relative;
     display: inline-block;
@@ -18,6 +21,7 @@ body {
     box-shadow: 0px 0px 5px 0px #fff;
     min-width: 800px;
 }
+
 .uhud label {
     color: white;
     margin-top: 10px;
@@ -26,11 +30,13 @@ body {
     float: right;
     display: inline-block
 }
+
 #lobtn {
     margin-top: 40px;
     margin-right: -70px;
     float: right;
 }
+
 #post {
     margin: 0 auto;
     margin-top: 30px;
@@ -42,6 +48,7 @@ body {
     padding-bottom: 50px;
     border-radius: 5px;
 }
+
 #post hr {
     height: 5px;
     border-radius: 5px;
@@ -50,35 +57,42 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 #post .posthead {
     color: #2abada;
     font-size: 20px;
     margin-bottom: 10px;
 }
+
 #post .postcontent {
     margin-top: 30px;
     margin-bottom: 30px;
     max-width: 500px;
     font-size: 16px;
 }
+
 #post .likes {
     color: #2abada;
     font-size: 13px;
 }
+
 .postform {
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
     max-width: 625px;
 }
+
 .postform textarea {
     max-width: 625px;
 }
+
 #privacy {
     display: inline;
     height: 30px;
     float: right;
 }
+
 #caption {
     font-size: 15px;
     border-radius: 5px;
@@ -92,6 +106,7 @@ body {
     border: 5px solid #2abada;
     padding: 10px;
 }
+
 #submitPost {
     cursor: pointer;
     background: #2abada;
@@ -105,11 +120,13 @@ body {
     float: right;
     transition: 0.3s;
 }
+
 #submitPost:hover {
     cursor: pointer;
     background: #7dc8e0;
     transition: 0.3s;
 }
+
 #comment_cap {
     font-size: 15px;
     border-radius: 3px;
@@ -122,6 +139,7 @@ body {
     border: 2px solid #ddd;
     padding: 10px;
 }
+
 #submitComment {
     background: #2abada;
     border: 0;
@@ -133,11 +151,13 @@ body {
     display: inline;
     float: right;
 }
+
 #submitComment:hover {
     cursor: pointer;
     background: #7dc8e0;
     transition: 0.3s;
 }
+
 ul {
     display: inline-block;
     width: 100%;
@@ -146,6 +166,7 @@ ul {
     margin-bottom: 0;
     margin-top: -60px;
 }
+
 #search input[type="text"] {
     font-size: 13px;
     margin-top: 22px;
@@ -158,14 +179,17 @@ ul {
     border-radius: 3px;
     transition: 1s;
 }
+
 #search input[type="text"]:hover {
     width: 250px;
 }
+
 li {
     float: left;
     list-style-type: none;
     margin-top: 0px;
 }
+
 li a {
     display: block;
     color: white;
@@ -173,10 +197,12 @@ li a {
     text-decoration: none;
     margin-top: 8px;
 }
+
 li a:hover {
     background-color: #fff;
     color: #2abada;
 }
+
 .notify {
     position: absolute;
     width: 17px;
@@ -186,6 +212,7 @@ li a:hover {
     margin-left: 3px;
     font-size: 12px;
 }
+
 .notification_counter {
     margin-top: -3px;
     margin-left: 5px;
@@ -197,6 +224,7 @@ li a:hover {
     padding: 2px;
     padding-top: 4px;
 }
+
 div.comment {
     position: absolute;
     top: 200px;
@@ -208,6 +236,7 @@ div.comment {
     padding: 20px;
     border-radius: 8px;
 }
+
 .button {
     background-color: gray;
     border: none;
@@ -218,20 +247,24 @@ div.comment {
     font-size: 20px;
     cursor: pointer;
 }
+
 .notify-btn {
     min-width: 140px;
     display: block;
     color: white;
     text-decoration: none;
 }
+
 ul.navbar {
     float: right;
     padding: 0;
 }
+
 ul.navbar-p {
     float: right;
     padding: 0;
 }
+
 .likebtn {
     margin-left: 10px;
     background: #2abada;
@@ -239,10 +272,12 @@ ul.navbar-p {
     color: #fff;
     border-radius: 3px;
 }
+
 .likebtn:hover {
     cursor: pointer;
     background: #7dc8e0;
 }
+
 .delbtn {
     margin-left: 10px;
     background: crimson;
@@ -251,33 +286,40 @@ ul.navbar-p {
     border-radius: 3px;
     float: right;
 }
+
 .delbtn:hover {
     cursor: pointer;
     background: darkred;
 }
+
 #postdate {
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 12px;
     color: #444;
 }
+
 #postdate a {
     color: #2abada;
 }
+
 #commentslabel {
     color: #444;
     margin-top: 8px;
     font-size: 20px;
     display: inline-block;
 }
+
 #commenthead {
     color: #2abada;
 }
+
 #commentbody {
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 16px;
 }
+
 .post_comment {
     border: 2px solid rgba(238, 238, 238, 0.46);
     background: rgba(251, 251, 251, 0.17);
@@ -285,14 +327,17 @@ ul.navbar-p {
     margin-top: 10px;
     border-radius: 5px;
 }
+
 .friend_button {
     width: 100px;
     margin-left: 15px;
 }
+
 #update_settings h1 {
     text-align: center;
     margin-top: 50px;
 }
+
 #settings {
     background: #fff;
     margin: 0 auto;
@@ -304,22 +349,27 @@ ul.navbar-p {
     border: 2px solid #ddd;
     margin-bottom: 40px;
 }
+
 #settings input {
     width: 300px;
     height: 30px;
 }
+
 .emoji {
     width: 16px;
     height: 16px;
 }
+
 i .notifications_container h1 {
     font-size: 50px;
     color: #444;
 }
+
 .notification a {
     font-size: 16px;
     color: #2abada;
 }
+
 .notifications_container {
     max-width: 45%;
     padding: 30px;
@@ -331,6 +381,7 @@ i .notifications_container h1 {
     margin-bottom: 40px;
     background: #fff;
 }
+
 .post_thumb {
     display: inline;
     width: 50px;
@@ -339,6 +390,7 @@ i .notifications_container h1 {
     float: left;
     margin-right: 10px;
 }
+
 .comment_thumb {
     display: inline;
     width: 30px;
@@ -348,6 +400,7 @@ i .notifications_container h1 {
     margin-right: 10px;
     margin-top: 5px;
 }
+
 .request_thumb {
     display: inline-block;
     width: 20px;
@@ -355,6 +408,7 @@ i .notifications_container h1 {
     border-radius: 50px;
     margin-right: 10px;
 }
+
 #about-field {
     width: 300px;
     height: 100px;
@@ -363,6 +417,7 @@ i .notifications_container h1 {
     resize: none;
     padding: 5px;
 }
+
 .page_title {
     color: #444;
     width: 50%;
@@ -370,6 +425,7 @@ i .notifications_container h1 {
     margin-top: 20px;
     margin-bottom: -20px;
 }
+
 .friends_container {
     width: 50%;
     background: #fff;
@@ -382,6 +438,7 @@ i .notifications_container h1 {
     border-radius: 5px;
     border: 2px solid #ddd;
 }
+
 .nickname {
     font-size: 12px;
     margin-top: 15px;
@@ -389,26 +446,32 @@ i .notifications_container h1 {
     margin-left: 5px;
     text-decoration: none;
 }
+
 .nickname a {
     color: #2abada
 }
+
 .comment_like {
     font-size: 12px;
     color: #2abada;
     display: inline;
 }
+
 #pending_requests {
     color: #2abada;
 }
+
 input[type="file"] {
     max-width: 160px;
 }
+
 #commentsec {
     display: none;
 }
+
 #showComm, #hideComm {
-    float:right;
-    height:25px;
+    float: right;
+    height: 25px;
     min-width: 100px;
     color: #fff;
     margin-top: 5px;
@@ -417,21 +480,26 @@ input[type="file"] {
     border-radius: 3px;
     transition: all 0.5s;
 }
+
 #showComm:hover, #hideComm:hover {
     background: #7dc8e0;
     cursor: pointer;
 }
+
 #hideComm {
     display: none;
 }
+
 #like_icon {
     margin-right: 5px;
 }
+
 #friend_detail {
     font-size: 12px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
 #cancelReq {
     background: crimson;
     color: #fff;
@@ -440,10 +508,12 @@ input[type="file"] {
     float: right;
     margin-top: 20px;
 }
+
 #cancelReq:hover {
     cursor: pointer;
     background: red;
 }
+
 #accReq {
     background: #009900;
     color: #fff;
@@ -453,10 +523,12 @@ input[type="file"] {
     margin-top: 20px;
     margin: 5px;
 }
+
 #accReq:hover {
     cursor: pointer;
     background: #00b200;
 }
+
 #rejReq {
     background: crimson;
     color: #fff;
@@ -466,6 +538,7 @@ input[type="file"] {
     margin-top: 20px;
     margin: 5px;
 }
+
 #rejReq:hover {
     cursor: pointer;
     background: red;

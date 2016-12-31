@@ -1,19 +1,17 @@
 <script src="js/updater.js"></script>
 <?php
    include_once 'core.php';
-   
+
    include_once 'db.php';
-   
+
    ?>
 <a href="../"><img class="logo" src="files/logo.png" alt="Hallo"/></a>
 <?php
    if (isset($_GET['p'])) {
-   	echo '<ul class="navbar-p">';
+       echo '<ul class="navbar-p">';
+   } else {
+       echo '<ul class="navbar">';
    }
-   else {
-   	echo '<ul class="navbar">';
-   }
-   
    ?>
 <li>
    <form method="get" action="search.php" id="search">
@@ -30,8 +28,8 @@
 <li><a href="friends.php?r=1&l=1">Friends</a></li>
 <?php
    else:
-   	$nickname = get_user() ['nickname'];
-   	echo "<li><a href='./profile'>{$nickname}</a></li>";
+    $nickname = get_user() ['nickname'];
+    echo "<li><a href='./profile'>{$nickname}</a></li>";
    endif; ?>
 <li><a href='./auth?op=x'>Logout</a></li>
 </ul>

@@ -1,11 +1,11 @@
 <?php
    echo '<title>Friends - Hallo</title>';
    require_once 'core.php';
-   
+
    include_once 'db.php';
-   
+
    include_once 'header.php';
-   
+
    $user = get_user();
    ?>
 <head>
@@ -60,17 +60,23 @@
                <section id="first" class="section">
                   <div class="container">
                      <input type="radio" name="gender" id="radio-1" value="0" <?php
-                        if ($user['gender'] == "u") echo 'checked="1"'; ?>>
+                        if ($user['gender'] == 'u') {
+                            echo 'checked="1"';
+                        } ?>>
                      <label for="radio-1"><span class="radio">Prefer not to say</span></label>
                   </div>
                   <div class="container">
                      <input type="radio" name="gender" id="radio-2" <?php
-                        if ($user['gender'] == "m") echo 'checked="1"'; ?>>
+                        if ($user['gender'] == 'm') {
+                            echo 'checked="1"';
+                        } ?>>
                      <label for="radio-2"><span class="radio">Male</span></label>
                   </div>
                   <div class="container">
                      <input type="radio" name="gender" id="radio-3" value="2" <?php
-                        if ($user['gender'] == "f") echo 'checked="1"'; ?>>
+                        if ($user['gender'] == 'f') {
+                            echo 'checked="1"';
+                        } ?>>
                      <label for="radio-3"><span class="radio">Female</span></label>
                   </div>
                </section>
@@ -89,22 +95,30 @@
                <section id="first" class="section">
                   <div class="container">
                      <input type="radio" name="status" id="radio-4" value="0" <?php
-                        if ($user['mstatus'] == "u") echo 'checked="1"'; ?>>
+                        if ($user['mstatus'] == 'u') {
+                            echo 'checked="1"';
+                        } ?>>
                      <label for="radio-4"><span class="radio">Prefer not to say</span></label>
                   </div>
                   <div class="container">
                      <input type="radio" name="status" id="radio-5" value="1" <?php
-                        if ($user['mstatus'] == "s") echo 'checked="1"'; ?>>
+                        if ($user['mstatus'] == 's') {
+                            echo 'checked="1"';
+                        } ?>>
                      <label for="radio-5"><span class="radio">Single</span></label>
                   </div>
                   <div class="container">
                      <input type="radio" name="status" id="radio-6" value="2" <?php
-                        if ($user['mstatus'] == "e") echo 'checked="1"'; ?>>
+                        if ($user['mstatus'] == 'e') {
+                            echo 'checked="1"';
+                        } ?>>
                      <label for="radio-6"><span class="radio">Engaged</span></label>
                   </div>
                   <div class="container">
                      <input type="radio" name="status" id="radio-7" value="3" <?php
-                        if ($user['mstatus'] == "m") echo 'checked="1"'; ?>>
+                        if ($user['mstatus'] == 'm') {
+                            echo 'checked="1"';
+                        } ?>>
                      <label for="radio-7"><span class="radio">Married</span></label>
                   </div>
                </section>

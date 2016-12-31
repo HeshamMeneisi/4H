@@ -1,27 +1,26 @@
-function like_comment(puid, pid, cid)
-{
-  data = {
-    t:'c',
-    puid : puid,
-    pid : pid,
-    cid : cid
-  };
-  $.ajax({
-      type: "POST",
-      url: "ajax_like.php",
-      data: data,
-      dataType: 'json',
-      encode: true,
-      cache: false,
-  }).done(
-      function(result) {
-          if (result['success']) {
-              reload_post(puid, pid, true);
-          } else {
-              // failed
-              alert("Try again later.")
-          }
-      });
+function like_comment(puid, pid, cid) {
+    data = {
+        t: 'c',
+        puid: puid,
+        pid: pid,
+        cid: cid
+    };
+    $.ajax({
+        type: "POST",
+        url: "ajax_like.php",
+        data: data,
+        dataType: 'json',
+        encode: true,
+        cache: false,
+    }).done(
+        function(result) {
+            if (result['success']) {
+                reload_post(puid, pid, true);
+            } else {
+                // failed
+                alert("Try again later.")
+            }
+        });
 }
 
 function comment(puid, pid) {
@@ -53,18 +52,16 @@ function comment(puid, pid) {
     }
 }
 
-function show_comments(puid, pid)
-{
-  conid = puid+'_'+pid;
-  $('#'+conid+' #showComm').hide();
-  $('#'+conid+' #hideComm').show();
-  $('#'+conid+' #commentsec').show();
+function show_comments(puid, pid) {
+    conid = puid + '_' + pid;
+    $('#' + conid + ' #showComm').hide();
+    $('#' + conid + ' #hideComm').show();
+    $('#' + conid + ' #commentsec').show();
 }
 
-function hide_comments(puid, pid)
-{
-  conid = puid+'_'+pid;
-  $('#'+conid+' #commentsec').hide();
-  $('#'+conid+' #showComm').show();
-  $('#'+conid+' #hideComm').hide();
+function hide_comments(puid, pid) {
+    conid = puid + '_' + pid;
+    $('#' + conid + ' #commentsec').hide();
+    $('#' + conid + ' #showComm').show();
+    $('#' + conid + ' #hideComm').hide();
 }

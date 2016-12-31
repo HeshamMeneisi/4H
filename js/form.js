@@ -23,14 +23,18 @@ function validatePassword(password) {
     }
 }
 
-function validateName(fname, lname){}
-function validateGender(gender){}
-function validateMStatus(mstatus){}
-function validateBDate(bdate){}
-function validateLocation(country, city, pcode){}
+function validateName(fname, lname) {}
+
+function validateGender(gender) {}
+
+function validateMStatus(mstatus) {}
+
+function validateBDate(bdate) {}
+
+function validateLocation(country, city, pcode) {}
 
 function updateErrors(container) {
-    var handle = (container?container:"") + " .error#";
+    var handle = (container ? container : "") + " .error#";
     for (var i in etypes) {
         var et = etypes[i];
         if (errors && errors.hasOwnProperty(et)) {

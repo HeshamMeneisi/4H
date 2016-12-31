@@ -4,6 +4,7 @@
     padding: 30px;
     padding-bottom: 10px;
 }
+
 #pheadcontainer {
     background: #fff;
     width: 60%;
@@ -12,9 +13,11 @@
     border: 2px solid #ddd;
     margin-top: 40px;
 }
+
 #pp {
     display
 }
+
 .name {
     font-size: 30px;
     float: left;
@@ -22,14 +25,17 @@
     color: #2abada;
     display: inline;
 }
+
 .nickname-p {
     font-size: 18px;
     padding-top: 8px;
     margin-left: 5px;
 }
+
 .nickname a {
     color: #2abada;
 }
+
 .profile-picture {
     max-width: 120px;
     float: right;
@@ -37,6 +43,7 @@
     margin-top: -55px;
     padding: 20px;
 }
+
 .profile-picture img {
     background: #fff;
     float: right;
@@ -45,9 +52,11 @@
     border-radius: 120px;
     margin-bottom: 10px
 }
+
 #uploadSection {
     display: none;
 }
+
 #bio {
     color: #808080;
     width: 50%;
@@ -58,6 +67,7 @@
     max-height: 100px;
     margin-top: 20px;
 }
+
 #label {
     color: #2abada;
     font-size: 16px;
@@ -65,17 +75,21 @@
     margin-top: -5px;
     display: inline-block;
 }
+
 #profile_info {
     min-height: 120px;
     max-width: 400px;
 }
+
 #EditButton {
     margin-left: 50px;
 }
+
 hr {
     height: 2px;
     background: #2abada;
 }
+
 #info_content {
     color: #808080;
     display: inline;

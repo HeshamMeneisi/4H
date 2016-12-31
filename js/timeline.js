@@ -1,10 +1,14 @@
 var mode = 0;
-function set_timeline_mode(m)
-{
-  mode = m;
+
+function set_timeline_mode(m) {
+    mode = m;
 }
+
 function update_timeline() {
-    data ={aj:1, p:mode}
+    data = {
+        aj: 1,
+        p: mode
+    }
     $.ajax({
         type: "GET",
         url: "timeline.php",

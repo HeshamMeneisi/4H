@@ -1,6 +1,7 @@
 _sub = false;
+
 function lsub() {
-    if(_sub) return;
+    if (_sub) return;
     _sub = true;
     errors = {};
     try {
@@ -43,8 +44,9 @@ function lsub() {
         _sub = false;
     }
 }
+
 function rsub() {
-    if(_sub) return;
+    if (_sub) return;
     _sub = true;
     errors = {};
     try {
@@ -55,7 +57,7 @@ function rsub() {
             fname = $('input[name=fname]').val(),
             lname = $('input[name=lname]').val(),
             gender = $("input[name=gender]:checked").val()
-            mstatus = $("input[name=status]:checked").val(),
+        mstatus = $("input[name=status]:checked").val(),
             bdate = $('input[name=bdate]').val(),
             country = $('#country').val(),
             city = $('input[name=city]').val(),
@@ -108,12 +110,13 @@ function rsub() {
             _sub = false;
         }
     } catch (err) {
-      console.log(err);
-      _sub = false;
+        console.log(err);
+        _sub = false;
     }
 }
+
 function update_info() {
-    if(_sub) return;
+    if (_sub) return;
     _sub = true;
     errors = {};
     try {
@@ -122,8 +125,8 @@ function update_info() {
             email = $('input[name=email]').val(),
             password = $('input[name=password]').val(),
             gender = $("input[name=gender]:checked").val()
-            mstatus = $("input[name=status]:checked").val();
-            about = $("#about-field").val();
+        mstatus = $("input[name=status]:checked").val();
+        about = $("#about-field").val();
         validateNickname(nickname);
         validateEmail(email);
         validatePassword(password);
@@ -158,7 +161,7 @@ function update_info() {
             _sub = false;
         }
     } catch (err) {
-      console.log(err);
-      _sub = false;
+        console.log(err);
+        _sub = false;
     }
 }
